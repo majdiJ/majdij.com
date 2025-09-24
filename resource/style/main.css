@@ -354,6 +354,7 @@ textarea{ resize: vertical; min-height: 100px; }
   justify-content:center;
   align-items:center;
   margin:10px 0;
+  min-height: 86px;
 }
 
 button{
