@@ -21,8 +21,10 @@
   /* Reusable measurements */
   --panel-radius: 30px;
   --panel-padding: 40px 70px;
-  --panel-min-height-default: 75vh;
+  --panel-min-height-default: 70vh;
+  --panel-max-height-default: 850px;
   --panel-height-hero: 92vh;
+  --panel-max-height-hero: 950px;
 }
 
 /* font-face */
@@ -155,6 +157,7 @@ main {
 .container-panel{
   background-color: var(--tertiary-contrast-color);
   height: var(--panel-height-hero);
+  max-height: var(--panel-max-height-hero);
   width: 100%;
   border-radius: var(--panel-radius);
   overflow: hidden;
@@ -163,7 +166,8 @@ main {
 
 /* Non-first panels share padding/min-height */
 .container-panel:not(:first-of-type){
-  min-height: var(--panel-min-height-default);
+  height: var(--panel-min-height-default);
+  max-height: var(--panel-max-height-default);
   padding: var(--panel-padding);
   margin: 50px 0;
 }
@@ -187,7 +191,8 @@ main {
 }
 .double-panel-holder .container-panel{
   margin:0;
-  min-height: var(--panel-min-height-default);
+  height: var(--panel-min-height-default);
+  max-height: var(--panel-max-height-default);
   padding: var(--panel-padding);
 }
 
@@ -287,7 +292,7 @@ main {
   background-image: url('../image/uni.webp');
   background-size: cover;
   background-position: center;
-  opacity: 0.5;
+  opacity: 0.35;
   z-index: -1;
 }
 
