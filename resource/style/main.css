@@ -456,6 +456,7 @@ button{
   :root{
     /* Layout */
     --panel-padding: 20px 30px;
+    --panel-height-hero: 90vh;
   }
 
   /* Layout containers */
