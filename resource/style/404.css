@@ -7,6 +7,12 @@
     text-align: left;
 }
 
+.error-page-404 h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
 .text-large {
     font-size: 2.75rem;
     font-weight: bold;
