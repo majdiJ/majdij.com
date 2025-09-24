@@ -1,0 +1,200 @@
+{
+  "Programming Languages": [
+    {
+      "name": "Python",
+      "description": "Versatile scripting language",
+      "icon": "../resource/image/technology-icons/python.png?text=Python"
+    },
+    {
+      "name": "Java",
+      "description": "Robust, secure enterprise language",
+      "icon": "../resource/image/technology-icons/java.png?text=Java"
+    },
+    {
+      "name": "Visual Basic",
+      "description": "Simple event-driven language",
+      "icon": "../resource/image/technology-icons/visual_basic.png?text=VB"
+    },
+    {
+      "name": "JavaScript",
+      "description": "Dynamic web scripting",
+      "icon": "../resource/image/technology-icons/javascript.png?text=JS"
+    },
+    {
+      "name": "SQL",
+      "description": "Database query language",
+      "icon": "../resource/image/technology-icons/sql.png?text=SQL"
+    },
+    {
+      "name": "Shell Scripting",
+      "description": "Command-line automation scripts",
+      "icon": "../resource/image/technology-icons/shell_scripting.png?text=SH"
+    }
+  ],
+  "Markup and Data Languages": [
+    {
+      "name": "HTML",
+      "description": "Markup for web pages",
+      "icon": "../resource/image/technology-icons/html.png?text=HTML"
+    },
+    {
+      "name": "CSS",
+      "description": "Styles web page layout",
+      "icon": "../resource/image/technology-icons/css.svg?text=CSS"
+    },
+    {
+      "name": "XML",
+      "description": "Extensible markup language",
+      "icon": "../resource/image/technology-icons/xml.png?text=XML"
+    },
+    {
+      "name": "JSON",
+      "description": "Lightweight data interchange",
+      "icon": "../resource/image/technology-icons/json.png?text=JSON"
+    },
+    {
+      "name": "Markdown",
+      "description": "Simplified text formatting",
+      "icon": "../resource/image/technology-icons/markdown.png?text=MD"
+    },
+    {
+      "name": "LaTeX",
+      "description": "High-quality typesetting system",
+      "icon": "../resource/image/technology-icons/latex.png?text=LaTeX"
+    }
+  ],
+  "Frameworks and Libraries": [
+    {
+      "name": "Node.js",
+      "description": "Server-side JavaScript runtime",
+      "icon": "../resource/image/technology-icons/nodejs.svg?text=Node"
+    },
+    {
+      "name": "Express.js",
+      "description": "Minimalist web framework",
+      "icon": "../image/placeholder/question_cube.png?text=Express"
+    }
+  ],
+  "Version Control & Collaboration": [
+    {
+      "name": "Git",
+      "description": "Distributed version control",
+      "icon": "../resource/image/technology-icons/git.webp?text=Git"
+    },
+    {
+      "name": "GitHub",
+      "description": "Collaborative code repository",
+      "icon": "../resource/image/technology-icons/github.png?text=GH"
+    }
+  ],
+  "Database Technologies": [
+    {
+      "name": "MySQL",
+      "description": "Robust relational database",
+      "icon": "../resource/image/technology-icons/mysql.png?text=MySQL"
+    },
+    {
+      "name": "SQLite",
+      "description": "Lightweight embedded database",
+      "icon": "../resource/image/technology-icons/sqlite.png?text=SQLite"
+    },
+    {
+      "name": "MS SQL Server",
+      "description": "Enterprise-grade database platform",
+      "icon": ""
+    }
+  ],
+  "IDEs and Editors": [
+    {
+      "name": "VS Code",
+      "description": "Versatile code editor",
+      "icon": "../resource/image/technology-icons/vscode.png?text=VSCode"
+    },
+    {
+      "name": "Visual Studio",
+      "description": "Comprehensive development environment",
+      "icon": "../resource/image/technology-icons/visual_basic.png?text=VS"
+    },
+    {
+      "name": "PyCharm",
+      "description": "Python-focused development IDE",
+      "icon": "../resource/image/technology-icons/pycharm.png?text=PyCharm"
+    },
+    {
+      "name": "Eclipse",
+      "description": "Extensible open-source IDE",
+      "icon": "../resource/image/technology-icons/eclipse.svg?text=Eclipse"
+    },
+    {
+      "name": "Android Studio",
+      "description": "Android app development IDE",
+      "icon": "../resource/image/technology-icons/androidstudio.png?text=Android"
+    },
+    {
+      "name": "Google Colab",
+      "description": "Cloud-based Python notebook environment",
+      "icon": "../resource/image/technology-icons/google_colab.png?text=Colab"
+    },
+    {
+      "name": "Jupyter Notebook",
+      "description": "Interactive computing environment",
+      "icon": "../resource/image/technology-icons/jupyter.png?text=Jupyter"
+    }
+    
+  ],
+  "Web Servers": [
+    {
+      "name": "Nginx",
+      "description": "High-performance web server",
+      "icon": "../resource/image/technology-icons/nginx.png?text=Nginx"
+    }
+  ],
+  "Cloud & Containerisation": [
+    {
+      "name": "Docker",
+      "description": "Containerisation for applications",
+      "icon": "../resource/image/technology-icons/docker.png?text=Docker"
+    }
+  ],
+  "Office & Productivity Tools": [
+    {
+      "name": "Microsoft Office",
+      "description": "Suite of productivity applications",
+      "icon": "../resource/image/technology-icons/microsoft_office.png?text=Office"
+    },
+    {
+      "name": "Google Workspace",
+      "description": "Cloud-based collaboration tools",
+      "icon": "../resource/image/technology-icons/google_workspace.webp?text=GWorkspace"
+    }
+  ],
+  "Analytics & SEO": [
+    {
+      "name": "Google Analytics",
+      "description": "Web traffic and user behavior tracking",
+      "icon": "../resource/image/technology-icons/google_analytics.png?text=GA"
+    },
+    {
+      "name": "Google Search Console",
+      "description": "SEO and website performance monitoring",
+      "icon": "../resource/image/technology-icons/google_search_console.png?text=GSC"
+    }
+  ],
+  "Operating Systems": [
+    {
+      "name": "Windows",
+      "description": "Microsoft operating system",
+      "icon": "../resource/image/technology-icons/windows.png?text=Windows"
+    },
+    {
+      "name": "MacOS",
+      "description": "Apple's operating system",
+      "icon": "../resource/image/technology-icons/macos_icon.png?text=MacOS"
+    },
+    {
+      "name": "Linux",
+      "description": "Open-source operating system",
+      "icon": "../resource/image/technology-icons/linux.png?text=Linux"
+    }
+  ]
+}

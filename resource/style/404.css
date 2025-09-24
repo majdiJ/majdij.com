@@ -1,0 +1,29 @@
+.error-page-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    height: 80vh;
+    text-align: left;
+}
+
+.text-large {
+    font-size: 2.75rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.dynamic-styled-text {
+    display: inline;          /* allow the element to wrap like normal text */
+    font-family: monospace;
+    background-color: var(--quaternary-contrast-color);
+    padding: 3px 3px;
+    margin-right: 3px;
+    border-radius: 5px;
+
+    /* Wrapping / hyphenation rules */
+    white-space: normal;      /* allow normal wrapping */
+    overflow-wrap: anywhere;  /* allow breaks inside long words when necessary */
+    word-break: normal;
+    hyphens: none;            /* never insert hyphens */
+}

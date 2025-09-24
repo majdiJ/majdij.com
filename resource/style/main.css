@@ -1,0 +1,556 @@
+/* =========================
+   Variables & Base Reset
+   ========================= */
+:root{
+  /* Theme Colors */
+  --primary-color: #f4c542;
+  --primary-color-darker: #f5bd24;
+  --primary-text-color: #ffffff;
+  --primary-contrast-color: #000d16;
+  --primary-font-family: 'Geologica', sans-serif;
+
+  --secondary-text-color: #ffffff9e;
+  --secondary-contrast-color: #001624;
+  --tertiary-contrast-color: #001e31;
+  --quaternary-contrast-color: #002d4d;
+
+  /* Layout */
+  --content-width: 90%;
+  --max-content-width: 1250px;
+
+  /* Reusable measurements */
+  --panel-radius: 30px;
+  --panel-padding: 40px 70px;
+  --panel-min-height-default: 75vh;
+  --panel-height-hero: 92vh;
+}
+
+/* font-face */
+@font-face{
+  font-family: 'Geologica';
+  src: url('/resource/font/Geologica/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* Box model + light transitions */
+* { box-sizing: border-box; }
+:where(html, body, main, .container-panel, .project-item, a, button, input, textarea, img) {
+  transition: all 0.12s ease-in-out;
+}
+
+/* Page base */
+html { background-color: var(--primary-contrast-color); }
+body{
+  font-family: var(--primary-font-family);
+  margin: 0;
+  padding: 20px 0 0;
+  color: var(--primary-text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, var(--secondary-contrast-color), var(--primary-contrast-color));
+  background-attachment: fixed;
+}
+
+footer{
+  font-size: 0.85rem;
+  color: var(--secondary-text-color);
+  padding: 10px 20px 50px;
+}
+
+footer p {
+  font-size: 0.80rem;
+}
+
+/* Links */
+a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  font-weight: 100;
+}
+a:hover { color: var(--primary-color); }
+.current-active-link { color: var(--primary-color); text-decoration: underline; }
+.link-highlight { color: var(--primary-color); }
+.link-highlight:hover { text-decoration: underline; }
+
+/* Layout containers */
+main {
+  padding: 0 20px;
+  min-height: 70vh;
+  overflow-x: hidden;
+}
+.container-page-content-width{
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+/* Bottom nav bar */
+.container-bottom-bar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-contrast-color);
+  height: 32px;
+  padding: 5px 0;
+  z-index: 10;
+}
+.homepage-nav-links{
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.style-list-none{
+  display: flex;
+  gap: 25px;
+  align-items: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Social icons */
+.container-socials-bar{ display:flex; gap:30px; margin:20px 5px; align-items:center; }
+.container-socials-bar a img{
+  height: 25px;
+  display:block;
+}
+.container-socials-bar a img:hover{ transform: scale(1.1); }
+
+/* Projects: items */
+.project-item{
+  background-color: var(--tertiary-contrast-color);
+  border-radius: 15px;
+  padding: 20px 25px;
+  width: 300px;
+  min-width: 300px;
+  height: 300px;
+  min-height: 300px;
+  color: var(--secondary-text-color);
+  overflow: hidden;
+}
+.project-item .project-item-header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.project-item .project-item-header img{ height:40px; width:auto; }
+.project-item .project-item-header h3{
+  margin:0;
+  font-size:1.1rem;
+  color: var(--primary-text-color);
+  font-weight: normal;
+}
+.project-item p{ text-overflow: ellipsis; }
+
+/* Global small helpers */
+.privacy-notice{ font-size:0.75rem; color:var(--secondary-text-color); margin:5px; text-align:center; }
+
+/* =========================
+   Panels (shared & specific)
+   ========================= */
+
+/* Base panel */
+.container-panel{
+  background-color: var(--tertiary-contrast-color);
+  height: var(--panel-height-hero);
+  width: 100%;
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Non-first panels share padding/min-height */
+.container-panel:not(:first-of-type){
+  min-height: var(--panel-min-height-default);
+  padding: var(--panel-padding);
+  margin: 50px 0;
+}
+
+/* shared photo info placement */
+.container-panel .panel-photo-information{
+  position: absolute;
+  bottom: 5px;
+  right: 25px;
+  font-size: 0.8rem;
+  color: var(--primary-text-color);
+  opacity: 0.5;
+}
+
+/* Double panels */
+.double-panel-holder{
+  display:flex;
+  gap:30px;
+  width:100%;
+  margin:50px 0;
+}
+.double-panel-holder .container-panel{
+  margin:0;
+  min-height: var(--panel-min-height-default);
+  padding: var(--panel-padding);
+}
+
+/* -------------------------
+   Welcome / Hero panel
+   ------------------------- */
+#welcome-hey-panel{
+  position: relative;
+  background-image: url('../image/profile_long.webp');
+  background-size: cover;
+  background-position-y: center;
+  background-position-x: 50%;
+}
+
+#welcome-hey-panel .panel-content{
+  position: absolute;
+  top: 50%;
+  left: 53%;
+  transform: translateY(-50%);
+  width: 42%;
+  max-width: 450px;
+}
+#welcome-hey-panel .panel-content h1{
+  font-size:1.5rem;
+}
+#welcome-hey-panel .panel-content .text-large{
+  font-size:2.5rem;
+}
+
+/* -------------------------
+   About / Skills / Education
+   (these panel contents share a common centered pattern)
+   ------------------------- */
+#about-me{ position: relative; background-image: url('../image/dunes.webp'); background-size: cover; background-position: center; }
+#about-me .panel-content,
+#skills .panel-content,
+#education .panel-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  max-width: 500px;
+}
+
+/* Projects panel custom layout */
+#projects{
+  position: relative;
+  background-color: rgba(255,255,255,0);
+  border-radius: 0;
+  overflow: visible;
+  z-index: 1;
+  height: 390px;
+  min-height: 390px;
+  padding: 0;
+}
+#projects h2{ margin: 0; }
+
+#projects .container-projects-list{
+  display:flex;
+  gap:20px;
+  overflow-x: scroll;
+  padding:20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  margin: 0 auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff3d #00000000;
+}
+#projects .filler-item {
+  min-width: calc((100vw - var(--max-content-width)) / 2 - 20px);
+}
+#projects .learn-more{ position: absolute; bottom: 0px; left: 0px; }
+#projects .panel-photo-information{ position: absolute; bottom: 0px; right: 0px; }
+#projects .panel-photo-information p{ margin: 0; }
+
+/* -------------------------
+   Skills & Education backgrounds
+   ------------------------- */
+#skills{ position: relative; background: none; z-index: 1; }
+#skills::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../image/skills.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+#education{ position: relative; background: none; z-index: 1; }
+#education::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../image/uni.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* -------------------------
+   Blog & Contact double panel specifics
+   ------------------------- */
+#blog-contact-panels .left-panel{
+  position: relative;
+  background-image: url('../image/dunes.webp');
+  background-size: cover;
+  background-position: center;
+}
+#blog-contact-panels .left-panel .panel-content{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-60%) translateX(-50%);
+  width: 460px;
+  max-width: calc(100% - 40px);
+}
+
+#blog-contact-panels .right-panel{
+  position: relative;
+  background-color: var(--quaternary-contrast-color);
+}
+#blog-contact-panels .right-panel .panel-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 460px;
+  max-width: calc(100% - 40px);
+}
+
+/* =========================
+   Forms
+   ========================= */
+label{ font-size: 0.9rem; }
+
+input, textarea{
+  width: 100%;
+  padding: 8px;
+  margin: 4px 0 6px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--tertiary-contrast-color);
+  color: var(--primary-text-color);
+  font-size: 0.95rem;
+  font-family: var(--primary-font-family);
+}
+
+.two-column-inputs{ display:flex; gap:15px; }
+.two-column-inputs label{ width:100%; }
+
+textarea{ resize: vertical; min-height: 100px; }
+
+.recaptcha-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:10px 0;
+}
+
+button{
+  background-color: var(--primary-color-darker);
+  color: rgb(0,0,0);
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px 0 0;
+}
+
+/* >>>>>>>>>>>>>
+  Other pages
+>>>>>>>>>>>>>>>>*/
+
+.page-content {
+  padding: 30px 20px 50px;
+}
+
+/* Responsive Styles */
+/* 
+2560px - large desktop
+1440px - desktop / large laptop
+1024px - small laptop / tablet landscape
+768px - tablet portrait / foldable
+680px - large phablet
+440px - large mobile
+375px - medium mobile
+320px - small mobile
+*/
+
+@media (max-width: 1024px) {
+  /* =========================
+    Variables & Base Reset
+    ========================= */
+  :root{
+    /* Layout */
+    --content-width: 100%;
+  }
+
+  /* Double panels */
+  .double-panel-holder{
+    display:block;
+    gap: 0;
+  }
+  .double-panel-holder .container-panel{
+    margin: 50px 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+    /* Non-first panels share padding/min-height */
+  .container-panel:not(:first-of-type){
+    margin: 25px 0;
+  }
+
+  /* Double panels */
+  .double-panel-holder{
+    margin:0;
+  }
+  .double-panel-holder .container-panel{
+    margin: 25px 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Bottom nav bar */
+  .container-bottom-bar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-contrast-color);
+    height: 32px;
+    padding: 5px 0;
+    z-index: 10;
+  }
+  .homepage-nav-links{
+    width: var(--content-width);
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  .style-list-none{
+    display: flex;
+    gap: 15px;
+    /* align-items: left; */
+    /* list-style: none; */
+    /* padding: 0; */
+    /* margin: 0; */
+  }
+  .homepage-nav-links .nav-link{
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .hide-small-screen{ display:none; }
+
+  /* =========================
+    Variables & Base Reset
+    ========================= */
+  :root{
+    /* Layout */
+    --panel-padding: 20px 30px;
+  }
+
+  /* Layout containers */
+  main {
+    padding: 0 15px;
+  }
+
+  /* Base panel */
+  .container-panel{
+    max-height: 750px;
+  }
+
+  /* Non-first panels share padding/min-height */
+  .container-panel:not(:first-of-type){
+    max-height: none;
+    padding-bottom: 40px;
+  }
+
+  /* -------------------------
+   Welcome / Hero panel
+   ------------------------- */
+  #welcome-hey-panel{
+    background-position-x: 50%;
+  }
+
+  #welcome-hey-panel .panel-content{
+    position: absolute;
+    top: 25%;
+    left: 7.5%;
+    /* transform: translateY(-50%); */
+    width: 85%;
+    margin: 0 auto;
+    max-width: 450px;
+  }
+  #welcome-hey-panel .panel-content h1{
+    font-size:1.2rem;
+  }
+  #welcome-hey-panel .panel-content .text-large{
+    font-size:1.9rem;
+  }
+
+  /* Social icons */
+  .container-socials-bar{
+    display:flex;
+    gap:27px;
+    margin:15px 5px;
+    align-items:center;
+  }
+  .container-socials-bar a img{
+    height: 24px;
+    display:block;
+  }
+  .container-socials-bar a img:hover{ transform: scale(1.1); }
+
+  /* -------------------------
+   About / Skills / Education
+   (these panel contents share a common centered pattern)
+   ------------------------- */
+  #about-me .panel-content,
+  #skills .panel-content,
+  #education .panel-content {
+    position: relative;
+    top: 0%;
+    transform: translateY(0%);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #blog-contact-panels .left-panel .panel-content,
+  #blog-contact-panels .right-panel .panel-content {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    transform: translateY(-0%) translateX(-0%);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+}
+
+@media (max-width: 440px) {
+  /* =========================
+    Variables & Base Reset
+    ========================= */
+  :root{
+    /* Reusable measurements */
+    --panel-min-height-default: 75vh;
+    --panel-height-hero: 90vh;
+  }
+}

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skills Brick List — 5 columns</title>
+  <style>
+    :root {
+      --card-bg: #002841;
+      --page-bg: #001e31;
+      --text: #ffffff;
+      --muted: #e1e1e1;
+      --card-radius: 15px;
+      --card-height: 80px;
+      /* uniform height for all bricks */
+      --gap: 9px;
+      --icon-size: 50px;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--page-bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1300px;
+      margin: 28px auto;
+      padding: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* 5-column grid */
+    .brick-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    /* Uniform card */
+    .brick {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card-bg);
+      padding: 12px;
+      border-radius: var(--card-radius);
+      box-sizing: border-box;
+      min-height: var(--card-height);
+      height: var(--card-height);
+      overflow: hidden;
+      box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+    }
+
+    /* left: icon box */
+    .icon-wrap {
+      width: var(--icon-size);
+      min-width: var(--icon-size);
+      height: var(--icon-size);
+      border-radius: 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .icon-initials {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--accent);
+    }
+
+    /* right: text area */
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+      /* allows truncation */
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.2;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ensure long desc doesn't push content */
+    .meta {
+      max-height: calc(var(--card-height) - 24px);
+    }
+
+    /* small padding compensation */
+
+    /* focus for keyboard users */
+    .brick:focus-within {
+      outline: 3px solid rgba(37, 99, 235, 0.12);
+    }
+
+    /* Responsive: fewer columns on smaller screens */
+    @media (max-width: 1200px) {
+      .brick-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .brick-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .brick-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wrap {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Skills — Brick list (5 columns)</h1>
+    <div id="grid" class="brick-grid" aria-live="polite"></div>
+  </div>
+
+  <script>
+    /* Loads dynamic_blocks_skills.json, flattens categories into one array,
+       and renders equal-sized bricks in a 5-column grid. Falls back to embedded data if fetch fails. */
+
+    const fallbackData = {
+      "Programming Languages": [
+        { "name": "Python", "description": "Versatile scripting language", "icon": "../image/icons/python.png?text=Python" },
+        { "name": "Java", "description": "Robust, secure enterprise language", "icon": "../image/icons/java.png?text=Java" },
+        { "name": "Visual Basic", "description": "Simple event-driven language", "icon": "../image/icons/visual_basic.png?text=VB" },
+        { "name": "JavaScript", "description": "Dynamic web scripting", "icon": "../image/icons/javascript.png?text=JS" },
+        { "name": "SQL", "description": "Database query language", "icon": "../image/icons/sql.png?text=SQL" },
+        { "name": "Shell Scripting", "description": "Command-line automation scripts", "icon": "../image/icons/shell_scripting.png?text=SH" }
+      ],
+      "Markup and Data Languages": [
+        { "name": "HTML", "description": "Markup for web pages", "icon": "../image/icons/html.png?text=HTML" },
+        { "name": "CSS", "description": "Styles web page layout", "icon": "../image/icons/css.svg?text=CSS" },
+        { "name": "XML", "description": "Extensible markup language", "icon": "../image/icons/xml.png?text=XML" },
+        { "name": "JSON", "description": "Lightweight data interchange", "icon": "../image/icons/json.png?text=JSON" },
+        { "name": "Markdown", "description": "Simplified text formatting", "icon": "../image/icons/markdown.png?text=MD" },
+        { "name": "LaTeX", "description": "High-quality typesetting system", "icon": "../image/icons/latex.png?text=LaTeX" }
+      ],
+      "Frameworks and Libraries": [
+        { "name": "Node.js", "description": "Server-side JavaScript runtime", "icon": "../image/icons/nodejs.svg?text=Node" },
+        { "name": "Express.js", "description": "Minimalist web framework", "icon": "../image/placeholder/question_cube.png?text=Express" }
+      ],
+      "Version Control & Collaboration": [
+        { "name": "Git", "description": "Distributed version control", "icon": "../image/icons/git.webp?text=Git" },
+        { "name": "GitHub", "description": "Collaborative code repository", "icon": "../image/icons/github.png?text=GH" }
+      ],
+      "Database Technologies": [
+        { "name": "MySQL", "description": "Robust relational database", "icon": "../image/icons/mysql.png?text=MySQL" },
+        { "name": "SQLite", "description": "Lightweight embedded database", "icon": "../image/icons/sqlite.png?text=SQLite" },
+        { "name": "MS SQL Server", "description": "Enterprise-grade database platform", "icon": "" }
+      ],
+      "IDEs and Editors": [
+        { "name": "VS Code", "description": "Versatile code editor", "icon": "../image/icons/vscode.png?text=VSCode" },
+        { "name": "Visual Studio", "description": "Comprehensive development environment", "icon": "../image/icons/visual_basic.png?text=VS" },
+        { "name": "PyCharm", "description": "Python-focused development IDE", "icon": "../image/icons/pycharm.png?text=PyCharm" },
+        { "name": "Eclipse", "description": "Extensible open-source IDE", "icon": "../image/icons/eclipse.svg?text=Eclipse" },
+        { "name": "Android Studio", "description": "Android app development IDE", "icon": "../image/icons/androidstudio.png?text=Android" },
+        { "name": "Google Colab", "description": "Cloud-based Python notebook environment", "icon": "../image/icons/google_colab.png?text=Colab" },
+        { "name": "Jupyter Notebook", "description": "Interactive computing environment", "icon": "../image/icons/jupyter.png?text=Jupyter" }
+      ],
+      "Web Servers": [
+        { "name": "Nginx", "description": "High-performance web server", "icon": "../image/icons/nginx.png?text=Nginx" }
+      ],
+      "Cloud & Containerisation": [
+        { "name": "Docker", "description": "Containerisation for applications", "icon": "../image/icons/docker.png?text=Docker" }
+      ],
+      "Office & Productivity Tools": [
+        { "name": "Microsoft Office", "description": "Suite of productivity applications", "icon": "../image/icons/microsoft_office.png?text=Office" },
+        { "name": "Google Workspace", "description": "Cloud-based collaboration tools", "icon": "../image/icons/google_workspace.webp?text=GWorkspace" }
+      ],
+      "Analytics & SEO": [
+        { "name": "Google Analytics", "description": "Web traffic and user behavior tracking", "icon": "../image/icons/google_analytics.png?text=GA" },
+        { "name": "Google Search Console", "description": "SEO and website performance monitoring", "icon": "../image/icons/google_search_console.png?text=GSC" }
+      ],
+      "Operating Systems": [
+        { "name": "Windows", "description": "Microsoft operating system", "icon": "../image/icons/windows.png?text=Windows" },
+        { "name": "MacOS", "description": "Apple's operating system", "icon": "../image/icons/macos_icon.png?text=MacOS" },
+        { "name": "Linux", "description": "Open-source operating system", "icon": "../image/icons/linux.png?text=Linux" }
+      ]
+    };
+
+    async function loadAndRender() {
+      let raw;
+      try {
+        const res = await fetch('resource/dynamic_blocks_skills.json', { cache: "no-store" });
+        if (!res.ok) throw new Error('Fetch failed: ' + res.status);
+        raw = await res.json();
+      } catch (err) {
+        console.warn('Could not fetch dynamic_blocks_skills.json — using fallback.', err);
+        raw = fallbackData;
+      }
+
+      const flat = Object.values(raw).flat();
+      renderGrid(flat);
+    }
+
+    function renderGrid(items) {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+
+      items.forEach(it => {
+        const card = document.createElement('article');
+        card.className = 'brick';
+        card.tabIndex = 0;
+        card.setAttribute('role', 'group');
+        card.setAttribute('aria-label', `${it.name}: ${it.description || ''}`);
+
+        // icon
+        const iconWrap = document.createElement('div');
+        iconWrap.className = 'icon-wrap';
+
+        if (it.icon && it.icon.trim() !== '') {
+          const img = document.createElement('img');
+          img.src = it.icon;
+          img.alt = `${it.name} icon`;
+          img.onerror = () => {
+            if (img.parentNode) img.parentNode.removeChild(img);
+            showInitials(iconWrap, it.name);
+          };
+          iconWrap.appendChild(img);
+        } else {
+          showInitials(iconWrap, it.name);
+        }
+
+        // text
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+
+        const title = document.createElement('div');
+        title.className = 'title';
+        title.textContent = it.name || '—';
+
+        const desc = document.createElement('div');
+        desc.className = 'desc';
+        desc.textContent = it.description || '';
+
+        meta.appendChild(title);
+        meta.appendChild(desc);
+
+        card.appendChild(iconWrap);
+        card.appendChild(meta);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function showInitials(container, name) {
+      const initials = (name || '').split(/\s+/).slice(0, 2).map(s => s.charAt(0).toUpperCase()).join('') || '?';
+      const el = document.createElement('div');
+      el.className = 'icon-initials';
+      el.textContent = initials;
+      container.appendChild(el);
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAndRender);
+  </script>
+</body>
+
+</html>
