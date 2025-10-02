@@ -42,7 +42,11 @@
 }
 
 /* Page base */
-html { background-color: var(--primary-contrast-color); }
+html {
+  background-color: var(--primary-contrast-color);
+  scroll-behavior: smooth;
+}
+
 body{
   font-family: var(--primary-font-family);
   margin: 0;
@@ -462,7 +466,8 @@ button{
   :root{
     /* Layout */
     --panel-padding: 20px 30px;
-    --panel-height-hero: 90vh;
+    --panel-min-height-default: 600px;
+    --panel-height-hero: 85vh;
   }
 
   /* Layout containers */
@@ -551,13 +556,24 @@ button{
 
 }
 
+@media (max-width: 470px) {
+  /* =========================
+    Variables & Base Reset
+    ========================= */
+  :root{
+    /* Reusable measurements */
+    --panel-min-height-default: 650px;
+    --panel-height-hero: 90vh;
+  }
+}
+
 @media (max-width: 440px) {
   /* =========================
     Variables & Base Reset
     ========================= */
   :root{
     /* Reusable measurements */
-    --panel-min-height-default: 75vh;
+    --panel-min-height-default: 700px;
     --panel-height-hero: 90vh;
   }
 }
