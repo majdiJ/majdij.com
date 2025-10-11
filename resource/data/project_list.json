@@ -1,0 +1,36 @@
+[
+    {
+        "id": "weather-widget",
+        "name": "Weather Widget",
+        "brand": {
+            "icon": "/resource/images/weather-icon.png",
+            "large_image": "/resource/images/weather-large.png",
+            "color": "#4A90E2"
+        },
+        "description": {
+            "long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "short_description": "Compact multi-theme weather widget built with vanilla JS."
+        },
+        "date": {
+            "started": "2023-05-01T10:30:00Z",
+            "published": "2023-06-15T00:00:00Z"
+        },
+        "tags": [
+            "widget",
+            "weather",
+            "vanilla-js"
+        ],
+        "technologies": [
+            "JavaScript",
+            "CSS",
+            "OpenWeatherMap API"
+        ],
+        "links": {
+            "click": "https://yourdomain.com/demos/weather-widget",
+            "article": "https://yourdomain.com/demos/weather-widget",
+            "github": "https://github.com/youruser/weather-widget",
+            "demo": "https://yourdomain.com/demos/weather-widget"
+        },
+        "featured": true
+    }
+]
