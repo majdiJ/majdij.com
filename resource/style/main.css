@@ -1,7 +1,7 @@
 /* =========================
    Variables & Base Reset
    ========================= */
-:root{
+:root {
   /* Theme Colors */
   --primary-color: #f4c542;
   --primary-color-darker: #f5bd24;
@@ -9,10 +9,14 @@
   --primary-contrast-color: #000d16;
   --primary-font-family: 'Geologica', sans-serif;
 
+  --primary-2-contrast-color: #00101e;
+
   --secondary-text-color: #ffffff9e;
   --secondary-contrast-color: #001624;
   --tertiary-contrast-color: #001e31;
   --quaternary-contrast-color: #002d4d;
+
+  --divider-color: #ffffff1f;
 
   /* Layout */
   --content-width: 90%;
@@ -28,7 +32,7 @@
 }
 
 /* font-face */
-@font-face{
+@font-face {
   font-family: 'Geologica';
   src: url('/resource/font/Geologica/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf') format('truetype');
   font-weight: 100 900;
@@ -36,7 +40,10 @@
 }
 
 /* Box model + light transitions */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 :where(html, body, main, .container-panel, .project-item, a, button, input, textarea, img) {
   transition: all 0.12s ease-in-out;
 }
@@ -47,10 +54,9 @@ html {
   scroll-behavior: smooth;
 }
 
-body{
+body {
   font-family: var(--primary-font-family);
   margin: 0;
-  padding: 20px 0 0;
   color: var(--primary-text-color);
   min-height: 100vh;
   overflow-x: hidden;
@@ -58,7 +64,7 @@ body{
   background-attachment: fixed;
 }
 
-footer{
+footer {
   font-size: 0.85rem;
   color: var(--secondary-text-color);
   padding: 10px 20px 50px;
@@ -74,25 +80,39 @@ a {
   text-decoration: none;
   font-weight: 100;
 }
-a:hover { color: var(--primary-color); }
-.current-active-link { color: var(--primary-color); text-decoration: underline; }
-.link-highlight { color: var(--primary-color); }
-.link-highlight:hover { text-decoration: underline; }
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.current-active-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.link-highlight {
+  color: var(--primary-color);
+}
+
+.link-highlight:hover {
+  text-decoration: underline;
+}
 
 /* Layout containers */
 main {
-  padding: 0 20px;
-  min-height: 70vh;
+  padding: 20px;
+  min-height: 80vh;
   overflow-x: hidden;
 }
-.container-page-content-width{
+
+.container-page-content-width {
   width: var(--content-width);
   max-width: var(--max-content-width);
   margin: 0 auto;
 }
 
 /* Bottom nav bar */
-.container-bottom-bar{
+.container-bottom-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -101,13 +121,15 @@ main {
   padding: 5px 0;
   z-index: 10;
 }
-.homepage-nav-links{
+
+.homepage-nav-links {
   width: var(--content-width);
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 0 10px;
 }
-.style-list-none{
+
+.style-list-none {
   display: flex;
   gap: 25px;
   align-items: left;
@@ -117,15 +139,24 @@ main {
 }
 
 /* Social icons */
-.container-socials-bar{ display:flex; gap:30px; margin:20px 5px; align-items:center; }
-.container-socials-bar a img{
-  height: 25px;
-  display:block;
+.container-socials-bar {
+  display: flex;
+  gap: 30px;
+  margin: 20px 5px;
+  align-items: center;
 }
-.container-socials-bar a img:hover{ transform: scale(1.1); }
+
+.container-socials-bar a img {
+  height: 25px;
+  display: block;
+}
+
+.container-socials-bar a img:hover {
+  transform: scale(1.1);
+}
 
 /* Projects: items */
-.project-item{
+.project-item {
   background-color: var(--tertiary-contrast-color);
   border-radius: 15px;
   padding: 20px 25px;
@@ -136,29 +167,43 @@ main {
   color: var(--secondary-text-color);
   overflow: hidden;
 }
-.project-item .project-item-header{
-  display:flex;
-  align-items:center;
-  gap:15px;
+
+.project-item .project-item-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.project-item .project-item-header img{ height:40px; width:auto; }
-.project-item .project-item-header h3{
-  margin:0;
-  font-size:1.1rem;
+
+.project-item .project-item-header img {
+  height: 40px;
+  width: auto;
+}
+
+.project-item .project-item-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
   color: var(--primary-text-color);
   font-weight: normal;
 }
-.project-item p{ text-overflow: ellipsis; }
+
+.project-item p {
+  text-overflow: ellipsis;
+}
 
 /* Global small helpers */
-.privacy-notice{ font-size:0.75rem; color:var(--secondary-text-color); margin:5px; text-align:center; }
+.privacy-notice {
+  font-size: 0.75rem;
+  color: var(--secondary-text-color);
+  margin: 5px;
+  text-align: center;
+}
 
 /* =========================
    Panels (shared & specific)
    ========================= */
 
 /* Base panel */
-.container-panel{
+.container-panel {
   background-color: var(--tertiary-contrast-color);
   height: var(--panel-height-hero);
   max-height: var(--panel-max-height-hero);
@@ -169,7 +214,7 @@ main {
 }
 
 /* Non-first panels share padding/min-height */
-.container-panel:not(:first-of-type){
+.container-panel:not(:first-of-type) {
   height: var(--panel-min-height-default);
   max-height: var(--panel-max-height-default);
   padding: var(--panel-padding);
@@ -177,7 +222,7 @@ main {
 }
 
 /* shared photo info placement */
-.container-panel .panel-photo-information{
+.container-panel .panel-photo-information {
   position: absolute;
   bottom: 5px;
   right: 25px;
@@ -187,14 +232,15 @@ main {
 }
 
 /* Double panels */
-.double-panel-holder{
-  display:flex;
-  gap:30px;
-  width:100%;
-  margin:50px 0;
+.double-panel-holder {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  margin: 50px 0;
 }
-.double-panel-holder .container-panel{
-  margin:0;
+
+.double-panel-holder .container-panel {
+  margin: 0;
   height: var(--panel-min-height-default);
   max-height: var(--panel-max-height-default);
   padding: var(--panel-padding);
@@ -203,7 +249,7 @@ main {
 /* -------------------------
    Welcome / Hero panel
    ------------------------- */
-#welcome-hey-panel{
+#welcome-hey-panel {
   position: relative;
   background-image: url('../image/profile_long.webp');
   background-size: cover;
@@ -211,7 +257,7 @@ main {
   background-position-x: 50%;
 }
 
-#welcome-hey-panel .panel-content{
+#welcome-hey-panel .panel-content {
   position: absolute;
   top: 50%;
   left: 53%;
@@ -219,18 +265,26 @@ main {
   width: 42%;
   max-width: 450px;
 }
-#welcome-hey-panel .panel-content h1{
-  font-size:1.5rem;
+
+#welcome-hey-panel .panel-content h1 {
+  font-size: 1.5rem;
 }
-#welcome-hey-panel .panel-content .text-large{
-  font-size:2.5rem;
+
+#welcome-hey-panel .panel-content .text-large {
+  font-size: 2.5rem;
 }
 
 /* -------------------------
    About / Skills / Education
    (these panel contents share a common centered pattern)
    ------------------------- */
-#about-me{ position: relative; background-image: url('../image/dunes.webp'); background-size: cover; background-position: center; }
+#about-me {
+  position: relative;
+  background-image: url('../image/dunes.webp');
+  background-size: cover;
+  background-position: center;
+}
+
 #about-me .panel-content,
 #skills .panel-content,
 #education .panel-content {
@@ -241,9 +295,9 @@ main {
 }
 
 /* Projects panel custom layout */
-#projects{
+#projects {
   position: relative;
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255, 255, 255, 0);
   border-radius: 0;
   overflow: visible;
   z-index: 1;
@@ -251,13 +305,16 @@ main {
   min-height: 390px;
   padding: 0;
 }
-#projects h2{ margin: 0; }
 
-#projects .container-projects-list{
-  display:flex;
-  gap:20px;
+#projects h2 {
+  margin: 0;
+}
+
+#projects .container-projects-list {
+  display: flex;
+  gap: 20px;
   overflow-x: scroll;
-  padding:20px;
+  padding: 20px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -266,18 +323,37 @@ main {
   scrollbar-width: thin;
   scrollbar-color: #ffffff3d #00000000;
 }
+
 #projects .filler-item {
   min-width: calc((100vw - var(--max-content-width)) / 2 - 20px);
 }
-#projects .learn-more{ position: absolute; bottom: 0px; left: 0px; }
-#projects .panel-photo-information{ position: absolute; bottom: 0px; right: 0px; }
-#projects .panel-photo-information p{ margin: 0; }
+
+#projects .learn-more {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+#projects .panel-photo-information {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+#projects .panel-photo-information p {
+  margin: 0;
+}
 
 /* -------------------------
    Skills & Education backgrounds
    ------------------------- */
-#skills{ position: relative; background: none; z-index: 1; }
-#skills::before{
+#skills {
+  position: relative;
+  background: none;
+  z-index: 1;
+}
+
+#skills::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -288,8 +364,13 @@ main {
   z-index: -1;
 }
 
-#education{ position: relative; background: none; z-index: 1; }
-#education::before{
+#education {
+  position: relative;
+  background: none;
+  z-index: 1;
+}
+
+#education::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -301,15 +382,16 @@ main {
 }
 
 /* -------------------------
-   Blog & Contact double panel specifics
+   article & Contact double panel specifics
    ------------------------- */
-#blog-contact-panels .left-panel{
+#article-contact-panels .left-panel {
   position: relative;
   background-image: url('../image/dunes.webp');
   background-size: cover;
   background-position: center;
 }
-#blog-contact-panels .left-panel .panel-content{
+
+#article-contact-panels .left-panel .panel-content {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -318,11 +400,12 @@ main {
   max-width: calc(100% - 40px);
 }
 
-#blog-contact-panels .right-panel{
+#article-contact-panels .right-panel {
   position: relative;
   background-color: var(--quaternary-contrast-color);
 }
-#blog-contact-panels .right-panel .panel-content{
+
+#article-contact-panels .right-panel .panel-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -334,9 +417,12 @@ main {
 /* =========================
    Forms
    ========================= */
-label{ font-size: 0.9rem; }
+label {
+  font-size: 0.9rem;
+}
 
-input, textarea{
+input,
+textarea {
   width: 100%;
   padding: 8px;
   margin: 4px 0 6px;
@@ -348,22 +434,31 @@ input, textarea{
   font-family: var(--primary-font-family);
 }
 
-.two-column-inputs{ display:flex; gap:15px; }
-.two-column-inputs label{ width:100%; }
+.two-column-inputs {
+  display: flex;
+  gap: 15px;
+}
 
-textarea{ resize: vertical; min-height: 100px; }
+.two-column-inputs label {
+  width: 100%;
+}
 
-.recaptcha-container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin:10px 0;
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
   min-height: 86px;
 }
 
-button{
+button {
   background-color: var(--primary-color-darker);
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
   width: 100%;
   border: none;
   border-radius: 10px;
@@ -381,6 +476,44 @@ button{
   padding: 30px 20px 50px;
 }
 
+/*  Non-homepage header */
+.non-homepage-header {
+  padding: 10px 25px;
+  margin: 0;
+  background-color: var(--primary-2-contrast-color);
+}
+
+.non-homepage-header .header-content {
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.non-homepage-header .header-content .header-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.non-homepage-header .header-content .header-text h1 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin: 0;
+  line-height: 0.9;
+  color: var(--secondary-text-color);
+}
+
+.non-homepage-header .header-content .header-text p {
+  font-size: 0.9rem;
+  font-weight: thin;
+  margin: 0;
+  line-height: 0.9;
+  color: var(--secondary-text-color);
+  opacity: 0.6;
+}
+
 /* Responsive Styles */
 /* 
 2560px - large desktop
@@ -394,42 +527,47 @@ button{
 */
 
 @media (max-width: 1024px) {
+
   /* =========================
     Variables & Base Reset
     ========================= */
-  :root{
+  :root {
     /* Layout */
     --content-width: 100%;
   }
 
   /* Double panels */
-  .double-panel-holder{
-    display:block;
+  .double-panel-holder {
+    display: block;
     gap: 0;
   }
-  .double-panel-holder .container-panel{
+
+  .double-panel-holder .container-panel {
     margin: 50px 0 0;
   }
 }
 
 @media (max-width: 768px) {
-    /* Non-first panels share padding/min-height */
-  .container-panel:not(:first-of-type){
+
+  /* Non-first panels share padding/min-height */
+  .container-panel:not(:first-of-type) {
     margin: 25px 0;
   }
 
   /* Double panels */
-  .double-panel-holder{
-    margin:0;
+  .double-panel-holder {
+    margin: 0;
   }
-  .double-panel-holder .container-panel{
+
+  .double-panel-holder .container-panel {
     margin: 25px 0 0;
   }
 }
 
 @media (max-width: 768px) {
+
   /* Bottom nav bar */
-  .container-bottom-bar{
+  .container-bottom-bar {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -438,13 +576,15 @@ button{
     padding: 5px 0;
     z-index: 10;
   }
-  .homepage-nav-links{
+
+  .homepage-nav-links {
     width: var(--content-width);
     max-width: var(--max-content-width);
     margin: 0 auto;
     padding: 0 10px;
   }
-  .style-list-none{
+
+  .style-list-none {
     display: flex;
     gap: 15px;
     /* align-items: left; */
@@ -452,18 +592,21 @@ button{
     /* padding: 0; */
     /* margin: 0; */
   }
-  .homepage-nav-links .nav-link{
+
+  .homepage-nav-links .nav-link {
     font-size: 0.8rem;
   }
 }
 
 @media (max-width: 680px) {
-  .hide-small-screen{ display:none; }
+  .hide-small-screen {
+    display: none;
+  }
 
   /* =========================
     Variables & Base Reset
     ========================= */
-  :root{
+  :root {
     /* Layout */
     --panel-padding: 20px 30px;
     --panel-min-height-default: 600px;
@@ -476,12 +619,12 @@ button{
   }
 
   /* Base panel */
-  .container-panel{
+  .container-panel {
     max-height: 750px;
   }
 
   /* Non-first panels share padding/min-height */
-  .container-panel:not(:first-of-type){
+  .container-panel:not(:first-of-type) {
     max-height: none;
     padding-bottom: 40px;
   }
@@ -489,11 +632,11 @@ button{
   /* -------------------------
    Welcome / Hero panel
    ------------------------- */
-  #welcome-hey-panel{
+  #welcome-hey-panel {
     background-position-x: 50%;
   }
 
-  #welcome-hey-panel .panel-content{
+  #welcome-hey-panel .panel-content {
     position: absolute;
     top: 25%;
     left: 7.5%;
@@ -502,25 +645,31 @@ button{
     margin: 0 auto;
     max-width: 450px;
   }
-  #welcome-hey-panel .panel-content h1{
-    font-size:1.2rem;
+
+  #welcome-hey-panel .panel-content h1 {
+    font-size: 1.2rem;
   }
-  #welcome-hey-panel .panel-content .text-large{
-    font-size:1.9rem;
+
+  #welcome-hey-panel .panel-content .text-large {
+    font-size: 1.9rem;
   }
 
   /* Social icons */
-  .container-socials-bar{
-    display:flex;
-    gap:27px;
-    margin:15px 5px;
-    align-items:center;
+  .container-socials-bar {
+    display: flex;
+    gap: 27px;
+    margin: 15px 5px;
+    align-items: center;
   }
-  .container-socials-bar a img{
+
+  .container-socials-bar a img {
     height: 24px;
-    display:block;
+    display: block;
   }
-  .container-socials-bar a img:hover{ transform: scale(1.1); }
+
+  .container-socials-bar a img:hover {
+    transform: scale(1.1);
+  }
 
   /* -------------------------
    About / Skills / Education
@@ -536,8 +685,8 @@ button{
     max-width: 100%;
   }
 
-  #blog-contact-panels .left-panel .panel-content,
-  #blog-contact-panels .right-panel .panel-content {
+  #article-contact-panels .left-panel .panel-content,
+  #article-contact-panels .right-panel .panel-content {
     position: relative;
     top: 0%;
     left: 0%;
@@ -557,10 +706,11 @@ button{
 }
 
 @media (max-width: 470px) {
+
   /* =========================
     Variables & Base Reset
     ========================= */
-  :root{
+  :root {
     /* Reusable measurements */
     --panel-min-height-default: 650px;
     --panel-height-hero: 90vh;
@@ -568,10 +718,11 @@ button{
 }
 
 @media (max-width: 440px) {
+
   /* =========================
     Variables & Base Reset
     ========================= */
-  :root{
+  :root {
     /* Reusable measurements */
     --panel-min-height-default: 700px;
     --panel-height-hero: 90vh;
