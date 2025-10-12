@@ -1,14 +1,25 @@
+.page-section-projects {
+    
+}
+
+
 .container-projects-list-carousel {
     display: flex;
     flex-wrap: nowrap;
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    width: 100%;
+    width: 100vw;
     max-height: 390px;
-    overflow: hidden;
-    padding: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 5px 50px 5px 5px;
     margin-bottom: 15px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    box-sizing: border-box;
+    padding-left: calc(50vw - 50% + 5px);
 }
 
 .projects-item-carousel {

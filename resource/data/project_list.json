@@ -110,5 +110,43 @@
             "demo": "https://archcomply.wandstack.com/destruction-date-calculator/"
         },
         "featured": true
+    },
+    {
+        "id": "WandStack",
+        "name": "WandStack",
+        "brand": {
+            "icon": "/resource/image/project-icons/wandstack.webp",
+            "large_image": "",
+            "color": "#FF006E"
+        },
+        "description": {
+            "long": "In development: A web platform giving users easy and quick access to spontaneously needed tools such as image file converters, colour pickers, text editors, qr code generators, pdf tools, and more. Built with a focus on user experience, accessibility, privacy, and performance. The platform aims to be a one-stop solution for everyday digital tasks, eliminating the need for multiple apps or software installations.",
+            "short_description": "A one-stop platform for various digital tools."
+        },
+        "date": {
+            "started": "2025-03-01T10:30:00Z",
+            "published": "N/A"
+        },
+        "tags": [
+            "tools",
+            "web app",
+            "productivity",
+            "Making APIs",
+            "SaS"
+        ],
+        "technologies": [
+            "JavaScript",
+            "Web Binaries",
+            "APIs",
+            "Node.js",
+            "Python"
+        ],
+        "links": {
+            "click": "",
+            "article": "",
+            "github": "",
+            "demo": "https://archcomply.wandstack.com/destruction-date-calculator/"
+        },
+        "featured": true
     }
 ]
