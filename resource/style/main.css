@@ -49,6 +49,11 @@
   transition: all 0.12s ease-in-out;
 }
 
+/* Disable tap highlight on mobile for interactive elements */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Page base */
 html {
   background-color: var(--primary-contrast-color);
@@ -390,44 +395,6 @@ button {
 
 .page-content {
   padding: 30px 20px 50px;
-}
-
-/*  Non-homepage header */
-.non-homepage-header {
-  padding: 10px 25px;
-  margin: 0;
-  background-color: var(--primary-2-contrast-color);
-}
-
-.non-homepage-header .header-content {
-  width: var(--content-width);
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-}
-
-.non-homepage-header .header-content .header-text {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 10px;
-  align-items: baseline;
-}
-
-.non-homepage-header .header-content .header-text h1 {
-  font-size: 0.9rem;
-  font-weight: normal;
-  margin: 0;
-  line-height: 0.9;
-  color: var(--secondary-text-color);
-}
-
-.non-homepage-header .header-content .header-text p {
-  font-size: 0.9rem;
-  font-weight: thin;
-  margin: 0;
-  line-height: 0.9;
-  color: var(--secondary-text-color);
-  opacity: 0.6;
 }
 
 /* Responsive Styles */

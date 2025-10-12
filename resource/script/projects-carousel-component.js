@@ -3,14 +3,14 @@
   'use strict';
 
   const JSON_PATH = '/resource/data/project_list.json';
-  const CONTAINER_SELECTOR = '.container-projects-list-carousel';
+  const CAROUSEL_CONTAINER_SELECTOR = '.container-projects-list-carousel';
+  const GRID_CONTAINER_SELECTOR = '.container-projects-list-grid';
   const MAX_TAGS = 5;
   const MAX_TECH = 6;
   const DEFAULT_BRAND_COLOR = '#4A90E2';
 
   function sanitizeClassName(name) {
-    // convert to safe classname: remove/replace spaces and non-alphanum characters
-    return String(name)
+    return String(name || '')
       .trim()
       .toLowerCase()
       .replace(/\s+/g, '-')
@@ -36,20 +36,45 @@
     return createElem('div', 'dot');
   }
 
+  // Inject style that targets both carousel and grid items' ::before pseudo-element
   function applyBrandColorStyle(projectId, color) {
     try {
       const safeId = String(projectId).replace(/"/g, '\\"');
       const style = document.createElement('style');
-      style.textContent = `.projects-item-carousel[data-project-id="${safeId}"]::before { background: ${color}; }`;
+      style.textContent = `
+.projects-item-carousel[data-project-id="${safeId}"]::before,
+.projects-item-grid[data-project-id="${safeId}"]::before {
+  background: ${color};
+}
+      `.trim();
       document.head.appendChild(style);
     } catch (e) {
-      // fallback: do nothing if style injection fails
       console.error('Failed to inject brand color style for', projectId, e);
     }
   }
 
-  function renderProjectItem(project) {
-    const a = createElem('a', 'projects-item-carousel');
+  // returns timestamp (ms) for published or started; if neither valid return Number.NEGATIVE_INFINITY
+  function getProjectTimestamp(project) {
+    const tryParse = (v) => {
+      if (!v || typeof v !== 'string') return NaN;
+      const t = Date.parse(v);
+      return Number.isFinite(t) ? t : NaN;
+    };
+
+    const published = tryParse(project.date && project.date.published);
+    if (!Number.isNaN(published)) return published;
+
+    const started = tryParse(project.date && project.date.started);
+    if (!Number.isNaN(started)) return started;
+
+    // neither valid -> placed last when sorting descending
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  // Build DOM anchor element for a project. `mode` is 'carousel' or 'grid' to set anchor class.
+  function renderProjectItem(project, mode = 'carousel') {
+    const anchorClass = mode === 'grid' ? 'projects-item-grid' : 'projects-item-carousel';
+    const a = createElem('a', anchorClass);
 
     // Link selection logic:
     // - prefer links.click (same tab)
@@ -59,7 +84,6 @@
     const hasDemo = project.links && project.links.demo;
     if (hasClick) {
       a.href = project.links.click;
-      // open in same tab (preserve existing behavior)
     } else if (!hasClick && hasDemo) {
       a.href = project.links.demo;
       a.target = '_blank';
@@ -75,8 +99,8 @@
     const itemHeader = createElem('div', 'item-header');
 
     const img = createElem('img', 'project-icon');
-    img.src = project.brand && project.brand.icon ? project.brand.icon : '';
-    img.alt = (project.name ? `${project.name} Icon` : 'Project icon');
+    img.src = (project.brand && project.brand.icon) ? project.brand.icon : '';
+    img.alt = project.name ? `${project.name} Icon` : 'Project icon';
     itemHeader.appendChild(img);
 
     const itemHeaderText = createElem('div', 'item-header-text');
@@ -100,7 +124,7 @@
     // ITEM FOOTER
     const itemFooter = createElem('div', 'item-footer');
 
-    // tags (max 4)
+    // tags (max MAX_TAGS)
     const tagsContainer = createElem('div', 'list-of-tags');
     if (Array.isArray(project.tags) && project.tags.length > 0) {
       const tagsToShow = project.tags.slice(0, MAX_TAGS);
@@ -111,7 +135,7 @@
     }
     itemFooter.appendChild(tagsContainer);
 
-    // technologies (max 6)
+    // technologies (max MAX_TECH)
     const techContainer = createElem('div', 'list-of-technologies');
     if (Array.isArray(project.technologies) && project.technologies.length > 0) {
       const techToShow = project.technologies.slice(0, MAX_TECH);
@@ -124,35 +148,44 @@
 
     a.appendChild(itemFooter);
 
-    // Inject brand color override for ::before using attribute selector
+    // Apply brand color
     const brandColor = (project.brand && project.brand.color) ? project.brand.color : DEFAULT_BRAND_COLOR;
     applyBrandColorStyle(project.id || '', brandColor);
 
     return a;
   }
 
-  function renderProjects(projects) {
-    const container = document.querySelector(CONTAINER_SELECTOR);
-    if (!container) {
-      console.warn('Projects container not found:', CONTAINER_SELECTOR);
-      return;
+  // Render into a specific container element. mode: 'carousel'|'grid'
+  function renderToContainer(containerEl, projects, mode) {
+    if (!containerEl) return;
+
+    containerEl.innerHTML = '';
+
+    if (!Array.isArray(projects) || projects.length === 0) return;
+
+    let itemsToRender;
+
+    if (mode === 'carousel') {
+      // carousel: only featured === true and not hidden
+      itemsToRender = projects.filter(p => p && (p.featured === true || p.featured === 'true') && !(p.hidden === true || p.hidden === 'true'));
+      // keep original JSON order
+    } else {
+      // grid: include all not hidden items, ordered by published/started desc
+      itemsToRender = projects.filter(p => p && !(p.hidden === true || p.hidden === 'true'));
+      // attach timestamp and original index for stable sort
+      itemsToRender = itemsToRender.map((p, idx) => ({ p, ts: getProjectTimestamp(p), idx }));
+      // sort desc by ts, if equal preserve original order (lower idx first)
+      itemsToRender.sort((a, b) => {
+        if (a.ts === b.ts) return a.idx - b.idx;
+        return b.ts - a.ts;
+      });
+      itemsToRender = itemsToRender.map(x => x.p);
     }
 
-    // clear existing content (so static example markup is removed if present)
-    container.innerHTML = '';
-
-    if (!Array.isArray(projects) || projects.length === 0) {
-      // nothing to render
-      return;
-    }
-
-    // keep order from JSON, but only those with featured === true
-    const featured = projects.filter(p => p && (p.featured === true || p.featured === 'true'));
-
-    featured.forEach(project => {
+    itemsToRender.forEach(project => {
       try {
-        const item = renderProjectItem(project);
-        container.appendChild(item);
+        const item = renderProjectItem(project, mode === 'grid' ? 'grid' : 'carousel');
+        containerEl.appendChild(item);
       } catch (e) {
         console.error('Error rendering project', project && project.id, e);
       }
@@ -160,13 +193,23 @@
   }
 
   function loadJsonAndRender() {
-    fetch(JSON_PATH, {cache: 'no-cache'})
+    fetch(JSON_PATH, { cache: 'no-cache' })
       .then(resp => {
         if (!resp.ok) throw new Error(`Failed to load ${JSON_PATH}: ${resp.status} ${resp.statusText}`);
         return resp.json();
       })
       .then(json => {
-        renderProjects(json);
+        // Find containers on page and render to each accordingly.
+        const carouselContainer = document.querySelector(CAROUSEL_CONTAINER_SELECTOR);
+        const gridContainer = document.querySelector(GRID_CONTAINER_SELECTOR);
+
+        if (!carouselContainer && !gridContainer) {
+          console.warn('No projects container found (carousel or grid). Nothing rendered.');
+          return;
+        }
+
+        if (carouselContainer) renderToContainer(carouselContainer, json, 'carousel');
+        if (gridContainer) renderToContainer(gridContainer, json, 'grid');
       })
       .catch(err => {
         console.error('Could not load project list JSON:', err);
@@ -179,5 +222,4 @@
   } else {
     loadJsonAndRender();
   }
-
 })();

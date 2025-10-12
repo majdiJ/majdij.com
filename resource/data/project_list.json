@@ -35,7 +35,8 @@
             "github": "",
             "demo": "/"
         },
-        "featured": true
+        "featured": true,
+        "hidden": false
     },
     {
         "id": "20-20-20-Rule-Timer",
@@ -73,7 +74,8 @@
             "github": "",
             "demo": "https://20.majdij.com"
         },
-        "featured": true
+        "featured": true,
+        "hidden": false
     },
     {
         "id": "ArchComply",
@@ -109,7 +111,8 @@
             "github": "",
             "demo": "https://archcomply.wandstack.com/destruction-date-calculator/"
         },
-        "featured": true
+        "featured": true,
+        "hidden": false
     },
     {
         "id": "WandStack",
@@ -145,8 +148,9 @@
             "click": "",
             "article": "",
             "github": "",
-            "demo": "https://archcomply.wandstack.com/destruction-date-calculator/"
+            "demo": ""
         },
-        "featured": true
+        "featured": true,
+        "hidden": false
     }
 ]
