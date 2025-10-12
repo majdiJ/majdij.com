@@ -1,35 +1,113 @@
 [
     {
-        "id": "weather-widget",
-        "name": "Weather Widget",
+        "id": "MajdiJ-Website",
+        "name": "MajdiJ.com",
         "brand": {
-            "icon": "/resource/images/weather-icon.png",
-            "large_image": "/resource/images/weather-large.png",
-            "color": "#4A90E2"
+            "icon": "/resource/image/project-icons/Waving_Hand_Emoji.png",
+            "large_image": "",
+            "color": "#f4c542"
         },
         "description": {
-            "long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "short_description": "Compact multi-theme weather widget built with vanilla JS."
+            "long": "Built from the ground up, my website showcases my passion for technology, design, and web development. Evolving from drag-and-drop builders to coding with tools like HTML, CSS, JavaScript, Node.js, FastAPI, and Cloudflare, it integrates APIs such as reCAPTCHA, and Google Analytics. Designed with accessibility and SEO in mind, it reflects my commitment to creating inclusive, performant, and secure websites.",
+            "short_description": "My personal website to showcase my projects, skills and portfolio."
         },
         "date": {
-            "started": "2023-05-01T10:30:00Z",
-            "published": "2023-06-15T00:00:00Z"
+            "started": "2025-05-01T10:30:00Z",
+            "published": "2025-10-29T00:00:00Z"
         },
         "tags": [
-            "widget",
-            "weather",
-            "vanilla-js"
+            "website",
+            "portfolio",
+            "personal",
+            "career"
         ],
         "technologies": [
-            "JavaScript",
+            "Web Development",
+            "HTML",
             "CSS",
-            "OpenWeatherMap API"
+            "JavaScript",
+            "Cloudflare",
+            "APIs"
         ],
         "links": {
-            "click": "https://yourdomain.com/demos/weather-widget",
-            "article": "https://yourdomain.com/demos/weather-widget",
-            "github": "https://github.com/youruser/weather-widget",
-            "demo": "https://yourdomain.com/demos/weather-widget"
+            "click": "/articles/developing-my-portfolio-website",
+            "article": "/articles/developing-my-portfolio-website",
+            "github": "",
+            "demo": "/"
+        },
+        "featured": true
+    },
+    {
+        "id": "20-20-20-Rule-Timer",
+        "name": "The 20-20-20 Rule Timer",
+        "brand": {
+            "icon": "/resource/image/project-icons/20-20-20-white.png",
+            "large_image": "",
+            "color": "#0877FF"
+        },
+        "description": {
+            "long": "A web application designed to follow the 20-20-20 rule to help users reduce digital eye strain, also known as Computer Vision Syndrome. It functions as a customisable timer that prompts you to follow the rule: for every 20 minutes of screen time, look at something 20 feet away for 20 seconds. With configurable settings (such as alarm tones and time durations), and information regarding eye health and alternative work/rest schedules.",
+            "short_description": "A web app to help reduce digital eye strain."
+        },
+        "date": {
+            "started": "2025-09-25T10:30:00Z",
+            "published": "2025-10-01T00:00:00Z"
+        },
+        "tags": [
+            "web app",
+            "health",
+            "eye strain",
+            "accessibility"
+        ],
+        "technologies": [
+            "PWA",
+            "Web Development",
+            "Notifications",
+            "JavaScript",
+            "SEO",
+            "Analytics"
+        ],
+        "links": {
+            "click": "",
+            "article": "",
+            "github": "",
+            "demo": "https://20.majdij.com"
+        },
+        "featured": true
+    },
+    {
+        "id": "ArchComply",
+        "name": "ArchComply",
+        "brand": {
+            "icon": "/resource/image/project-icons/archcomply.png",
+            "large_image": "",
+            "color": "#029063"
+        },
+        "description": {
+            "long": "Small app that automates destruction-date calculations, built during a fixed-term Records & Data Administrator role at Fletchers Group (July–Sept 2025). It replaced manual calculations and complemented improved Excel workflows for flagging issues and computing retention/destruction dates. The tool helps comply with UK GDPR,SRA requirements, ICO, company policy.",
+            "short_description": "Helps do the maths for records destruction dates to comply with GDPR."
+        },
+        "date": {
+            "started": "2025-08-12T09:00:00Z",
+            "published": "2025-09-30T00:00:00Z"
+        },
+        "tags": [
+            "records management",
+            "Productivity Tool",
+            "GDPR",
+            "automation",
+            "Fletchers Group (Fletchers Solicitors)"
+        ],
+        "technologies": [
+            "Web Development",
+            "JavaScript",
+            "Automation"
+        ],
+        "links": {
+            "click": "",
+            "article": "",
+            "github": "",
+            "demo": "https://archcomply.wandstack.com/destruction-date-calculator/"
         },
         "featured": true
     }

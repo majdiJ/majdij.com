@@ -1,0 +1,158 @@
+.container-projects-list-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-height: 390px;
+    overflow: hidden;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.projects-item-carousel {
+    display: block;
+    position: relative;
+    width: 380px;
+    min-width: 380px;
+    height: 380px;
+    min-height: 380px;
+    overflow: hidden;
+    background-color: var(--quaternary-contrast-color);
+    padding: 25px 23px;
+    border-radius: var(--panel-radius);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.projects-item-carousel h3,
+p,
+a,
+span {
+    margin: 0;
+}
+
+/* default pseudo-element (hidden) */
+.projects-item-carousel::before {
+  content: "";
+  position: absolute;
+  inset: 0;                /* top:0; right:0; bottom:0; left:0; */
+  background: #4A90E2;     /* blue color */
+  opacity: 0;              /* start invisible */
+  transition: opacity 220ms ease, transform 220ms ease;
+  transform: scale(0.98);  /* subtle scale so reveal is smooth */
+  z-index: 0;              /* behind the visible content */
+  pointer-events: none;    /* allow clicks to pass through */
+  user-select: none;
+}
+
+/* bring overlay in on hover or keyboard focus */
+.projects-item-carousel:hover::before,
+.projects-item-carousel:focus::before {
+  opacity: 0.75;           /* adjust to taste */
+  transform: scale(1);
+}
+
+.projects-item-carousel:hover,
+.projects-item-carousel:focus {
+    color: var(--primary-text-color);
+}
+
+.projects-item-carousel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-item-carousel .item-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.projects-item-carousel .item-header img {
+    height: 40px;
+    width: auto;
+}
+
+.projects-item-carousel .item-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5px;
+}
+
+.projects-item-carousel h3 {
+    font-size: 1.1rem;
+    color: var(--primary-text-color);
+    font-weight: 450;
+}
+
+.projects-item-carousel .short-description {
+    font-size: 0.90rem;
+    font-weight: 200;
+    opacity: 0.90;
+}
+
+.projects-item-carousel .item-body {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.projects-item-carousel .long-description {
+    color: var(--secondary-text-color);
+    font-size: 0.90rem;
+    font-weight: 250;
+    opacity: 0.85;
+}
+
+.projects-item-carousel .item-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+}
+
+.projects-item-carousel .list-of-tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 1px;
+}
+
+.projects-item-carousel .list-of-tags .tag {
+    color: var(--primary-text-color);
+    font-size: 0.85rem;
+    font-weight: 100;
+    opacity: 0.7;
+}
+
+.projects-item-carousel .list-of-tags .dot {
+    width: 3px;
+    height: 3px;
+    background-color: var(--primary-text-color);
+    border-radius: 50%;
+    opacity: 0.6;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.projects-item-carousel .list-of-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6px;
+    row-gap: 5px;
+}
+
+.projects-item-carousel .list-of-technologies .tag {
+    background-color: rgba(255, 255, 255, 0.27);
+    color: var(--primary-text-color);
+    font-size: 0.75rem;
+    font-weight: 100;
+    opacity: 0.9;
+    padding: 4px 8px;
+    border-radius: 12px;
+}

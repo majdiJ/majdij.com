@@ -44,7 +44,8 @@
   box-sizing: border-box;
 }
 
-:where(html, body, main, .container-panel, .project-item, a, button, input, textarea, img) {
+/* Smooth transitions */
+:where(html, body, main, .container-panel, a, button, input, textarea, img) {
   transition: all 0.12s ease-in-out;
 }
 
@@ -155,41 +156,6 @@ main {
   transform: scale(1.1);
 }
 
-/* Projects: items */
-.project-item {
-  background-color: var(--tertiary-contrast-color);
-  border-radius: 15px;
-  padding: 20px 25px;
-  width: 300px;
-  min-width: 300px;
-  height: 300px;
-  min-height: 300px;
-  color: var(--secondary-text-color);
-  overflow: hidden;
-}
-
-.project-item .project-item-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.project-item .project-item-header img {
-  height: 40px;
-  width: auto;
-}
-
-.project-item .project-item-header h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: var(--primary-text-color);
-  font-weight: normal;
-}
-
-.project-item p {
-  text-overflow: ellipsis;
-}
-
 /* Global small helpers */
 .privacy-notice {
   font-size: 0.75rem;
@@ -292,56 +258,6 @@ main {
   top: 50%;
   transform: translateY(-55%);
   max-width: 500px;
-}
-
-/* Projects panel custom layout */
-#projects {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 0;
-  overflow: visible;
-  z-index: 1;
-  height: 390px;
-  min-height: 390px;
-  padding: 0;
-}
-
-#projects h2 {
-  margin: 0;
-}
-
-#projects .container-projects-list {
-  display: flex;
-  gap: 20px;
-  overflow-x: scroll;
-  padding: 20px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  margin: 0 auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ffffff3d #00000000;
-}
-
-#projects .filler-item {
-  min-width: calc((100vw - var(--max-content-width)) / 2 - 20px);
-}
-
-#projects .learn-more {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-}
-
-#projects .panel-photo-information {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-}
-
-#projects .panel-photo-information p {
-  margin: 0;
 }
 
 /* -------------------------
