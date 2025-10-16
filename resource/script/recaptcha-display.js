@@ -1,5 +1,5 @@
 (function () {
-  const BREAKPOINT = 375; // px
+  const BREAKPOINT = 410; // px
   const DEBOUNCE_MS = 120;
 
   function desiredSize() {
