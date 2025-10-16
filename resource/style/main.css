@@ -607,3 +607,8 @@ button {
     --panel-min-height-default: 700px;
   }
 }
+
+/* Temp: Hide double pannels, hide both articles and contact*/
+.double-panel-holder {
+  display: none;
+}
