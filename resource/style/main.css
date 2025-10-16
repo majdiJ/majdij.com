@@ -445,9 +445,6 @@ button {
   .double-panel-holder .container-panel {
     margin: 25px 0 0;
   }
-}
-
-@media (max-width: 768px) {
 
   /* Bottom nav bar */
   .container-bottom-bar {
@@ -498,12 +495,12 @@ button {
 
   /* Layout containers */
   main {
-    padding: 0 20px;
+    padding: 20px;
   }
 
   /* Base panel */
   .container-panel {
-    max-height: 750px;
+    max-height: 720px;
   }
 
   /* Non-first panels share padding/min-height */
@@ -596,7 +593,7 @@ button {
   :root {
     /* Reusable measurements */
     --panel-min-height-default: 650px;
-    --panel-height-hero: 90vh;
+    --panel-height-hero: 88vh;
   }
 }
 
@@ -608,6 +605,5 @@ button {
   :root {
     /* Reusable measurements */
     --panel-min-height-default: 700px;
-    --panel-height-hero: 90vh;
   }
 }

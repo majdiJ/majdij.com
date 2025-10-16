@@ -20,7 +20,7 @@
 
 .container-projects-list-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 350px);
+    grid-template-columns: repeat(auto-fit, 380px);
     gap: 20px;
     justify-content: center;
     justify-items: center;
@@ -51,8 +51,8 @@
 }
 
 .projects-item-grid {
-    width: 350px;
-    min-width: 350px;
+    width: 380px;
+    min-width: 380px;
     height: 350px;
     min-height: 350px;
     padding: 22px 20px;
@@ -138,14 +138,9 @@
     gap: 2.5px;
 }
 
-.projects-item-carousel h3 {
-    font-size: 1.1rem;
-    color: var(--primary-text-color);
-    font-weight: 450;
-}
-
+.projects-item-carousel h3,
 .projects-item-grid h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--primary-text-color);
     font-weight: 450;
 }
@@ -181,7 +176,7 @@
 
 .projects-item-grid .long-description {
     color: var(--secondary-text-color);
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 200;
     opacity: 0.85;
 }

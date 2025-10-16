@@ -27,7 +27,8 @@
             "CSS",
             "JavaScript",
             "Cloudflare",
-            "APIs"
+            "APIs",
+            "JSON"
         ],
         "links": {
             "click": "/articles/developing-my-portfolio-website",
@@ -47,7 +48,7 @@
             "color": "#0877FF"
         },
         "description": {
-            "long": "A web application designed to follow the 20-20-20 rule to help users reduce digital eye strain, also known as Computer Vision Syndrome. It functions as a customisable timer that prompts you to follow the rule: for every 20 minutes of screen time, look at something 20 feet away for 20 seconds. With configurable settings (such as alarm tones and time durations), and information regarding eye health and alternative work/rest schedules.",
+            "long": "Web app designed to help users follow the 20-20-20 rule to reduce digital eye strain, also known as Computer Vision Syndrome. It functions as a customisable timer that prompts you to follow the rule: for every 20 minutes of screen time, look at something 20 feet away for 20 seconds. With configurable settings (such as alarm tones and time durations), and information regarding eye health and alternative methods.",
             "short_description": "A web app to help reduce digital eye strain."
         },
         "date": {
@@ -118,7 +119,7 @@
         "id": "WandStack",
         "name": "WandStack",
         "brand": {
-            "icon": "/resource/image/project-icons/wandstack.webp",
+            "icon": "/resource/image/project-icons/wandstack.png",
             "large_image": "",
             "color": "#FF006E"
         },
@@ -151,6 +152,46 @@
             "demo": ""
         },
         "featured": true,
+        "hidden": false
+    },
+    {
+        "id": "uni-FitSmart",
+        "name": "FitSmart",
+        "brand": {
+            "icon": "/resource/image/project-icons/fitsmart_logo.png",
+            "large_image": "",
+            "color": "#ff2e4a"
+        },
+        "description": {
+            "long": "University group project developed for the 'Programming 2' module at Edge Hill University: FitSmart is a smart fitness tracking application built in Java that enables users to log workouts, monitor health metrics, and set personalised fitness goals. It supports multiple user profiles, tracks key stats such as steps, calories, water intake, sleep, and weight, and provides a clear interface for viewing progress over time. Developed collaboratively using Git and Agile methods by a team of four students.",
+            "short_description": "A Java-based fitness tracking application."
+        },
+        "date": {
+            "started": "2025-04-25T09:00:00Z",
+            "published": "2025-04-30T00:00:00Z"
+        },
+        "tags": [
+            "Edge Hill University",
+            "Java",
+            "group project",
+            "fitness",
+            "health",
+            "Agile"
+        ],
+        "technologies": [
+            "Java",
+            "OOP",
+            "GUI",
+            "Git",
+            "GitHub"
+        ],
+        "links": {
+            "click": "",
+            "article": "",
+            "github": "https://github.com/majdiJ/FitSmart",
+            "demo": "https://github.com/majdiJ/FitSmart"
+        },
+        "featured": false,
         "hidden": false
     }
 ]
