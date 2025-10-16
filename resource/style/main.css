@@ -50,7 +50,8 @@
 }
 
 /* Disable tap highlight on mobile for interactive elements */
-a, button {
+a,
+button {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -202,21 +203,6 @@ main {
   opacity: 0.5;
 }
 
-/* Double panels */
-.double-panel-holder {
-  display: flex;
-  gap: 30px;
-  width: 100%;
-  margin: 50px 0;
-}
-
-.double-panel-holder .container-panel {
-  margin: 0;
-  height: var(--panel-min-height-default);
-  max-height: var(--panel-max-height-default);
-  padding: var(--panel-padding);
-}
-
 /* -------------------------
    Welcome / Hero panel
    ------------------------- */
@@ -302,37 +288,24 @@ main {
   z-index: -1;
 }
 
-/* -------------------------
-   article & Contact double panel specifics
-   ------------------------- */
-#article-contact-panels .left-panel {
-  position: relative;
-  background-image: url('../image/dunes.webp');
-  background-size: cover;
-  background-position: center;
-}
-
-#article-contact-panels .left-panel .panel-content {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateY(-60%) translateX(-50%);
-  width: 460px;
-  max-width: calc(100% - 40px);
-}
-
-#article-contact-panels .right-panel {
-  position: relative;
+#contact {
   background-color: var(--quaternary-contrast-color);
 }
 
-#article-contact-panels .right-panel .panel-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  width: 460px;
-  max-width: calc(100% - 40px);
+.column-panel-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.column-panel-content .left,
+.column-panel-content .right {
+  width: 48%;
+}
+
+.column-panel-content .right {
+  position: relative;
+  padding: 5% 0;
 }
 
 /* =========================
@@ -418,16 +391,6 @@ button {
     /* Layout */
     --content-width: 100%;
   }
-
-  /* Double panels */
-  .double-panel-holder {
-    display: block;
-    gap: 0;
-  }
-
-  .double-panel-holder .container-panel {
-    margin: 50px 0 0;
-  }
 }
 
 @media (max-width: 768px) {
@@ -435,15 +398,6 @@ button {
   /* Non-first panels share padding/min-height */
   .container-panel:not(:first-of-type) {
     margin: 25px 0;
-  }
-
-  /* Double panels */
-  .double-panel-holder {
-    margin: 0;
-  }
-
-  .double-panel-holder .container-panel {
-    margin: 25px 0 0;
   }
 
   /* Bottom nav bar */
@@ -467,14 +421,31 @@ button {
   .style-list-none {
     display: flex;
     gap: 15px;
-    /* align-items: left; */
-    /* list-style: none; */
-    /* padding: 0; */
-    /* margin: 0; */
   }
 
   .homepage-nav-links .nav-link {
     font-size: 0.8rem;
+  }
+
+  #contact {
+    height: 100%;
+  }
+
+  .column-panel-content {
+    display: block;
+    justify-content: center;
+    gap: none;
+  }
+
+  .column-panel-content .left,
+  .column-panel-content .right {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .column-panel-content .right {
+    position: relative;
+    padding: 5% 0;
   }
 }
 
@@ -561,16 +532,6 @@ button {
     position: relative;
     top: 0%;
     transform: translateY(0%);
-    width: 100%;
-    max-width: 100%;
-  }
-
-  #article-contact-panels .left-panel .panel-content,
-  #article-contact-panels .right-panel .panel-content {
-    position: relative;
-    top: 0%;
-    left: 0%;
-    transform: translateY(-0%) translateX(-0%);
     width: 100%;
     max-width: 100%;
   }
