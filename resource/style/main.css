@@ -288,8 +288,15 @@ main {
   z-index: -1;
 }
 
+/* -------------------------
+   Contact panel
+   ------------------------- */
+
 #contact {
+  position: relative;
+  z-index: 1;
   background-color: var(--quaternary-contrast-color);
+
 }
 
 .column-panel-content {
@@ -303,9 +310,18 @@ main {
   width: 48%;
 }
 
-.column-panel-content .right {
-  position: relative;
-  padding: 5% 0;
+.column-panel-content .left .content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 43%;
+}
+
+.column-panel-content .right #contactForm {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 43%;
 }
 
 /* =========================
@@ -349,6 +365,16 @@ textarea {
   margin: 10px 0;
   min-height: 86px;
 }
+
+.recaptcha-hidden {
+  display: none !important;
+}
+
+.recaptcha-visible {
+  display: block !important;
+  margin-top: 12px;
+}
+
 
 button {
   background-color: var(--primary-color-darker);

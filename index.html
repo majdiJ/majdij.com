@@ -55,10 +55,11 @@
     <!-- Site specific script(s) -->
     <script src="/resource/script/recaptcha-display.js" defer></script>
     <script src="/resource/script/projects-carousel-component.js" defer></script>
+    <script src="/resource/script/form.js" defer></script>
     <!-- Script(s) -->
     <script src="/resource/script/anchor_scroll.js" defer></script>
     <!-- 3rd Party Script(s) -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaApiLoaded&render=explicit" async defer></script>
 </head>
 
 <body>
@@ -298,7 +299,7 @@
                             </label>
 
                             <!-- Google reCAPTCHA v2 checkbox -->
-                            <div class="recaptcha-container">
+                            <div class="recaptcha-container recaptcha-hidden">
                                 <div class="g-recaptcha" data-sitekey="6LccHtEqAAAAAAV39-i0d7599M01beJG1YTts2jP"
                                     data-theme="dark" data-size="normal"></div>
                             </div>
@@ -309,61 +310,6 @@
                 </div>
             </div>
 
-            <!-- Double Panel: article & Contact -->
-            <div class="double-panel-holder" id="article-contact-panels">
-
-                <!-- Article Panel -->
-                <div class="container-panel left-panel">
-                    <div class="panel-content" id="article">
-                        <h2>Articles</h2>
-                        <p>Still in the process of making my articles site :) But in the meantime, check out my socials.
-                        </p>
-
-                        <div class="container-socials-bar">
-                            <a href="https://github.com/majdiJ" target="_blank" rel="noopener noreferrer">
-                                <img src="/resource/image/social-icons/github.png" alt="GitHub Icon" />
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/majdi-jaigirdar/" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="/resource/image/social-icons/linkedin.png" alt="LinkedIn Icon" />
-                            </a>
-
-                            <a href="https://www.instagram.com/majdi_jaigirdar/" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="/resource/image/social-icons/instagram.png" alt="Instagram Icon" />
-                            </a>
-
-                            <a href="https://x.com/majdijaigirdar" target="_blank" rel="noopener noreferrer">
-                                <img src="/resource/image/social-icons/x.png" alt="Twitter/x Icon" />
-                            </a>
-
-                            <a href="https://teamtreehouse.com/profiles/majdijaigirdar" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="/resource/image/social-icons/treehouse.png" alt="Treehouse Icon" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Panel -->
-                <div class="container-panel right-panel">
-                    <div class="panel-content" id="contact">
-                        <div class="contact-text">
-                            <h2>Contact</h2>
-                            <p>
-                                Whether you have a question about my projects, a suggestion for collaboration, or just
-                                want to say hello, I’d love to hear from you. Use the form or email me at <a
-                                    href="mailto:contact@majdij.com" class="link-highlight">contact@majdij.com</a>
-                                to drop me a message, and I’ll get back to you as soon as possible. Your thoughts and
-                                inquiries are always welcome!😄💙
-                            </p>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
 
