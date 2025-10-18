@@ -312,9 +312,13 @@ main {
 
 .column-panel-content .left .content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   width: 43%;
+}
+
+.column-panel-content .left .content p {
+  margin-right: 20px;
 }
 
 .column-panel-content .right #contactForm {
@@ -453,25 +457,36 @@ button {
     font-size: 0.8rem;
   }
 
+  /* Contact panel */
   #contact {
-    height: 100%;
+    position: relative;
+    padding: 40px 70px;
   }
 
   .column-panel-content {
-    display: block;
-    justify-content: center;
-    gap: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    gap: 30px;
+    max-width: 500px;
   }
 
   .column-panel-content .left,
   .column-panel-content .right {
     width: 100%;
-    margin: 0 auto;
+    position: static;
   }
 
-  .column-panel-content .right {
-    position: relative;
-    padding: 5% 0;
+  .column-panel-content .left .content,
+  .column-panel-content .right #contactForm {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  .column-panel-content .left .content p {
+    margin-right: 0;
   }
 }
 
@@ -568,6 +583,37 @@ button {
 
   h1 {
     font-size: 1.25rem;
+  }
+
+  /* Contact panel */
+  #contact {
+    padding: 20px 30px 40px;
+  }
+
+  .column-panel-content {
+    display: block;
+    position: static;
+    top: none;
+    transform: none;
+    gap: 0px;
+    width: 100%;
+  }
+
+  .column-panel-content .left,
+  .column-panel-content .right {
+    width: 100%;
+    position: relative;
+  }
+
+  .column-panel-content .left .content,
+  .column-panel-content .right #contactForm {
+    position: relative;
+    transform: none;
+    width: 100%;
+  }
+
+  .column-panel-content .left .content p {
+    margin-right: 0;
   }
 
 }
