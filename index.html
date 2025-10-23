@@ -53,13 +53,10 @@
     <link rel="stylesheet" href="/resource/style/components/projects.css" />
 
     <!-- Site specific script(s) -->
-    <script src="/resource/script/recaptcha-display.js" defer></script>
     <script src="/resource/script/projects-carousel-component.js" defer></script>
-    <script src="/resource/script/form.js" defer></script>
     <!-- Script(s) -->
     <script src="/resource/script/anchor_scroll.js" defer></script>
     <!-- 3rd Party Script(s) -->
-    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaApiLoaded&render=explicit" async defer></script>
 </head>
 
 <body>
@@ -277,9 +274,9 @@
                             </p>
                         </div>
                     </div>
+
                     <div class="right form">
-                        <form id="contactForm" action="https://formspree.io/f/xnnjzoqy" method="POST"
-                            onsubmit="return onSubmitForm(event)">
+                        <form id="contactForm" action="https://formspree.io/f/mnngkeby" method="POST">
 
                             <div class="two-column-inputs">
                                 <label>
@@ -298,13 +295,9 @@
                                 <textarea name="message" required></textarea><br />
                             </label>
 
-                            <!-- Google reCAPTCHA v2 checkbox -->
-                            <div class="recaptcha-container recaptcha-hidden">
-                                <div class="g-recaptcha" data-sitekey="6LccHtEqAAAAAAV39-i0d7599M01beJG1YTts2jP"
-                                    data-theme="dark" data-size="normal"></div>
-                            </div>
-
                             <button type="submit">Send</button>
+
+                            <div id="formStatus" class="form-status"></div>
                         </form>
                     </div>
                 </div>
