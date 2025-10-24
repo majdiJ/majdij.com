@@ -81,8 +81,6 @@
     color: var(--primary-color);
 }
 
-.container-articles-list-grid .article-item .item-header .extra-info-labels .label-new {}
-
 @media (max-width: 1024px) {}
 
 @media (max-width: 768px) {
