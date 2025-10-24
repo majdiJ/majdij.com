@@ -1,0 +1,40 @@
+[
+    {
+        "id": "example-article",
+        "title": "This is an Example Article Title",
+        "author": [
+            {
+                "name": "Example Author",
+                "url": "https://majdiJ.com/"
+            }
+        ],
+        "featured_image": "/articles/example-article/images/Placehold-1.svg",
+        "strap_line": "This is an example strap line for the example article.",
+        "date": {
+            "published": "2025-10-29T00:00:00Z",
+            "edited": "2025-10-29T00:00:00Z"
+        },
+        "labels": [
+            "Example Label 1"
+        ],
+        "featured": false,
+        "hidden": false
+    },
+    {
+        "id": "developing-my-portfolio-website",
+        "title": "Developing My Personal Portfolio Website with Modern Web Tech: MajdiJ.com",
+        "author": [
+            {
+                "name": "Majdi Jaigirdar",
+                "url": "https://majdiJ.com/"
+            }
+        ],
+        "featured_image": "/articles/developing-my-portfolio-website/images/image1.png",
+        "strap_line": "Building my personal portfolio website to showcase my projects and skills.",
+        "date": {
+            "published": "2025-10-20T00:00:00Z"
+        },
+        "featured": true,
+        "hidden": false
+    }
+]

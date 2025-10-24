@@ -1,139 +1,83 @@
-/* CSS Variables */
-:root {
-    --content-max-width: 780px;
-}
-
-main {
+/* Articles list page styles */
+.articles-list-page-mai {
     max-width: var(--content-max-width);
-    margin: 20px auto 0;
-    padding: 0 25px;
 }
 
-article h2 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+.container-articles-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, max-content));
+  gap: 25px;
+  justify-content: center;   /* centers the group of columns */
+  margin-bottom: 30px;
+}
+
+.container-articles-list-grid .article-item {
+    /* background-color: red; */
+    text-decoration: none;
+    color: inherit;
+    width: 400px;
+    margin: 0;
+}
+
+.container-articles-list-grid .article-item .item-image-body img {
+    margin: 0 0 10px;
+    width: 400px;
+    height: calc(400px * 0.6667); /* 6:4 ratio */
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0.98;
+}
+
+.container-articles-list-grid .article-item:hover .item-image-body img {
+    transform: scale(1.01);
+    transition: transform 0.2s;
+    opacity: 1;
+}
+
+.container-articles-list-grid .article-item .item-header {
+    height: 125px;
+    /* background-color: red; */
+    padding: 0 4px;
+    overflow: hidden;
+}
+
+.container-articles-list-grid .article-item .item-header h3 {
+    font-size: 1.2rem;
+    margin: 0px 0 5px;
     font-weight: 500;
 }
 
-article h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-article h4 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-article p {
-    line-height: 1.6;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    font-weight: 200;
-    color: rgba(255, 255, 255, 0.95);
-}
-
-article img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 5px;
-}
-
-article .strap-line {
-    font-size: 1.4rem;
-    font-style: italic;
-    margin: 0px;
-    font-weight: 100;
-}
-
-article .author-date {
-    font-size: 1rem;
-    margin: 0px;
-    color: var(--secondary-text-color);
-}
-
-article .author-date a {
-    color: var(--secondary-text-color);
-    text-decoration: none;
-}
-
-article .author-date a:hover {
+.container-articles-list-grid .article-item:hover .item-header h3 {
     text-decoration: underline;
+    transition: text-decoration 0.2s;
 }
 
-article .divider-line-horizontal {
-    border: none;
-    border-top: 1px solid var(--divider-color);
-    width: 100%;
-    margin: 20px 0 45px;
+.container-articles-list-grid .article-item .item-header .strap-line {
+    font-size: 0.95rem;
+    margin: 0 0 8px;
+    opacity: 0.80;
+    font-weight: thinner;
 }
 
-article footer {
-    margin: 0 0 100px;
-    padding: 0;
+.container-articles-list-grid .article-item:hover .item-header .strap-line {
+    opacity: 1;
+    transition: opacity 0.2s;
 }
 
-@media (max-width: 1024px) {}
-
-@media (max-width: 768px) {
-    article h2 {
-        font-size: 2rem;
-        margin-bottom: 9.1px;
-        font-weight: 455;
-    }
-
-    article h3 {
-        font-size: 1.64rem;
-        margin-bottom: 9.1px;
-    }
-
-    article h4 {
-        font-size: 1.27rem;
-        margin-bottom: 9.1px;
-    }
-
-    article p {
-        line-height: 1.56;
-        margin-bottom: 27.3px;
-        font-size: 1rem;
-        font-weight: 182;
-    }
-
-    article .strap-line {
-        font-size: 1.27rem;
-        font-weight: 91;
-    }
-
-    article .author-date {
-        font-size: 0.91rem;
-    }
+.container-articles-list-grid .article-item .item-header .date-and-info {
+    font-size: 0.85rem;
+    font-weight: thinner;
+    margin: 0;
 }
 
-@media (max-width: 680px) {
-    article h2 {
-        font-size: 1.82rem;
-        margin-bottom: 8.28px;
-        font-weight: 414.05;
-    }
+.container-articles-list-grid .article-item .item-header .date-and-info .date {
+    opacity: 0.5;
+}
 
-    article h3 {
-        font-size: 1.49rem;
-        margin-bottom: 8.28px;
-    }
+.container-articles-list-grid .article-item .item-header .extra-info-labels .label {
+    margin-left: 10px;
+    color: var(--primary-color);
+}
 
-    article h4 {
-        font-size: 1.15rem;
-        margin-bottom: 8.28px;
-    }
-
-    article .strap-line {
-        font-size: 1.16rem;
-        font-weight: 82.81;
-    }
-
-    article .author-date {
-        font-size: 0.83rem;
-    }
+.container-articles-list-grid .article-item .item-header .extra-info-labels .label-new {
 }

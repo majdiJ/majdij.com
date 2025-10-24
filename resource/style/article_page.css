@@ -1,0 +1,141 @@
+/* CSS Variables */
+:root {
+    --content-max-width: 780px;
+}
+
+/* Article webpage styles */
+.articles-page-main {
+    max-width: var(--content-max-width);
+    margin: 20px auto 0;
+    padding: 0 25px;
+}
+
+article h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+article h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+article h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+article p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+article img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+}
+
+article .strap-line {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin: 0px;
+    font-weight: 100;
+}
+
+article .author-date {
+    font-size: 1rem;
+    margin: 0px;
+    color: var(--secondary-text-color);
+}
+
+article .author-date a {
+    color: var(--secondary-text-color);
+    text-decoration: underline;
+}
+
+article .author-date a:hover {
+    text-decoration: underline;
+}
+
+article .divider-line-horizontal {
+    border: none;
+    border-top: 1px solid var(--divider-color);
+    width: 100%;
+    margin: 20px 0 45px;
+}
+
+article footer {
+    margin: 0 0 100px;
+    padding: 0;
+}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {
+    article h2 {
+        font-size: 2rem;
+        margin-bottom: 9.1px;
+        font-weight: 455;
+    }
+
+    article h3 {
+        font-size: 1.64rem;
+        margin-bottom: 9.1px;
+    }
+
+    article h4 {
+        font-size: 1.27rem;
+        margin-bottom: 9.1px;
+    }
+
+    article p {
+        line-height: 1.56;
+        margin-bottom: 27.3px;
+        font-size: 1rem;
+        font-weight: 182;
+    }
+
+    article .strap-line {
+        font-size: 1.27rem;
+        font-weight: 91;
+    }
+
+    article .author-date {
+        font-size: 0.91rem;
+    }
+}
+
+@media (max-width: 680px) {
+    article h2 {
+        font-size: 1.82rem;
+        margin-bottom: 8.28px;
+        font-weight: 414.05;
+    }
+
+    article h3 {
+        font-size: 1.49rem;
+        margin-bottom: 8.28px;
+    }
+
+    article h4 {
+        font-size: 1.15rem;
+        margin-bottom: 8.28px;
+    }
+
+    article .strap-line {
+        font-size: 1.16rem;
+        font-weight: 82.81;
+    }
+
+    article .author-date {
+        font-size: 0.83rem;
+    }
+}

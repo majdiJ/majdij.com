@@ -52,14 +52,14 @@
     <link rel="stylesheet" href="/resource/style/main.css" />
     <link rel="stylesheet" href="/resource/style/components/projects.css" />
     <link rel="stylesheet" href="/resource/style/components/minimal_header.css" />
+    <link rel="stylesheet" href="/resource/style/articles.css" />
 
     <!-- Site specific script(s) -->
-    <script src="/resource/script/recaptcha-display.js" defer></script>
     <script src="/resource/script/projects-carousel-component.js" defer></script>
+    <script src="/resource/script/dynamic_articles_list_page.js" defer></script>
     <!-- Script(s) -->
     <script src="/resource/script/anchor_scroll.js" defer></script>
     <!-- 3rd Party Script(s) -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -86,7 +86,7 @@
         </div>
     </header>
 
-    <main>
+    <main class="articles-list-page-main">
         <div class="container-main-content container-page-content-width">
 
             <div class="page-section page-section-projects" id="projects-header">
@@ -94,21 +94,7 @@
             </div>
 
             <div class="container-articles-list-grid">
-
-                <a class="article-item">
-                    
-                    <div class="item-header">
-                        <h3>Article Title</h3>
-                        <p>Short description of the article.</p>
-                    </div>
-
-                    <div class="item-body">
-                        <!-- Show article image if available, if not no image -->
-                        <img src="/articles/example-article/images/Placehold Image 31343C.svg" alt="Article Image" />
-                    </div>
-
-                </a>
-
+                <!-- Articles will be dynamically loaded here -->
             </div>
 
         </div>
