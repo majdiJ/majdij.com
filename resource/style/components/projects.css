@@ -168,17 +168,24 @@
 }
 
 .projects-item-carousel .long-description {
-    color: var(--secondary-text-color);
+    color: var(--primary-text-color);
     font-size: 0.90rem;
     font-weight: 250;
-    opacity: 0.85;
+    opacity: 0.75;
 }
 
 .projects-item-grid .long-description {
-    color: var(--secondary-text-color);
+    color: var(--primary-text-color);
     font-size: 0.85rem;
     font-weight: 200;
-    opacity: 0.85;
+    opacity: 0.50;
+}
+
+.projects-item-carousel:hover .long-description,
+.projects-item-carousel:focus .long-description,
+.projects-item-grid:hover .long-description,
+.projects-item-grid:focus .long-description {
+    opacity: 1;
 }
 
 .projects-item-carousel .item-footer,
