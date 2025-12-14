@@ -78,6 +78,46 @@
         "featured": true,
         "hidden": false
     },
+        {
+        "id": "simple-pykv",
+        "name": "Simple-PyKV",
+        "brand": {
+            "icon": "/resource/image/project-icons/simple-pykv.png",
+            "large_image": "assets/simple-pykv-logo.png",
+            "color": "#0a8fff"
+        },
+        "description": {
+            "long": "Simple, lightweight Python key-value storage server that exposes a RESTful HTTP API for saving and retrieving project-scoped key/value pairs. Designed for simplicity and predictable behaviour, useful for small to medium projects, internal tools, demos, or anywhere you need a tiny secure persistent or in-memory KV store without a heavy database. Licensed under Apache 2.0.",
+            "short_description": "A simple, lightweight Python key-value storage server with a RESTful API."
+        },
+        "date": {
+            "started": "2025-11-18T00:00:00Z",
+            "published": "2025-12-12T00:00:00Z"
+        },
+        "tags": [
+            "Key-Value",
+            "Server",
+            "REST API",
+            "NoSQL",
+            "Lightweight"
+        ],
+        "technologies": [
+            "Python",
+            "RESTful APIs",
+            "Flask",
+            "Waitress",
+            "Gunicorn",
+            "Docker"
+        ],
+        "links": {
+            "click": "https://github.com/majdiJ/simple-pykv",
+            "article": "",
+            "github": "https://github.com/majdiJ/simple-pykv",
+            "demo": ""
+        },
+        "featured": true,
+        "hidden": false
+    },
     {
         "id": "ArchComply",
         "name": "ArchComply",
