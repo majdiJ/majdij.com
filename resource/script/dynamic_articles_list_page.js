@@ -1,13 +1,13 @@
 /** dynamic_articles_list_page.js
  *
- * Client-side script to fetch /resource/data/article_list.json and populate
+ * Client-side script to fetch /resource/data/articles_data.json and populate
  * .container-articles-list-grid with article items.
  *
  * Config at top.
  */
 
 /* ----------------------- Configuration ----------------------- */
-const DATA_PATH = '/resource/data/article_list.json'; // where JSON lives
+const DATA_PATH = '/resource/data/articles_data.json'; // where JSON lives
 const CONTAINER_SELECTOR = '.container-articles-list-grid'; // container to replace
 const NEW_ARTICLE_DAYS = 30; // articles published within this many days get "New Article"
 const PLACEHOLDER_COUNT = 10; // random placeholder numbers will be between 1 and this (inclusive)
