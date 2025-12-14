@@ -5,6 +5,7 @@ import math
 import os
 import markdown
 from bs4 import BeautifulSoup
+import re as _re
 
 # Function to render HTML variables in a template string
 def render_html_vars(
@@ -117,15 +118,9 @@ def md_file_to_html_fragment(
     Read a markdown file and convert to an HTML fragment (no <html>/<body>).
     Shift headings so that a single `#` in markdown becomes <h{start_heading_level}>.
 
-    Args:
-      filepath: path to the markdown file.
-      start_heading_level: integer 1..6 indicating which HTML level `#` should map to.
-                           Example: start_heading_level=2 -> '#' -> <h2>, '##' -> <h3>.
-      extensions: optional list of markdown extension names to pass to markdown.markdown().
-      extension_configs: optional extension configurations.
-
-    Returns:
-      A string containing the HTML fragment.
+    This version special-cases any <div ... class="... md-to-html ...">...</div> blocks:
+    the inner text of those divs is converted from Markdown -> HTML before the overall
+    Markdown conversion, so Markdown within those divs is rendered.
     """
     if not os.path.isfile(filepath):
         raise FileNotFoundError(f"Markdown file not found: {filepath}")
@@ -139,7 +134,35 @@ def md_file_to_html_fragment(
     md_extensions = extensions if extensions is not None else DEFAULT_EXTENSIONS
     md_extension_configs = extension_configs or {}
 
-    # Render markdown to HTML fragment
+    div_re = re.compile(
+        r'(<div\b[^>]*\bclass=(?:"[^"]*"|\'[^\']*\')[^>]*>)(.*?)</div>',
+        re.DOTALL | re.IGNORECASE,
+    )
+
+    def _convert_div(match: re.Match) -> str:
+        start_tag = match.group(1)   # e.g. '<div class="table-of-contents md-to-html">'
+        inner_md = match.group(2)   # the markdown-looking content inside the div
+
+        # check if md-to-html is present in the class attribute of the start tag
+        # (match.group(1) contains the full start tag)
+        if re.search(r'\bclass=(?:"[^"]*"|\'[^\']*\')', start_tag, re.IGNORECASE):
+
+            # Extract the class attribute value and test for md-to-html to be robust
+            if "md-to-html" in start_tag:
+
+                # Convert the inner markdown to HTML using the same extensions
+                inner_html = markdown.markdown(inner_md, extensions=md_extensions, extension_configs=md_extension_configs)
+                # Return start tag + converted inner HTML + closing tag
+
+                return f"{start_tag}{inner_html}</div>"
+            
+        # Not a md-to-html div — return original match unchanged
+        return match.group(0)
+
+    # Run the preprocess substitution. This will convert each md-to-html div's inner text.
+    md_text = div_re.sub(_convert_div, md_text)
+
+    # Now convert the whole (possibly modified) markdown to HTML
     html = markdown.markdown(md_text, extensions=md_extensions, extension_configs=md_extension_configs)
 
     # If start == 1, no shift needed
@@ -153,7 +176,7 @@ def md_file_to_html_fragment(
     soup = BeautifulSoup(html, "html.parser")
 
     # find h1..h6 and shift them
-    for tag in soup.find_all(re.compile(r"^h[1-6]$")):
+    for tag in soup.find_all(_re.compile(r"^h[1-6]$")):
         orig_level = int(tag.name[1])
         new_level = orig_level + offset
         new_level = max(1, min(6, new_level))  # clamp to 1..6

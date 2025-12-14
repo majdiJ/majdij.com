@@ -11,7 +11,7 @@
         "featured_image": "/resource/articles/example-article/images/image1.svg",
         "strap_line": "This is an example strap line for the example article.",
         "date": {
-            "published": "2025-10-29T00:00:00Z",
+            "published": "2025-10-20T00:00:00Z",
             "edited": "2025-10-29T00:00:00Z"
         },
         "labels": [
@@ -38,15 +38,36 @@
         "featured_image": "/resource/articles/developing-my-portfolio-website/images/image1.png",
         "strap_line": "Building my personal portfolio website to showcase my projects and skills.",
         "date": {
-            "published": "2025-10-25T00:00:00Z"
+            "published": "2025-10-25T00:00:00Z",
+            "edited": "2025-12-14T00:00:00Z"
         },
         "labels": [],
         "keywords": [
             "portfolio",
-            "website",
             "web development",
-            "projects",
-            "skills"
+            "personal website",
+            "software engineering",
+            "frontend development",
+            "backend development",
+            "full stack developer",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Node.js",
+            "FastAPI",
+            "Python",
+            "static site generator",
+            "SSG",
+            "Cloudflare Workers",
+            "Cloudflare Pages",
+            "serverless",
+            "performance optimization",
+            "accessibility",
+            "SEO",
+            "Lighthouse scores",
+            "edge computing",
+            "web performance",
+            "developer projects"
         ],
         "featured": true,
         "hidden": false,

@@ -2,6 +2,17 @@ I’ve always liked making things. From sketching app ideas and building a Minec
 
 This site, [MajdiJ.com](https://majdij.com), is my portfolio and my laboratory. Showcasing my projects, the systems I design, and the practical skills I use to make fast, reliable and accessible websites, apps and software for users.
 
+## Table of Contents 
+<div class="md-to-html table-of-contents">
+1. [Learning by doing](#learning-by-doing)
+2. [Why I built the site this way](#why-i-built-the-site-this-way)
+3. [Performance, accessibility and SEO](#performance-accessibility-and-seo)
+4. [Accessibility and good practices](#accessibility-and-good-practices)
+5. [Static Site Generator (SSG)](#static-site-generator-ssg)
+6. [What I’m exploring next](#what-im-exploring-next)
+7. [See the work](#see-the-work)
+</div>
+
 ## Learning by doing
 
 I taught myself web development through courses and video tutorials on [Team Treehouse](https://teamtreehouse.com/profiles/majdijaigirdar) and YouTube. With a lot of experimenting I started with HTML, CSS and JavaScript and then expanded into server-side work and deployment. Along the way I picked up Node.js and Express for quick APIs, FastAPI for Python-based services, and Nginx for reverse proxying. More recently I’ve been using [Cloudflare Workers and Pages](https://www.cloudflare.com/en-gb/learning/what-is-cloudflare/) to deploy sites at the edge for speed, security and reliability.
@@ -23,7 +34,8 @@ Performance, accessibility and discoverability are important, they matter for se
 **Lighthouse scores – Performance 96 | Accessibility 100 | Best Practices 96 | SEO 100**  
 [Lighthouse is a tool made by Google](https://developer.chrome.com/docs/lighthouse/overview) that audits web pages for quality. High scoring sites provide better user experiences and are favoured by search engines.
 
-![Lighthouse scores screenshot](/articles/developing-my-portfolio-website/images/image2.png)
+![Lighthouse scores screenshot](/resource/articles/developing-my-portfolio-website/images/image2.png)
+*(Lighthouse scores for main page of MajdiJ.com on desktop)*
 
 - **Performance 96**  
   Pages load quickly, so users can access content faster. Fast sites also rank better in search.
@@ -37,6 +49,14 @@ Performance, accessibility and discoverability are important, they matter for se
 ## Accessibility and good practices
 
 I believe accessibility is not an afterthought. I use semantic markup, clear headings and alt descriptions for images. Keyboard navigation where appropriate make the site usable for people who rely on assistive tech. These are practical ways to make sure my work reaches the widest audience.
+
+## Static Site Generator (SSG)
+Whilst building the site, I wanted an efficient way to manage content and deploy updates. To do this, I created a custom static site generator (SSG) using Python. This tool automates the process of converting markdown files into HTML pages, applying consistent templates and styles. It saves time and effort when adding new articles or updating existing ones, ensuring that the site remains easy to maintain as it grows.
+
+I could have used a CMS or an existing SSG like Jekyll or Hugo, but building my own gave me more control and a deeper understanding of how static sites work under the hood. Whilst making a dynamic site with maybe a CMS and database would have been interesting, sometimes simpler is better, especially for a portfolio site where performance and reliability are key. 
+
+*(New edited section Sunday, 14th December 2025)*
+
 
 ## What I’m exploring next
 

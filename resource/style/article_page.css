@@ -100,6 +100,25 @@ article footer {
     padding: 0;
 }
 
+/* Article Elements */
+
+article .table-of-contents {
+    color: var(--secondary-text-color);
+}
+
+article .table-of-contents ol li {
+    margin: 0 0 5px 0;
+}
+
+article .table-of-contents a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+}
+
+article .table-of-contents a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 1024px) {}
 
 @media (max-width: 768px) {
