@@ -8,7 +8,7 @@
                 "url": "https://majdiJ.com/"
             }
         ],
-        "featured_image": "/articles/example-article/images/Placehold-1.svg",
+        "featured_image": "/resource/articles/example-article/images/image1.svg",
         "strap_line": "This is an example strap line for the example article.",
         "date": {
             "published": "2025-10-29T00:00:00Z",
@@ -17,8 +17,14 @@
         "labels": [
             "Example Label 1"
         ],
+        "keywords": [
+            "example",
+            "article",
+            "sample"
+        ],
         "featured": false,
-        "hidden": false
+        "hidden": false,
+        "auto_build": true
     },
     {
         "id": "developing-my-portfolio-website",
@@ -29,12 +35,24 @@
                 "url": "https://majdiJ.com/"
             }
         ],
-        "featured_image": "/articles/developing-my-portfolio-website/images/image1.png",
+        "featured_image": "/resource/articles/developing-my-portfolio-website/images/image1.png",
         "strap_line": "Building my personal portfolio website to showcase my projects and skills.",
         "date": {
             "published": "2025-10-25T00:00:00Z"
         },
+        "labels": [
+            "Web Development",
+            "Portfolio"
+        ],
+        "keywords": [
+            "portfolio",
+            "website",
+            "web development",
+            "projects",
+            "skills"
+        ],
         "featured": true,
-        "hidden": false
+        "hidden": false,
+        "auto_build": true
     }
 ]

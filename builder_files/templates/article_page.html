@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tag(s) -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Google -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5P3XYRZX1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R5P3XYRZX1');
+    </script>
+
+    <!-- Site specific meta tags -->
+    <title>{html_var(article_title)} | Majdi Jaigirdar</title>
+    <link rel="canonical" href="https://majdij.com/articles/{html_var(article_id)}" />
+    <meta name="description" content="{html_var(article_description)}" />
+    <meta name="keywords"
+        content="{html_var(article_keywords_list)}" />
+    <meta name="author" content="{html_var(article_main_author)}" />
+
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="{html_var(article_title)} | Majdi Jaigirdar">
+    <meta property="og:description"
+        content="{html_var(article_description)}">
+    <meta property="og:image" content="{html_var(article_social_image_url)}">
+    <meta property="og:url" content="https://majdij.com/articles/{html_var(article_id)}">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{html_var(article_title)} | Majdi Jaigirdar">
+    <meta name="twitter:description"
+        content="{html_var(article_description)}">
+    <meta name="twitter:image" content="{html_var(article_social_image_url)}">
+
+    <!-- Icon(s) and browser styling -->
+    <link rel="icon" href="/resource/image/Waving_Hand_Emoji.png" />
+    <link rel="apple-touch-icon" href="/resource/image/Waving_Hand_Emoji.png" />
+    <meta name="theme-color" content="#001624" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Style(s) -->
+    <link rel="stylesheet" href="/resource/style/main.css" />
+    <link rel="stylesheet" href="/resource/style/article_page.css" />
+    <link rel="stylesheet" href="/resource/style/components/minimal_header.css" />
+
+    <!-- Site specific script(s) -->
+    <!-- <script src="/resource/script/dynamic_article_page.js" defer></script> -- No longer used, replaced by python builder program -->
+    <!-- Script(s) -->
+    <script src="/resource/script/anchor_scroll.js" defer></script>
+    <!-- 3rd Party Script(s) -->
+</head>
+
+<body>
+    <div class="container-bottom-bar">
+        <nav class="container-navigation-links homepage-nav-links" aria-label="Primary">
+            <ul class="style-list-none">
+                <li><a href="/" class="nav-link" aria-current="page">Home</a></li>
+                <li><a href="/#about-me" class="nav-link">About Me</a></li>
+                <li><a href="/projects" class="nav-link">Projects</a></li>
+                <li class="hide-small-screen"><a href="/#skills" class="nav-link">Skills</a></li>
+                <li class="hide-small-screen"><a href="/#education" class="nav-link">Education</a></li>
+                <li><a href="/articles" class="nav-link current-active-link">Articles</a></li>
+                <li><a href="/#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header class="non-homepage-header">
+        <div class="header-content">
+            <a class="header-text" href="/">
+                <h1>Majdi Jaigirdar</h1>
+                <p>MajdiJ.com</p>
+            </a>
+        </div>
+    </header>
+
+    <main class="articles-page-main">
+
+        <article>
+            <header>
+                <h2>{html_var(article_title)}</h2>
+                <p class="strap-line">{html_var(article_strap_line)}</p>
+                <p class="author-date">
+                    By {html_var(article_authors)} | Published on {html_var(article_published_date)}{html_var(article_edited_date)}
+                </p>
+            </header>
+
+            <div class="divider-line-horizontal"></div>
+
+            <div class="article-image-container">
+                <img src="{html_var(article_image_url)}"
+                    alt="{html_var(article_image_alt)}" />
+            </div>
+
+            <div class="article-content">
+                {html_var(article_content_html)}
+            </div>
+
+            <div class="divider-line-horizontal"></div>
+
+            <footer>
+                <p class="author-date">
+                    By {html_var(article_authors)} | Published on {html_var(article_published_date)}{html_var(article_edited_date)}
+                </p>
+            </footer>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="container-page-content-width">
+            <p>
+                &copy; 2025 Majdi Jaigirdar. All rights reserved.<br />
+                All product names, logos, and brands are property of their respective owners. All company, product,
+                and service names used in this website are for identification purposes only. Use of these names, logos,
+                and brands does not imply endorsement. Photographs are copyright of Majdi Jaigirdar.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
