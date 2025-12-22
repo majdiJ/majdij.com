@@ -156,7 +156,7 @@
                         <a href="https://majdiJ.com/">
                             Majdi Jaigirdar
                         </a>
-                        | Published on 20 Dec 2025
+                        | Published on 22 Dec 2025
                     </p>
                 </header>
                 <div class="divider-line-horizontal-top">
@@ -651,7 +651,7 @@ my
                         <a href="https://majdiJ.com/">
                             Majdi Jaigirdar
                         </a>
-                        | Published on 20 Dec 2025
+                        | Published on 22 Dec 2025
                     </p>
                 </footer>
             </article>
@@ -660,31 +660,92 @@ my
         </button>
         -->
         <script>
-            document.getElementById('printNew').addEventListener('click', () => {
-            const url = '/articles/building-simple-pykv/print.html?autoprint=1';
-            const w = window.open(url, '_blank');
-            if (!w) {
+            document.getElementById('printNew').addEventListener('click', async (ev) => {
+            ev.preventDefault();
+
+            // Use your templated path here:
+            const pdfUrl = '/articles/building-simple-pykv/article.pdf';
+
+            // Quick fallback: try to open direct and request print (may not work reliably)
+            // const w = window.open(pdfUrl, '_blank');
+            // if (w) { w.focus(); setTimeout(()=>{ try { w.print(); } catch(e){} }, 700); return; }
+
+            // Better approach: fetch PDF blob and load it into a wrapper that can call print()
+            const popup = window.open('', '_blank');
+            if (!popup) {
                 alert('Popup blocked — allow popups for this site or try the iframe method.');
                 return;
             }
-            w.focus();
-            // Optionally try to call print when the window loads (may or may not be allowed)
-            w.onload = () => {
-                try { w.print(); } catch (e) { /* ignore */ }
-            };
+
+            try {
+                const resp = await fetch(pdfUrl, { method: 'GET', cache: 'no-store' });
+                if (!resp.ok) {
+                popup.close();
+                alert('Could not load PDF (HTTP ' + resp.status + ').');
+                return;
+                }
+
+                const blob = await resp.blob();
+                const blobUrl = URL.createObjectURL(blob);
+
+                // Write a minimal page into the popup which embeds the PDF and triggers printing
+                popup.document.open();
+                popup.document.write(`
+            <!doctype html>
+            <html>
+                <head>
+                    <meta charset="utf-8">
+                    <title>
+                        Print
+                    </title>
+                    <style>
+                        html,body{height:100%;margin:0}
+                    </style>
+                </head>
+                <body>
+                    <iframe id="pdfFrame" src="${blobUrl}" style="border:0;width:100vw;height:100vh;">
+                    </iframe>
+                    <script>
+                        const iframe = document.getElementById('pdfFrame');
+                    // Some PDF viewers don't fire onload, so try a couple of strategies:
+                    iframe.onload = () => {
+                        try {
+                        // focus and attempt to call print on the iframe's contentWindow
+                        window.focus();
+                        iframe.contentWindow.print();
+                        } catch (e) {
+                        // Last resort: call print on the wrapper
+                        try { window.print(); } catch (err) { /* ignore */ }
+                        }
+                        // free the blob URL a little later
+                        setTimeout(() => { try { URL.revokeObjectURL('${blobUrl}'); } catch(e){} }, 10000);
+                    };
+                    // also try an automatic timeout fallback in case onload doesn't fire
+                    setTimeout(() => { try { window.focus(); window.print(); } catch(e){} }, 2000);
+                        <\/script>
+                        </body>
+                    </html>
+                    `);
+                popup.document.close();
+
+            } catch (err) {
+                console.error('Error fetching/printing PDF', err);
+                // fallback: navigate popup to the PDF URL (will at least let user view it)
+                popup.location.href = pdfUrl;
+            }
             });
-        </script>
-    </main>
-    <footer>
-        <div class="container-page-content-width">
-            <p>
-                &copy; 2025 Majdi Jaigirdar. All rights reserved.
-                <br />
-                All product names, logos, and brands are property of their respective owners. All company, product,
+                </script>
+            </main>
+            <footer>
+                <div class="container-page-content-width">
+                    <p>
+                        &copy; 2025 Majdi Jaigirdar. All rights reserved.
+                        <br />
+                        All product names, logos, and brands are property of their respective owners. All company, product,
                 and service names used in this website are for identification purposes only. Use of these names, logos,
                 and brands does not imply endorsement. Photographs are copyright of Majdi Jaigirdar.
-            </p>
-        </div>
-    </footer>
-</body>
-</html>
+                    </p>
+                </div>
+            </footer>
+        </body>
+    </html>

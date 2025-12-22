@@ -6,301 +6,132 @@
             This is an Example Article Title | Majdi Jaigirdar
         </title>
         <meta name="author" content="Example Author">
-        <!--
-    Printable / PDF-first article template
-    - Minimal metadata and no external scripts or trackers
-    - Embedded print-focused CSS (A4 by default)
-    - Uses the same placeholders you already use in your builder
-    -->
+        <link rel="stylesheet" href="../../resource/style/article_page_print.css">
         <style>
-            /* ---------- Basic document sizing ---------- */
-    /* Default page size is A4; change to "size: Letter;" if you prefer US Letter */
-    @page {
-      size: A4;
-      margin: 20mm; /* outer page margin */
+            body {
+      margin: 0;
+      padding: 20px;
     }
-
-    /* Ensure the browser prints with predictable colours and spacing */
-    html, body {
-      height: auto;
-      background: #fff;
-      color: #000;
-      -webkit-print-color-adjust: exact;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: 12pt; /* good readable baseline for print */
-      line-height: 1.45;
-      margin: 0; /* page margins are handled by @page */
-    }
-
-    /* Container constrains content width and provides inner padding so header/footer don't overlap */
-    .print-container {
-      max-width: 780px; /* close to your existing design */
-      margin: 0 auto;
-      padding: 40px 12px; /* keep some internal breathing room */
-      box-sizing: border-box;
-    }
-
-    /* ---------- Header / Footer (fixed for print) ---------- */
-    /* These are positioned so they appear on every printed page in most browsers */
-    header.print-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 48px;
-      padding: 8px 20px;
-      box-sizing: border-box;
-      border-bottom: 1px solid #ccc;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 10pt;
-    }
-
-    footer.print-footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 36px;
-      padding: 6px 20px;
-      box-sizing: border-box;
-      border-top: 1px solid #ccc;
-      background: #fff;
-      font-size: 9pt;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    /* Prevent body content from overlapping fixed header/footer */
-    @media print {
-      .print-container { padding-top: 64px; padding-bottom: 48px; }
-    }
-
-    /* ---------- Article typography ---------- */
-    article h1 {
-      font-size: 20pt; /* 2.2rem equivalent for print */
-      margin: 0 0 6pt 0;
-      font-weight: 600;
-    }
-
-    .strap-line {
-      font-size: 12.5pt;
-      font-style: italic;
-      margin: 0 0 8pt 0;
-      font-weight: 300;
-    }
-
-    .author-date {
-      font-size: 10pt;
-      color: #333;
-      margin: 0 0 12pt 0;
-    }
-
-    article p {
-      margin: 0 0 12pt 0;
-      font-size: 11pt;
-      font-weight: 400;
-      color: #000;
-    }
-
-    article h2, article h3, article h4 {
-      page-break-after: avoid;
-      margin: 16pt 0 8pt 0;
-      font-weight: 600;
-    }
-
-    /* ---------- Images, figures and floats ---------- */
-    .featured-article-image img,
-    article .article-content img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 8pt 0 12pt 0;
-      /* avoid splitting an image across pages */
-      page-break-inside: avoid;
-    }
-
-    figure { margin: 0 0 12pt 0; }
-    figcaption { font-size: 9pt; color: #333; margin-top: 4pt; }
-
-    /* ---------- Tables ---------- */
-    article table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 8pt 0 12pt 0;
-      page-break-inside: avoid; /* try to keep tables together */
-      font-size: 10.5pt;
-    }
-
-    article th, article td {
-      padding: 6pt 8pt;
-      border: 1px solid #ccc;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    article thead th { font-weight: 700; }
-
-    /* ---------- Code blocks / pre ---------- */
-    pre, code {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 9pt;
-      white-space: pre-wrap; /* wrap long lines for print */
-      word-wrap: break-word;
-    }
-
-    pre {
-      padding: 8px;
-      border: 1px solid #ddd;
-      margin: 8pt 0 12pt 0;
-      page-break-inside: avoid;
-    }
-
-    /* ---------- Links: show URLs in print (optional) ---------- */
-    /* To disable external URL printing add class "no-link-urls" to the body */
-    body:not(.no-link-urls) a[href]:after {
-      content: " (" attr(href) ")";
-      font-size: 9pt;
-      color: #000;
-      text-decoration: none;
-    }
-
-    /* ---------- Page break helpers ---------- */
-    .page-break { display: block; page-break-before: always; }
-
-    /* Avoid breaking inside these common blocks */
-    article section, article figure, article table, pre {
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-
-    /* ---------- Utility (hide on print) ---------- */
-    .no-print { display: none !important; }
-
-    /* ---------- Screen fallback: keep the print layout usable in browser previews ---------- */
-    @media screen {
-      header.print-header, footer.print-footer { position: sticky; }
-      body { background: #fff; color: #111; }
-    }
+    .pdf-header { display: none; }
+    .pdf-footer { display: none; }
         </style>
     </head>
     <body>
-        <header class="print-header" role="banner">
-            <div style="font-weight:700">
-                Majdi Jaigirdar
-            </div>
-            <div style="font-size:9pt">
-                This is an Example Article Title
-            </div>
+        <header class="page-header pdf-header" role="banner">
+            <p>
+                <span style="font-weight:700">
+                    <a href="https://MajdiJ.com">
+                        majdij.com
+                    </a>
+                    |
+                </span>
+                <span style="font-size:9pt">
+                    This is an Example Article Title
+                </span>
+            </p>
         </header>
-        <div class="print-container">
-            <main>
-                <article>
-                    <header>
-                        <h1>
-                            This is an Example Article Title
-                        </h1>
-                        <p class="strap-line">
-                            This is an example strap line for the example article.
-                        </p>
-                        <p class="author-date">
-                            By
-                            <a href="https://majdiJ.com/">
-                                Example Author
-                            </a>
-                            | Published on 20 Oct 2025 | Edited on 29 Oct 2025
-                        </p>
-                    </header>
-                    <div class="divider-line-horizontal">
-                    </div>
-                    <div class="featured-article-image">
-                        <img src="/resource/articles/example-article/images/image1.svg" alt="This is an Example Article Title">
-                    </div>
-                    <div class="article-content">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        </p>
-                        <h2 id="example-article-subtitle">
-                            Example Article SubTitle!
-                        </h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            <em>
-                                Bulleted List Example:
-                            </em>
-                            - First item in the list
+        <main>
+            <article>
+                <header>
+                    <h1>
+                        This is an Example Article Title
+                    </h1>
+                    <p class="strap-line">
+                        This is an example strap line for the example article.
+                    </p>
+                    <p class="author-date">
+                        By
+                        <a href="https://majdiJ.com/">
+                            Example Author
+                        </a>
+                        ,
+                        <a href="https://example.com/co-author">
+                            Co-Author Name
+                        </a>
+                        | Published on
+          20 Oct 2025 | Edited on 29 Oct 2025
+                    </p>
+                </header>
+                <div class="divider-line-horizontal">
+                </div>
+                <a class="article-url" href="https://majdij.com/articles/example-article">
+                    https://majdij.com/articles/example-article
+                </a>
+                <div class="divider-line-horizontal">
+                </div>
+                <div class="featured-article-image">
+                    <img src="../../resource/articles/example-article/images/image1.svg" alt="This is an Example Article Title">
+                </div>
+                <div class="article-content">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                    <h2 id="example-article-subtitle">
+                        Example Article SubTitle!
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                    <p>
+                        <em>
+                            Bulleted List Example:
+                        </em>
+                        - First item in the list
 - Second item in the list
 - Third item in the list
-                        </p>
-                        <p>
-                            Link to homepage:
-                            <a href="/">
-                                Homepage
-                            </a>
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        </p>
-                        <h3 id="example-sub-subtitle">
-                            Example Sub-SubTitle
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Insert Html button example:
-                        </p>
-                        <p>
-                            <button onclick="alert('Button clicked!')">
-                                Click Me
-                            </button>
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        </p>
-                    </div>
-                    <div class="divider-line-horizontal">
-                    </div>
-                    <footer>
-                        <p class="author-date">
-                            By
-                            <a href="https://majdiJ.com/">
-                                Example Author
-                            </a>
-                            | Published on 20 Oct 2025 | Edited on 29 Oct 2025
-                        </p>
-                    </footer>
-                </article>
-            </main>
-        </div>
-        <footer class="print-footer" role="contentinfo">
+                    </p>
+                    <p>
+                        Link to homepage:
+                        <a href="/">
+                            Homepage
+                        </a>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                    <h3 id="example-sub-subtitle">
+                        Example Sub-SubTitle
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                    <p>
+                        Insert Html button example:
+                    </p>
+                    <p>
+                        <button onclick="alert('Button clicked!')">
+                            Click Me
+                        </button>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                </div>
+                <div class="divider-line-horizontal">
+                </div>
+                <footer>
+                    <p class="author-date">
+                        By
+                        <a href="https://majdiJ.com/">
+                            Example Author
+                        </a>
+                        ,
+                        <a href="https://example.com/co-author">
+                            Co-Author Name
+                        </a>
+                        | Published on
+          20 Oct 2025 | Edited on 29 Oct 2025
+                    </p>
+                </footer>
+            </article>
+        </main>
+        <footer class="page-footer pdf-footer" role="contentinfo">
             <div>
-                &copy;  Majdi Jaigirdar
-            </div>
-            <div style="font-size:9pt">
-                Page
-                <span class="pageNumber">
-                </span>
+                &copy; majdij.com (Example Author, 20 Oct 2025)
             </div>
         </footer>
-        <!-- Optional script that fills page numbers in browsers that support it (kept tiny & non-essential) -->
         <script>
-            // Some printers / PDF engines will ignore JS; this is a graceful enhancement only.
-    try {
-      // Modern browsers like Chromium provide CSS Paged Media counters but JS fallback for viewers
-      var pageSpans = document.getElementsByClassName('pageNumber');
-      if (pageSpans.length) {
-        // This cannot know total pages reliably in-browser; leave placeholder empty (the PDF tool may handle it)
-      }
-    } catch (e) { /* silent */ }
-        </script>
-        <script>
-            (function(){
+            (function () {
       const params = new URLSearchParams(location.search);
       if (params.get('autoprint') === '1') {
         window.addEventListener('load', () => {

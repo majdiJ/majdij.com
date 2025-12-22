@@ -126,7 +126,7 @@ article .divider-line-horizontal,
 }
 
 .divider-line-horizontal-bottom {
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 article .article-sharing-exporting ul {
@@ -140,11 +140,12 @@ article .article-sharing-exporting ul {
 article .article-sharing-exporting ul li {
     font-size: 0.95rem;
     margin: 0;
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
 article .article-sharing-exporting ul li:hover {
     opacity: 1;
+    transform: scale(1.05);
 }
 
 article .article-sharing-exporting ul a {

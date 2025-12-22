@@ -11,6 +11,7 @@ from builder_files.util.html import (
     md_file_to_html_fragment,
     render_html_vars,
     indent_html,
+    html_to_pdf
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -86,6 +87,41 @@ def _format_authors_html(authors: Optional[list]) -> str:
         elif name:
             out.append(html_module.escape(name))
     return ", ".join(out)
+
+
+def _convert_absolute_to_relative_paths(html_content: str, from_article_dir: bool = True) -> str:
+    """
+    Convert absolute paths (starting with /) to relative paths in HTML content.
+    For print.html files in articles/{article_id}/, we need to go up two levels (../../)
+    to reach the project root.
+    
+    Args:
+        html_content: HTML string with absolute paths
+        from_article_dir: If True, assumes we're in articles/{article_id}/ (needs ../../)
+                         If False, assumes we're at project root
+    
+    Returns:
+        HTML with relative paths
+    """
+    if not from_article_dir:
+        return html_content
+    
+    # Replace absolute paths with relative ones
+    # Match src="/resource/..." or href="/resource/..."
+    import re
+    
+    def replace_path(match):
+        attr_name = match.group(1)  # 'src' or 'href'
+        path = match.group(2)       # the path itself
+        # Convert /resource/... to ../../resource/...
+        relative_path = f"../..{path}"
+        return f'{attr_name}="{relative_path}"'
+    
+    # Match both src and href attributes with absolute paths
+    pattern = r'((?:src|href))="(/[^"]+)"'
+    html_content = re.sub(pattern, replace_path, html_content)
+    
+    return html_content
 
 
 def build_article_page(
@@ -301,6 +337,9 @@ def build_article_print_page(
 
     # Render template (missing -> empty string so leftover tokens are removed)
     rendered = render_html_vars(template_text, values=mapping, html_escape=False, missing="")
+    
+    # Convert absolute paths to relative paths for file:// URL compatibility
+    rendered = _convert_absolute_to_relative_paths(rendered, from_article_dir=True)
 
     # Optional: pretty indent
     try:
@@ -360,6 +399,11 @@ def build_all_articles(
                     template_path=TEMPLATE_PRINT_PATH,
                     md_root=md_root,
                     output_root=output_root,
+                )
+                # Convert print.html to PDF using file path for proper resource loading
+                html_to_pdf(
+                    html_file=os.path.join(output_root, article["id"], "print.html"),
+                    output_path=os.path.join(output_root, article["id"], "article.pdf"),
                 )
             except Exception:
                 logger.exception("Failed to build article: %s", article.get("id"))

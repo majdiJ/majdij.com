@@ -6,6 +6,10 @@
             {
                 "name": "Example Author",
                 "url": "https://majdiJ.com/"
+            },
+            {
+                "name": "Co-Author Name",
+                "url": "https://example.com/co-author"
             }
         ],
         "featured_image": "/resource/articles/example-article/images/image1.svg",

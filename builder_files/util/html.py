@@ -185,77 +185,162 @@ def md_file_to_html_fragment(
 
     return str(soup)
 
-def html_to_pdf(html: str, output_path: str,
-                format: str = "A4", margin: dict = None,
-                print_background: bool = True, base_path: str = None):
+from playwright.sync_api import sync_playwright
+from typing import Optional
+from pathlib import Path
+
+def html_to_pdf(
+    html: Optional[str] = None,
+    html_file: Optional[str] = None,
+    output_path: str = None,
+    header_selector: str = ".pdf-header",
+    footer_selector: str = ".pdf-footer",
+    margin_top: str = "15mm",
+    margin_bottom: str = "15mm",
+    margin_left: str = "12mm",
+    margin_right: str = "12mm",
+    paper_format: str = "A4",   # or "Letter"
+    landscape: bool = False,
+    wait_until: str = "networkidle",
+    print_background: bool = True,
+) -> None:
     """
-    Convert HTML string to PDF using Playwright.
-    
+    Render HTML to a PDF file (output_path). If the HTML contains elements
+    matching header_selector and/or footer_selector, their innerHTML will be used
+    as the PDF header/footer. Both header and footer templates always include
+    page numbers "Page X of Y".
+
     Args:
-        html: HTML content to convert
+        html: HTML content as string (optional if html_file is provided)
+        html_file: Path to HTML file (optional if html is provided)
         output_path: Path where PDF will be saved
-        format: Page format (default: A4)
-        margin: Page margins dict
-        print_background: Whether to print background graphics
-        base_path: Base directory path for resolving relative URLs (images, CSS, etc.)
+
+    Requirements:
+      pip install playwright
+      playwright install chromium
+
+    Notes:
+      - Playwright's header/footer templates accept simple HTML (no external CSS).
+      - pageNumber and totalPages placeholders are provided as <span class="pageNumber"></span>
+        and <span class="totalPages"></span>.
+      - PDF printing (page.pdf()) is supported on Chromium.
+      - Using html_file is preferred over html string for proper resource loading (images, fonts).
     """
-    margin = margin or {"top": "20px", "bottom": "20px", "left": "20px", "right": "20px"}
-    
-    # If base_path is provided, save HTML to temp file and use file:// URL
-    # This ensures relative paths work correctly
-    if base_path:
-        import tempfile
-        from pathlib import Path
+    if html is None and html_file is None:
+        raise ValueError("Either 'html' or 'html_file' must be provided")
+    if output_path is None:
+        raise ValueError("'output_path' must be provided")
+
+    def build_template(content_html: Optional[str], default_text: str, is_header: bool) -> str:
+        # Keep the template compact and safe for Chromium printToPDF.
+        # We ensure the pageNumber / totalPages are present in the footer.
+        if content_html:
+            # Put content on left and page numbering on right for footers.
+            if is_header:
+                return (
+                    "<div style='font-family: -apple-system, BlinkMacSystemFont, "
+                    "Segoe UI, Roboto, Helvetica, Arial, sans-serif; "
+                    "font-size:11px; width:100%; padding:0 50px;'>"
+                    f"<div style='width:100%;'>{content_html}</div>"
+                    "</div>"
+                )
+            else:
+                # Footer: left = content_html, right = page numbers
+                return (
+                    "<div style='font-family: -apple-system, BlinkMacSystemFont, "
+                    "Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size:11px; "
+                    "width:100%; padding:0 50px;'>"
+                    "<div style='display:flex; width:100%; justify-content:space-between; "
+                    "align-items:center;'>"
+                    f"<div style='text-align:left; min-width:0; overflow:hidden;'>{content_html}</div>"
+                    "<div style='text-align:right; white-space:nowrap;'>"
+                    "Page <span class='pageNumber'></span> of <span class='totalPages'></span>"
+                    "</div>"
+                    "</div></div>"
+                )
+        else:
+            # minimal default
+            if is_header:
+                return (
+                    "<div style='font-family: -apple-system, BlinkMacSystemFont, "
+                    "Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size:11px; "
+                    "width:100%; padding:0 10px; text-align:center;'>"
+                    f"{default_text}"
+                    "</div>"
+                )
+            else:
+                return (
+                    "<div style='font-family: -apple-system, BlinkMacSystemFont, "
+                    "Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size:11px; "
+                    "width:100%; padding:0 10px;'>"
+                    "<div style='display:flex; width:100%; justify-content:space-between; "
+                    "align-items:center;'>"
+                    f"<div>{default_text}</div>"
+                    "<div>Page <span class='pageNumber'></span> of <span class='totalPages'></span></div>"
+                    "</div></div>"
+                )
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context()
+        page = context.new_page()
         
-        # Create a temporary HTML file in the base directory
-        base_dir = Path(base_path).resolve()
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.html', delete=False, 
-                                        dir=base_dir, encoding='utf-8') as tmp:
-            tmp.write(html)
-            tmp_path = tmp.name
-        
+        # If html_file is provided, use goto with file:// URL for proper resource loading
+        if html_file:
+            file_path = Path(html_file).resolve()
+            file_url = file_path.as_uri()
+            page.goto(file_url, wait_until=wait_until)
+        else:
+            # Fall back to set_content if only HTML string is provided
+            page.set_content(html, wait_until=wait_until)
+
+        # Try to extract the header/footer HTML from the rendered page
+        header_html = None
+        footer_html = None
+
         try:
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                page = browser.new_page()
-                
-                # Set a timeout to avoid hanging indefinitely
-                page.set_default_timeout(30000)  # 30 seconds
-                
-                # Load from file:// URL so relative paths work
-                file_url = Path(tmp_path).as_uri()
-                page.goto(file_url, wait_until="domcontentloaded", timeout=30000)
-                
-                # Wait a bit for any images to load
-                page.wait_for_timeout(1000)
-                
-                # Create PDF
-                page.pdf(path=output_path,
-                        format=format,
-                        margin=margin,
-                        print_background=print_background)
-                browser.close()
-        finally:
-            # Clean up temp file
-            Path(tmp_path).unlink(missing_ok=True)
-    else:
-        # Fallback: use set_content without base URL
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            
-            # Set a timeout to avoid hanging indefinitely
-            page.set_default_timeout(30000)  # 30 seconds
-            
-            # Load the HTML string
-            page.set_content(html, wait_until="domcontentloaded", timeout=30000)
-            
-            # Wait a bit for any quick-loading resources
-            page.wait_for_timeout(1000)
-            
-            # Create PDF
-            page.pdf(path=output_path,
-                    format=format,
-                    margin=margin,
-                    print_background=print_background)
-            browser.close()
+            header_html = page.evaluate(
+                """(sel) => {
+                    const el = document.querySelector(sel);
+                    return el ? el.innerHTML : null;
+                }""",
+                header_selector,
+            )
+        except Exception:
+            header_html = None
+
+        try:
+            footer_html = page.evaluate(
+                """(sel) => {
+                    const el = document.querySelector(sel);
+                    return el ? el.innerHTML : null;
+                }""",
+                footer_selector,
+            )
+        except Exception:
+            footer_html = None
+
+        header_template = build_template(header_html, "", is_header=True)
+        footer_template = build_template(footer_html, "", is_header=False)
+
+        # print to pdf (Chromium). display_header_footer must be True to use templates.
+        page.pdf(
+            path=output_path,
+            format=paper_format,
+            landscape=landscape,
+            display_header_footer=True,
+            header_template=header_template,
+            footer_template=footer_template,
+            margin={
+                "top": margin_top,
+                "bottom": margin_bottom,
+                "left": margin_left,
+                "right": margin_right,
+            },
+            print_background=print_background,
+        )
+
+        context.close()
+        browser.close()
+
+
