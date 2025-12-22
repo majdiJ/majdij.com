@@ -168,32 +168,32 @@
                 <div class="article-sharing-exporting">
                     <ul>
                         <li>
-                            <a href="https://twitter.com/intent/tweet?text=This is an Example Article Title%0Ahttps://majdij.com/articles/example-article" target="_blank" rel="noopener noreferrer">
+                            <a href="https://twitter.com/intent/tweet?text=This is an Example Article Title%0Ahttps://majdij.com/articles/example-article/?utm_source=x&utm_medium=social&utm_content=post" target="_blank" rel="noopener noreferrer">
                                 <img src="/resource/image/social-icons/x.png" alt="Twitter/x Icon" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://majdij.com/articles/example-article&quote=This is an Example Article Title" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://majdij.com/articles/example-article&quote=This is an Example Article Title/?utm_source=facebook&utm_medium=social&utm_content=post" target="_blank" rel="noopener noreferrer">
                                 <img src="/resource/image/social-icons/facebook.webp" alt="Facebook Icon" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://majdij.com/articles/example-article" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://majdij.com/articles/example-article/?utm_source=linkedin&utm_medium=social&utm_content=post" target="_blank" rel="noopener noreferrer">
                                 <img src="/resource/image/social-icons/linkedin.png" alt="LinkedIn Icon" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.threads.net/intent/post?text=This is an Example Article Title%0Ahttps://majdij.com/articles/example-article" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.threads.net/intent/post?text=This is an Example Article Title%0Ahttps://majdij.com/articles/example-article/?utm_source=threads&utm_medium=social&utm_content=post" target="_blank" rel="noopener noreferrer">
                                 <img src="/resource/image/social-icons/threads.png" alt="Threads Icon" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://api.whatsapp.com/send?text=This is an Example Article Title%0Ahttps://majdij.com/articles/example-article" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/?text=https%3A%2F%2Fmajdij.com%2Farticles%2Fexample-article%2F%3Futm_source%3Dwhatsapp%26utm_medium%3Dsocial%26utm_content%3Dpost" target="_blank" rel="noopener noreferrer">
                                 <img src="/resource/image/social-icons/whatsapp.png" alt="WhatsApp Icon" />
                             </a>
                         </li>
                         <li>
-                            <a href="#" onclick="navigator.clipboard.writeText('example.com/example').then(() =>
+                            <a href="#" onclick="navigator.clipboard.writeText('https://majdij.com/articles/example-article/?utm_source=copy_button&utm_medium=site&utm_content=post').then(() =>
                                 alert('Link copied!'));return false;">
                                 <img src="/resource/image/social-icons/link.svg" alt="Copy Link Icon" />
                             </a>
@@ -281,14 +281,8 @@
             document.getElementById('printNew').addEventListener('click', async (ev) => {
             ev.preventDefault();
 
-            // Use your templated path here:
             const pdfUrl = '/articles/example-article/article.pdf';
 
-            // Quick fallback: try to open direct and request print (may not work reliably)
-            // const w = window.open(pdfUrl, '_blank');
-            // if (w) { w.focus(); setTimeout(()=>{ try { w.print(); } catch(e){} }, 700); return; }
-
-            // Better approach: fetch PDF blob and load it into a wrapper that can call print()
             const popup = window.open('', '_blank');
             if (!popup) {
                 alert('Popup blocked — allow popups for this site or try the iframe method.');
