@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Developing My Personal Portfolio Website with Modern Web Tech: MajdiJ.com | Majdi Jaigirdar
+        </title>
+        <meta name="author" content="Majdi Jaigirdar">
+        <!--
+    Printable / PDF-first article template
+    - Minimal metadata and no external scripts or trackers
+    - Embedded print-focused CSS (A4 by default)
+    - Uses the same placeholders you already use in your builder
+    -->
+        <style>
+            /* ---------- Basic document sizing ---------- */
+    /* Default page size is A4; change to "size: Letter;" if you prefer US Letter */
+    @page {
+      size: A4;
+      margin: 20mm; /* outer page margin */
+    }
+
+    /* Ensure the browser prints with predictable colours and spacing */
+    html, body {
+      height: auto;
+      background: #fff;
+      color: #000;
+      -webkit-print-color-adjust: exact;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 12pt; /* good readable baseline for print */
+      line-height: 1.45;
+      margin: 0; /* page margins are handled by @page */
+    }
+
+    /* Container constrains content width and provides inner padding so header/footer don't overlap */
+    .print-container {
+      max-width: 780px; /* close to your existing design */
+      margin: 0 auto;
+      padding: 40px 12px; /* keep some internal breathing room */
+      box-sizing: border-box;
+    }
+
+    /* ---------- Header / Footer (fixed for print) ---------- */
+    /* These are positioned so they appear on every printed page in most browsers */
+    header.print-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      padding: 8px 20px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10pt;
+    }
+
+    footer.print-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      padding: 6px 20px;
+      box-sizing: border-box;
+      border-top: 1px solid #ccc;
+      background: #fff;
+      font-size: 9pt;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Prevent body content from overlapping fixed header/footer */
+    @media print {
+      .print-container { padding-top: 64px; padding-bottom: 48px; }
+    }
+
+    /* ---------- Article typography ---------- */
+    article h1 {
+      font-size: 20pt; /* 2.2rem equivalent for print */
+      margin: 0 0 6pt 0;
+      font-weight: 600;
+    }
+
+    .strap-line {
+      font-size: 12.5pt;
+      font-style: italic;
+      margin: 0 0 8pt 0;
+      font-weight: 300;
+    }
+
+    .author-date {
+      font-size: 10pt;
+      color: #333;
+      margin: 0 0 12pt 0;
+    }
+
+    article p {
+      margin: 0 0 12pt 0;
+      font-size: 11pt;
+      font-weight: 400;
+      color: #000;
+    }
+
+    article h2, article h3, article h4 {
+      page-break-after: avoid;
+      margin: 16pt 0 8pt 0;
+      font-weight: 600;
+    }
+
+    /* ---------- Images, figures and floats ---------- */
+    .featured-article-image img,
+    article .article-content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 8pt 0 12pt 0;
+      /* avoid splitting an image across pages */
+      page-break-inside: avoid;
+    }
+
+    figure { margin: 0 0 12pt 0; }
+    figcaption { font-size: 9pt; color: #333; margin-top: 4pt; }
+
+    /* ---------- Tables ---------- */
+    article table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8pt 0 12pt 0;
+      page-break-inside: avoid; /* try to keep tables together */
+      font-size: 10.5pt;
+    }
+
+    article th, article td {
+      padding: 6pt 8pt;
+      border: 1px solid #ccc;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    article thead th { font-weight: 700; }
+
+    /* ---------- Code blocks / pre ---------- */
+    pre, code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 9pt;
+      white-space: pre-wrap; /* wrap long lines for print */
+      word-wrap: break-word;
+    }
+
+    pre {
+      padding: 8px;
+      border: 1px solid #ddd;
+      margin: 8pt 0 12pt 0;
+      page-break-inside: avoid;
+    }
+
+    /* ---------- Links: show URLs in print (optional) ---------- */
+    /* To disable external URL printing add class "no-link-urls" to the body */
+    body:not(.no-link-urls) a[href]:after {
+      content: " (" attr(href) ")";
+      font-size: 9pt;
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* ---------- Page break helpers ---------- */
+    .page-break { display: block; page-break-before: always; }
+
+    /* Avoid breaking inside these common blocks */
+    article section, article figure, article table, pre {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    /* ---------- Utility (hide on print) ---------- */
+    .no-print { display: none !important; }
+
+    /* ---------- Screen fallback: keep the print layout usable in browser previews ---------- */
+    @media screen {
+      header.print-header, footer.print-footer { position: sticky; }
+      body { background: #fff; color: #111; }
+    }
+        </style>
+    </head>
+    <body>
+        <header class="print-header" role="banner">
+            <div style="font-weight:700">
+                Majdi Jaigirdar
+            </div>
+            <div style="font-size:9pt">
+                Developing My Personal Portfolio Website with Modern Web Tech: MajdiJ.com
+            </div>
+        </header>
+        <div class="print-container">
+            <main>
+                <article>
+                    <header>
+                        <h1>
+                            Developing My Personal Portfolio Website with Modern Web Tech: MajdiJ.com
+                        </h1>
+                        <p class="strap-line">
+                            Building my personal portfolio website to showcase my projects and skills.
+                        </p>
+                        <p class="author-date">
+                            By
+                            <a href="https://majdiJ.com/">
+                                Majdi Jaigirdar
+                            </a>
+                            | Published on 25 Oct 2025 | Edited on 14 Dec 2025
+                        </p>
+                    </header>
+                    <div class="divider-line-horizontal">
+                    </div>
+                    <div class="featured-article-image">
+                        <img src="/resource/articles/developing-my-portfolio-website/images/image1.png" alt="Developing My Personal Portfolio Website with Modern Web Tech: MajdiJ.com">
+                    </div>
+                    <div class="article-content">
+                        <p>
+                            I’ve always liked making things. From sketching app ideas and building a Minecraft server site for friends to experimenting with Weebly and Wix, wanting full control I moved away from templates, drag-and-drop builders to coding everything by hand. That curiosity pushed me into learning how the web really works.
+                        </p>
+                        <p>
+                            This site,
+                            <a href="https://majdij.com">
+                                MajdiJ.com
+                            </a>
+                            , is my portfolio and my laboratory. Showcasing my projects, the systems I design, and the practical skills I use to make fast, reliable and accessible websites, apps and software for users.
+                        </p>
+                        <h2 id="table-of-contents">
+                            Table of Contents
+                        </h2>
+                        <div class="md-to-html table-of-contents">
+                            <ol>
+                                <li>
+                                    <a href="#learning-by-doing">
+                                        Learning by doing
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#why-i-built-the-site-this-way">
+                                        Why I built the site this way
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#performance-accessibility-and-seo">
+                                        Performance, accessibility and SEO
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#accessibility-and-good-practices">
+                                        Accessibility and good practices
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#static-site-generator-ssg">
+                                        Static Site Generator (SSG)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#what-im-exploring-next">
+                                        What I’m exploring next
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#see-the-work">
+                                        See the work
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <h2 id="learning-by-doing">
+                            Learning by doing
+                        </h2>
+                        <p>
+                            I taught myself web development through courses and video tutorials on
+                            <a href="https://teamtreehouse.com/profiles/majdijaigirdar">
+                                Team Treehouse
+                            </a>
+                            and YouTube. With a lot of experimenting I started with HTML, CSS and JavaScript and then expanded into server-side work and deployment. Along the way I picked up Node.js and Express for quick APIs, FastAPI for Python-based services, and Nginx for reverse proxying. More recently I’ve been using
+                            <a href="https://www.cloudflare.com/en-gb/learning/what-is-cloudflare/">
+                                Cloudflare Workers and Pages
+                            </a>
+                            to deploy sites at the edge for speed, security and reliability.
+                        </p>
+                        <p>
+                            Projects are where you can apply your knowledge. I’ve pushed a mix of public and private sites and services, everything from small static sites to backend APIs. You can see the full list on my
+                            <a href="https://majdij.com/projects">
+                                Projects
+                            </a>
+                            page and view other projects I've worked on my
+                            <a href="https://github.com/majdiJ">
+                                GitHub
+                            </a>
+                            page.
+                        </p>
+                        <h2 id="why-i-built-the-site-this-way">
+                            Why I built the site this way
+                        </h2>
+                        <p>
+                            For a portfolio, I wanted something that loads fast, is easy to maintain and is accessible worldwide. That's why the frontend is built with vanilla HTML, CSS and JavaScript. Using a lightweight, framework-free approach keeps page weight down and means faster initial loads for visitors and recruiters. I do in the future want to explore frameworks like React or Svelte for more complex projects, but for now simplicity and performance are key.
+                        </p>
+                        <p>
+                            Hosting on Cloudflare Workers &amp; Pages gives me edge delivery and simple serverless endpoints. In practice this means static assets are cached close to users, and small dynamic routes can be served without managing a full server. Where a traditional server is needed, for my API servers I use Node.js and FastAPI behind Nginx for routing and proxying.
+                        </p>
+                        <p>
+                            I also connect a few third party services where they make sense. Forms use
+                            <a href="https://formspree.io/">
+                                Formspree
+                            </a>
+                            so I can simply collect messages without building backend, protected by Google reCAPTCHA to reduce spam. Google Analytics helps me understand how people find and use the site. These are practical choices that save time while keeping control.
+                        </p>
+                        <h2 id="performance-accessibility-and-seo">
+                            Performance, accessibility and SEO
+                        </h2>
+                        <p>
+                            Performance, accessibility and discoverability are important, they matter for search engine indexing and reaching users. My Lighthouse scores for this website reflect that work:
+                        </p>
+                        <p>
+                            <strong>
+                                Lighthouse scores – Performance 96 | Accessibility 100 | Best Practices 96 | SEO 100
+                            </strong>
+                            <br />
+                            <a href="https://developer.chrome.com/docs/lighthouse/overview">
+                                Lighthouse is a tool made by Google
+                            </a>
+                            that audits web pages for quality. High scoring sites provide better user experiences and are favoured by search engines.
+                        </p>
+                        <p>
+                            <img alt="Lighthouse scores screenshot" src="/resource/articles/developing-my-portfolio-website/images/image2.png" />
+                            <em>
+                                (Lighthouse scores for main page of MajdiJ.com on desktop)
+                            </em>
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    <strong>
+                                        Performance 96
+                                    </strong>
+                                    <br />
+                                    Pages load quickly, so users can access content faster. Fast sites also rank better in search.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>
+                                        Accessibility 100
+                                    </strong>
+                                    <br />
+                                    Inclusive design means fewer barriers for users and allows everyone to access content. It shows I follow semantic HTML, provide alt text, and support keyboard navigation for people using assistive tech.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>
+                                        SEO 100
+                                    </strong>
+                                    <br />
+                                    The site is easy to find and share on search engines. Proper meta tags, structured data and clean URLs help improve visibility, showing I understand how to optimise for search engines to reach a wider audience.
+                                </p>
+                            </li>
+                        </ul>
+                        <h2 id="accessibility-and-good-practices">
+                            Accessibility and good practices
+                        </h2>
+                        <p>
+                            I believe accessibility is not an afterthought. I use semantic markup, clear headings and alt descriptions for images. Keyboard navigation where appropriate make the site usable for people who rely on assistive tech. These are practical ways to make sure my work reaches the widest audience.
+                        </p>
+                        <h2 id="static-site-generator-ssg">
+                            Static Site Generator (SSG)
+                        </h2>
+                        <p>
+                            Whilst building the site, I wanted an efficient way to manage content and deploy updates. To do this, I created a custom static site generator (SSG) using Python. This tool automates the process of converting markdown files into HTML pages, applying consistent templates and styles. It saves time and effort when adding new articles or updating existing ones, ensuring that the site remains easy to maintain as it grows.
+                        </p>
+                        <p>
+                            I could have used a CMS or an existing SSG like Jekyll or Hugo, but building my own gave me more control and a deeper understanding of how static sites work under the hood. Whilst making a dynamic site with maybe a CMS and database would have been interesting, sometimes simpler is better, especially for a portfolio site where performance and reliability are key.
+                        </p>
+                        <p>
+                            <em>
+                                (New edited section Sunday, 14th December 2025)
+                            </em>
+                        </p>
+                        <h2 id="what-im-exploring-next">
+                            What I’m exploring next
+                        </h2>
+                        <p>
+                            I plan to build more complex apps using modern frameworks and web binaries when a project needs them, but I keep returning to the principle of choosing the right tool for the job. I’m also experimenting more with serverless projects, dockerised environments and microservices so I can ship reliable systems that are easy to debug and scale.
+                        </p>
+                        <h2 id="see-the-work">
+                            See the work
+                        </h2>
+                        <p>
+                            If you want to see my projects, check my
+                            <a href="https://majdij.com/projects">
+                                Projects
+                            </a>
+                            page. For code and more technical details, visit my
+                            <a href="https://github.com/majdij">
+                                GitHub
+                            </a>
+                            . If you’d like to get in touch, use the
+                            <a href="https://majdij.com/#contact">
+                                Contact
+                            </a>
+                            form on my main MajdiJ.com page.
+                        </p>
+                        <p>
+                            Building this website has been a practical way to show what I can do: design, code, deploy and measure a site that people can actually use. I’m always learning, and I’m keen to bring this approach to a team that values clean, accessible and well engineered web and app experiences, front and back end.
+                        </p>
+                    </div>
+                    <div class="divider-line-horizontal">
+                    </div>
+                    <footer>
+                        <p class="author-date">
+                            By
+                            <a href="https://majdiJ.com/">
+                                Majdi Jaigirdar
+                            </a>
+                            | Published on 25 Oct 2025 | Edited on 14 Dec 2025
+                        </p>
+                    </footer>
+                </article>
+            </main>
+        </div>
+        <footer class="print-footer" role="contentinfo">
+            <div>
+                &copy;  Majdi Jaigirdar
+            </div>
+            <div style="font-size:9pt">
+                Page
+                <span class="pageNumber">
+                </span>
+            </div>
+        </footer>
+        <!-- Optional script that fills page numbers in browsers that support it (kept tiny & non-essential) -->
+        <script>
+            // Some printers / PDF engines will ignore JS; this is a graceful enhancement only.
+    try {
+      // Modern browsers like Chromium provide CSS Paged Media counters but JS fallback for viewers
+      var pageSpans = document.getElementsByClassName('pageNumber');
+      if (pageSpans.length) {
+        // This cannot know total pages reliably in-browser; leave placeholder empty (the PDF tool may handle it)
+      }
+    } catch (e) { /* silent */ }
+        </script>
+        <script>
+            (function(){
+      const params = new URLSearchParams(location.search);
+      if (params.get('autoprint') === '1') {
+        window.addEventListener('load', () => {
+          // Try to print and then optionally close the window after printing
+          window.print();
+          window.onafterprint = () => window.close();
+        });
+      }
+    })();
+        </script>
+    </body>
+</html>

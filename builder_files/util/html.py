@@ -6,6 +6,7 @@ import os
 import markdown
 from bs4 import BeautifulSoup
 import re as _re
+from playwright.sync_api import sync_playwright
 
 # Function to render HTML variables in a template string
 def render_html_vars(
@@ -16,7 +17,7 @@ def render_html_vars(
         missing: Optional[str] = None,
         **kwargs: Any
 ) -> str:
-    """
+    r"""
     Replace tokens of the form {html_var(name)} in `template` with provided values.
 
     Args:
@@ -183,3 +184,78 @@ def md_file_to_html_fragment(
         tag.name = f"h{new_level}"
 
     return str(soup)
+
+def html_to_pdf(html: str, output_path: str,
+                format: str = "A4", margin: dict = None,
+                print_background: bool = True, base_path: str = None):
+    """
+    Convert HTML string to PDF using Playwright.
+    
+    Args:
+        html: HTML content to convert
+        output_path: Path where PDF will be saved
+        format: Page format (default: A4)
+        margin: Page margins dict
+        print_background: Whether to print background graphics
+        base_path: Base directory path for resolving relative URLs (images, CSS, etc.)
+    """
+    margin = margin or {"top": "20px", "bottom": "20px", "left": "20px", "right": "20px"}
+    
+    # If base_path is provided, save HTML to temp file and use file:// URL
+    # This ensures relative paths work correctly
+    if base_path:
+        import tempfile
+        from pathlib import Path
+        
+        # Create a temporary HTML file in the base directory
+        base_dir = Path(base_path).resolve()
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.html', delete=False, 
+                                        dir=base_dir, encoding='utf-8') as tmp:
+            tmp.write(html)
+            tmp_path = tmp.name
+        
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page()
+                
+                # Set a timeout to avoid hanging indefinitely
+                page.set_default_timeout(30000)  # 30 seconds
+                
+                # Load from file:// URL so relative paths work
+                file_url = Path(tmp_path).as_uri()
+                page.goto(file_url, wait_until="domcontentloaded", timeout=30000)
+                
+                # Wait a bit for any images to load
+                page.wait_for_timeout(1000)
+                
+                # Create PDF
+                page.pdf(path=output_path,
+                        format=format,
+                        margin=margin,
+                        print_background=print_background)
+                browser.close()
+        finally:
+            # Clean up temp file
+            Path(tmp_path).unlink(missing_ok=True)
+    else:
+        # Fallback: use set_content without base URL
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            
+            # Set a timeout to avoid hanging indefinitely
+            page.set_default_timeout(30000)  # 30 seconds
+            
+            # Load the HTML string
+            page.set_content(html, wait_until="domcontentloaded", timeout=30000)
+            
+            # Wait a bit for any quick-loading resources
+            page.wait_for_timeout(1000)
+            
+            # Create PDF
+            page.pdf(path=output_path,
+                    format=format,
+                    margin=margin,
+                    print_background=print_background)
+            browser.close()

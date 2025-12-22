@@ -72,5 +72,29 @@
         "featured": true,
         "hidden": false,
         "auto_build": true
+    },
+    {
+        "id": "building-simple-pykv",
+        "title": "Building Simple-PyKV: A Lightweight Python Key-Value Store server",
+        "author": [
+            {
+                "name": "Majdi Jaigirdar",
+                "url": "https://majdiJ.com/"
+            }
+        ],
+        "featured_image": "/resource/articles/building-simple-pykv/images/image1.png",
+        "strap_line": "Adventures in creating an API backend for a simple key-value store using Python",
+        "date": {
+            "published": "2025-12-20T00:00:00Z"
+        },
+        "labels": [],
+        "keywords": [
+            "example",
+            "article",
+            "sample"
+        ],
+        "featured": false,
+        "hidden": false,
+        "auto_build": true
     }
 ]

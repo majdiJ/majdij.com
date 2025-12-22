@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 # Defaults - change if needed
 ARTICLES_JSON = "resource/data/articles_data.json"
 TEMPLATE_PATH = "builder_files/templates/article_page.html"
+TEMPLATE_PRINT_PATH = "builder_files/templates/article_page_print.html"
 MD_ROOT = "resource/articles"
 OUTPUT_ROOT = "articles"
 BASE_URL = "https://majdij.com"  # used to build absolute URLs for social images (if desired)
@@ -204,6 +205,119 @@ def build_article_page(
     logger.info("Wrote article page: %s", out_file)
     return out_file
 
+def build_article_print_page(
+    article: Dict[str, Any],
+    template_path: str = TEMPLATE_PRINT_PATH,
+    md_root: str = MD_ROOT,
+    output_root: str = OUTPUT_ROOT,
+    base_url: str = BASE_URL,
+    md_start_heading_level: int = 1,
+) -> str:
+    """
+    Build a print-friendly HTML page for the article using the PDF template.
+    
+    Returns the path to the generated print.html file on success.
+    
+    Raises exceptions for serious errors (missing id or missing template).
+    """
+    if "id" not in article:
+        raise ValueError("Article object missing 'id' field")
+
+    article_id = article["id"]
+    logger.info("Building article print page: %s", article_id)
+
+    # Load print template
+    if not os.path.isfile(template_path):
+        raise FileNotFoundError(f"PDF template not found: {template_path}")
+    with open(template_path, "r", encoding="utf-8") as f:
+        template_text = f.read()
+
+    # Locate markdown file
+    md_path = os.path.join(md_root, article_id, "index.md")
+    if not os.path.isfile(md_path):
+        logger.warning("Markdown not found for %s at %s — building print page with empty content.", article_id, md_path)
+        content_html = ""
+    else:
+        # convert md -> html fragment
+        content_html = md_file_to_html_fragment(md_path, start_heading_level=md_start_heading_level)
+
+    # Prepare derived values
+    published_iso = None
+    edited_iso = None
+    if isinstance(article.get("date"), dict):
+        published_iso = article["date"].get("published")
+        edited_iso = article["date"].get("edited")
+    else:
+        # Backwards compatibility if date can be a string
+        published_iso = article.get("date") or article.get("published")
+        edited_iso = article.get("edited")
+
+    published_human = _parse_iso_date_to_human(published_iso) or ""
+    edited_human = _parse_iso_date_to_human(edited_iso)
+
+    article_published_date = published_human
+    article_edited_date = f" | Edited on {edited_human}" if edited_human else ""
+
+    # Authors
+    authors_raw = article.get("author") or article.get("authors") or []
+    article_authors_html = _format_authors_html(authors_raw)
+    article_main_author_plain = ""
+    if authors_raw and isinstance(authors_raw, list) and "name" in authors_raw[0]:
+        article_main_author_plain = authors_raw[0].get("name", "")
+
+    # Keywords
+    keywords_list = article.get("keywords", [])
+    article_keywords_list = ", ".join(keywords_list) if keywords_list else ""
+
+    # Strap line / description
+    article_strap_line = article.get("strap_line") or article.get("description") or ""
+
+    # Featured / social image
+    featured_image = article.get("featured_image") or article.get("featuredImage") or ""
+    # If you want absolute URL for social tags, use base_url
+    article_social_image_url = _make_full_url_if_rooted(featured_image)
+
+    # image alt
+    article_image_alt = article.get("image_alt") or article.get("featured_image_alt") or article.get("title", "")
+
+    # Template variables mapping
+    mapping = {
+        # escaped for meta/attributes
+        "article_title": html_module.escape(article.get("title", "")),
+        "article_id": html_module.escape(article_id),
+        "article_description": html_module.escape(article_strap_line),
+        "article_keywords_list": html_module.escape(article_keywords_list),
+        "article_main_author": html_module.escape(article_main_author_plain),
+        "article_social_image_url": html_module.escape(article_social_image_url or ""),
+        "article_strap_line": html_module.escape(article_strap_line),
+        "article_authors": article_authors_html,  # this is HTML already (links); do NOT escape
+        "article_published_date": html_module.escape(article_published_date),
+        "article_edited_date": html_module.escape(article_edited_date),
+        "article_image_url": html_module.escape(featured_image or ""),
+        "article_image_alt": html_module.escape(article_image_alt or ""),
+        # NOTE: article_content_html must be raw HTML (not escaped)
+        "article_content_html": content_html,
+    }
+
+    # Render template (missing -> empty string so leftover tokens are removed)
+    rendered = render_html_vars(template_text, values=mapping, html_escape=False, missing="")
+
+    # Optional: pretty indent
+    try:
+        rendered = indent_html(rendered)
+    except Exception:
+        # avoid failing build if indenting breaks; keep raw rendered if that happens
+        logger.exception("indent_html failed — using unindented HTML")
+
+    # Write print.html file
+    out_dir = os.path.join(output_root, article_id)
+    _ensure_dir(out_dir)
+    out_file = os.path.join(out_dir, "print.html")
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write(rendered)
+
+    logger.info("Wrote article print page: %s", out_file)
+    return out_file
 
 def build_all_articles(
     json_path: str = ARTICLES_JSON,
@@ -238,6 +352,12 @@ def build_all_articles(
                 build_article_page(
                     article,
                     template_path=template_path,
+                    md_root=md_root,
+                    output_root=output_root,
+                )
+                build_article_print_page(
+                    article,
+                    template_path=TEMPLATE_PRINT_PATH,
                     md_root=md_root,
                     output_root=output_root,
                 )

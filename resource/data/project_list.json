@@ -78,7 +78,7 @@
         "featured": true,
         "hidden": false
     },
-        {
+    {
         "id": "simple-pykv",
         "name": "Simple-PyKV",
         "brand": {
@@ -110,8 +110,8 @@
             "Docker"
         ],
         "links": {
-            "click": "https://github.com/majdiJ/simple-pykv",
-            "article": "",
+            "click": "/articles/building-simple-pykv/",
+            "article": "/articles/building-simple-pykv/",
             "github": "https://github.com/majdiJ/simple-pykv",
             "demo": ""
         },
@@ -188,8 +188,8 @@
         "links": {
             "click": "",
             "article": "",
-            "github": "",
-            "demo": ""
+            "github": "https://github.com/wandstack/",
+            "demo": "https://github.com/wandstack/"
         },
         "featured": true,
         "hidden": false

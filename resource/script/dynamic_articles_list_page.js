@@ -117,12 +117,25 @@ function buildArticleNode(article) {
     spanExtra.appendChild(labelSpan);
   });
 
-  // New Article label if within NEW_ARTICLE_DAYS
-  if (publishedISO && isWithinDays(publishedDate, NEW_ARTICLE_DAYS)) {
-    const newSpan = document.createElement('span');
-    newSpan.className = 'label label-new';
-    newSpan.textContent = 'New Article';
-    spanExtra.appendChild(newSpan);
+  // helper: returns true if publishedDate is within `days` days of now (past OR future)
+  function isWithinDays(publishedDate, days) {
+    if (!(publishedDate instanceof Date) || isNaN(publishedDate)) return false;
+    const MS_PER_DAY = 24 * 60 * 60 * 1000;
+    const now = new Date();
+    const diffMs = publishedDate.getTime() - now.getTime();
+    return Math.abs(diffMs) <= days * MS_PER_DAY;
+  }
+
+  // New Article label if within NEW_ARTICLE_DAYS (past OR upcoming within the window)
+  if (publishedISO) {
+    // parse publishedISO to a Date; guard against invalid strings
+    const publishedDate = new Date(publishedISO);
+    if (!isNaN(publishedDate) && isWithinDays(publishedDate, NEW_ARTICLE_DAYS)) {
+      const newSpan = document.createElement('span');
+      newSpan.className = 'label label-new';
+      newSpan.textContent = 'New Article';
+      spanExtra.appendChild(newSpan);
+    }
   }
 
   // Featured label

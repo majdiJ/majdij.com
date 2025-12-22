@@ -34,6 +34,13 @@
     <meta property="og:url" content="https://majdij.com/articles/{html_var(article_id)}">
     <meta property="og:type" content="article">
 
+    <!-- Open Graph Article Metadata -->
+    <meta property="article:published_time" content="{html_var(article_published_date_iso)}" />
+    <meta property="article:modified_time" content="{html_var(article_edited_date_iso)}" />
+    <meta property="article:author" content="https://majdij.com/authors/{html_var(article_author_slug)}" />
+    <!-- multiple tags supported -->
+    <meta property="article:tag" content="pykv" />
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{html_var(article_title)} | Majdi Jaigirdar">
@@ -52,11 +59,40 @@
     <link rel="stylesheet" href="/resource/style/article_page.css" />
     <link rel="stylesheet" href="/resource/style/components/minimal_header.css" />
 
-    <!-- Site specific script(s) -->
-    <!-- <script src="/resource/script/dynamic_article_page.js" defer></script> -- No longer used, replaced by python builder program -->
     <!-- Script(s) -->
     <script src="/resource/script/anchor_scroll.js" defer></script>
-    <!-- 3rd Party Script(s) -->
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://majdij.com/articles/{html_var(article_id)}"
+        },
+        "headline": "{html_var(article_title)}",
+        "description": "{html_var(article_description)}",
+        "image": [
+            "{html_var(article_social_image_url)}"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "{html_var(article_main_author)}",
+            "url": "https://majdij.com/authors/{html_var(article_author_slug)}",
+            "sameAs": ["https://twitter.com/yourhandle", "https://www.linkedin.com/in/yourprofile"]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Majdi Jaigirdar",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://majdij.com/resource/image/logo.png"
+            }
+        },
+        "datePublished": "{html_var(article_published_date_iso)}",
+        "dateModified": "{html_var(article_edited_date_iso)}"
+        }
+    </script>
 </head>
 
 <body>
@@ -94,11 +130,54 @@
                 </p>
             </header>
 
-            <div class="divider-line-horizontal"></div>
+            <div class="divider-line-horizontal-top"></div>
 
-            <div class="article-image-container">
+            <div class="article-sharing-exporting">
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/intent/tweet?text={html_var(article_title)}%0Ahttps://majdij.com/articles/{html_var(article_id)}" target="_blank" rel="noopener noreferrer">
+                            <img src="/resource/image/social-icons/x.png" alt="Twitter/x Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://majdij.com/articles/{html_var(article_id)}&quote={html_var(article_title)}" target="_blank" rel="noopener noreferrer">
+                            <img src="/resource/image/social-icons/facebook.webp" alt="Facebook Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://majdij.com/articles/{html_var(article_id)}" target="_blank" rel="noopener noreferrer">
+                            <img src="/resource/image/social-icons/linkedin.png" alt="LinkedIn Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.threads.net/intent/post?text={html_var(article_title)}%0Ahttps://majdij.com/articles/{html_var(article_id)}" target="_blank" rel="noopener noreferrer">
+                            <img src="/resource/image/social-icons/threads.png" alt="Threads Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?text={html_var(article_title)}%0Ahttps://majdij.com/articles/{html_var(article_id)}" target="_blank" rel="noopener noreferrer">
+                            <img src="/resource/image/social-icons/whatsapp.png" alt="WhatsApp Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="navigator.clipboard.writeText('example.com/example').then(() => alert('Link copied!'));return false;">
+                            <img src="/resource/image/social-icons/link.svg" alt="Copy Link Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a id="printNew">
+                            <img src="/resource/image/social-icons/print.svg" alt="Print Icon" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="divider-line-horizontal-bottom"></div>
+
+            <div class="article-image-container article-content featured-article-image">
                 <img src="{html_var(article_image_url)}"
-                    alt="{html_var(article_image_alt)}" />
+                    alt="{html_var(article_image_alt)}"
+                    loading="lazy"/>
             </div>
 
             <div class="article-content">
@@ -113,6 +192,24 @@
                 </p>
             </footer>
         </article>
+
+        <!-- <button id="printNew">Print (new window)</button> -->
+
+        <script>
+            document.getElementById('printNew').addEventListener('click', () => {
+            const url = '/articles/{html_var(article_id)}/print.html?autoprint=1';
+            const w = window.open(url, '_blank');
+            if (!w) {
+                alert('Popup blocked — allow popups for this site or try the iframe method.');
+                return;
+            }
+            w.focus();
+            // Optionally try to call print when the window loads (may or may not be allowed)
+            w.onload = () => {
+                try { w.print(); } catch (e) { /* ignore */ }
+            };
+            });
+        </script>
 
     </main>
 

@@ -8,6 +8,7 @@
     max-width: var(--content-max-width);
     margin: 20px auto 0;
     padding: 0 25px;
+    overflow: visible;
 }
 
 article h1 {
@@ -52,13 +53,36 @@ article ul li {
     color: rgba(255, 255, 255, 0.95);
 }
 
-article img {
-    width: 100%;
+article .article-content img {
+    width: 95%;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 5px;
+}
+
+article .featured-article-image img {
+    width: calc(100% + 20px);
+    max-width: calc(100% + 20px);
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 20px;
+}
+
+/* On large screens, break out even further */
+@media (min-width: 900px) {
+    .featured-article-image {
+        width: 112%;      /* 10% wider than the main container */
+        margin-left: -6%; /* Pull left by 5% to center it */
+        margin-right: -6%;
+    }
 }
 
 article .strap-line {
@@ -88,11 +112,47 @@ article a {
     text-decoration: underline;
 }
 
-article .divider-line-horizontal {
+article .divider-line-horizontal,
+.divider-line-horizontal-top,
+.divider-line-horizontal-bottom {
     border: none;
     border-top: 1px solid var(--divider-color);
-    width: 100%;
-    margin: 20px 0 45px;
+    width: calc(100% + 16px);
+    margin: 20px -8px 30px;
+}
+
+.divider-line-horizontal-top {
+    margin-bottom: 14px;
+}
+
+.divider-line-horizontal-bottom {
+    margin-top: 12px;
+}
+
+article .article-sharing-exporting ul {
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    display: flex;
+    gap: 15px;
+}
+
+article .article-sharing-exporting ul li {
+    font-size: 0.95rem;
+    margin: 0;
+    opacity: 0.75;
+}
+
+article .article-sharing-exporting ul li:hover {
+    opacity: 1;
+}
+
+article .article-sharing-exporting ul a {
+    color: white;
+}
+
+article .article-sharing-exporting ul li img {
+    height: 20px;
 }
 
 article footer {
@@ -118,6 +178,65 @@ article .table-of-contents a {
 article .table-of-contents a:hover {
     text-decoration: underline;
 }
+
+article ul li {
+    margin-bottom: 7px;
+}
+
+article ul li p {
+    margin: 7px 0 17px 0;
+}
+
+article code {
+    background-color: var(--quaternary-contrast-color);
+    padding: 0px 5px; /* Increased side padding slightly */
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    
+    /* TEXT GAP FIXES: Makes sure code elements have proper gaps when inline */
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0 3px;
+}
+
+article table {
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+article th, td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+article thead th {
+  font-weight: 600;
+  border-bottom: 1.3px solid rgba(255, 255, 255, 0.7); /* thicker, clear divider */
+}
+
+/* row separators: thin and subtle */
+article tbody td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20); /* thin, light line between rows */
+}
+
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
 
 @media (max-width: 1024px) {}
 
