@@ -237,6 +237,14 @@ article tbody tr:last-child td {
   border-bottom: none;
 }
 
+/* Article pdf view */
+.pdf-viewer {
+    width: calc(100% + 100px);
+    margin: 0px -50px;
+    height: 820px;
+    border: none;
+    border-radius: 10px;
+}
 
 
 @media (max-width: 1024px) {}

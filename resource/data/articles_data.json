@@ -1,4 +1,112 @@
 [
+        {
+        "id": "a-level-cs-nea-school-register-system-for-lower-income-countries",
+        "title": "A-Level CS NEA: School register system for lower income countries",
+        "author": [
+            {
+                "name": "Majdi Jaigirdar",
+                "url": "https://majdiJ.com/"
+            }
+        ],
+        "featured_image": "/resource/articles/a-level-cs-nea-school-register-system-for-lower-income-countries/images/image1.png",
+        "strap_line": "My A-Level computer science NEA project: School register system for lower income countries.",
+        "date": {
+            "published": "2023-05-14T00:00:00Z"
+        },
+        "labels": [
+            "A-Level",
+            "NEA"
+        ],
+        "keywords": [
+            "School register system",
+            "Computer science NEA project",
+            "A-Level computer science",
+            "Student attendance tracking",
+            "Educational technology for LICs",
+            "Digital school register",
+            "School management software",
+            "Attendance monitoring system",
+            "Offline school database",
+            "Low-resource education tech",
+            "Visual Basic .NET project",
+            "Microsoft SQL Server Express",
+            "SQL database design",
+            "Automate app Android",
+            "SMS notification system",
+            "JSON API integration",
+            "Console application development",
+            "Human computer interface (HCI)",
+            "Object oriented programming (OOP)",
+            "Relational database management",
+            "Data normalisation SQL",
+            "MoSCoW method requirements",
+            "Client-server architecture",
+            "Data validation algorithms",
+            "Secure password hashing",
+            "NEA project on school registers",
+            "A-level",
+            "Student research",
+            "Majdi Jaigirdar"
+        ],
+        "featured": false,
+        "hidden": false,
+        "auto_build": true
+    },
+    {
+        "id": "a-level-epq-navigating-ai-education-social-impacts",
+        "title": "A-Level EPQ: EPQ Navigating the social impacts of AI on education",
+        "author": [
+            {
+                "name": "Majdi Jaigirdar",
+                "url": "https://majdiJ.com/"
+            }
+        ],
+        "featured_image": "/resource/articles/a-level-epq-navigating-ai-education-social-impacts/images/image1.png",
+        "strap_line": "My A-Level EPQ project exploring the social impacts of AI on education.",
+        "date": {
+            "published": "2023-05-15T00:00:00Z"
+        },
+        "labels": [
+            "A-Level",
+            "EPQ"
+        ],
+        "keywords": [
+            "Generative AI in education",
+            "Artificial intelligence in schools",
+            "Impact of AI on student learning",
+            "AI and academic integrity",
+            "Large Language Models in education",
+            "Generative AI ethics",
+            "AI for teachers",
+            "AI plagiarism concerns",
+            "Student use of ChatGPT",
+            "AI in lesson planning",
+            "ChatGPT in education",
+            "Google Bard education use",
+            "Large Language Models (LLMs)",
+            "Snapchat My AI for students",
+            "Microsoft Copilot in schools",
+            "Personalised learning with AI",
+            "Critical thinking and AI",
+            "AI for homework help",
+            "AI in exam revision",
+            "Department for Education AI guidelines",
+            "AI survey data education",
+            "Qualitative research on AI",
+            "Quantitative data on student AI use",
+            "Teacher workload reduction AI",
+            "Future of AI in classrooms",
+            "EPQ on AI in education",
+            "Extended Project Qualification",
+            "A-level",
+            "Personal project",
+            "Student research",
+            "Majdi Jaigirdar"
+        ],
+        "featured": false,
+        "hidden": false,
+        "auto_build": true
+    },
     {
         "id": "example-article",
         "title": "This is an Example Article Title",
@@ -18,16 +126,14 @@
             "published": "2025-10-20T00:00:00Z",
             "edited": "2025-10-29T00:00:00Z"
         },
-        "labels": [
-            "Example Label 1"
-        ],
+        "labels": [],
         "keywords": [
             "example",
             "article",
             "sample"
         ],
         "featured": false,
-        "hidden": false,
+        "hidden": true,
         "auto_build": true
     },
     {
