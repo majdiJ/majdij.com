@@ -127,7 +127,7 @@
             "color": "#029063"
         },
         "description": {
-            "long": "Small app that automates destruction-date calculations, built during a fixed-term Records & Data Administrator role at Fletchers Group (July–Sept 2025). It replaced manual calculations and complemented improved Excel workflows for flagging issues and computing retention/destruction dates. The tool helps comply with UK GDPR,SRA requirements, ICO, company policy.",
+            "long": "Small app that automates destruction-date calculations, built during a my time as a data administrator at a solicitor firm. It replaced manual calculations and complemented improved Excel workflows for flagging issues and computing retention/destruction dates. The tool helps comply with UK GDPR,SRA requirements, ICO, company policy.",
             "short_description": "Helps do the maths for records destruction dates to comply with GDPR."
         },
         "date": {
@@ -139,7 +139,7 @@
             "Productivity Tool",
             "GDPR",
             "automation",
-            "Fletchers Group (Fletchers Solicitors)"
+            "Solicitors"
         ],
         "technologies": [
             "Web Development",
