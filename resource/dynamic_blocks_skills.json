@@ -3,7 +3,8 @@
     {
       "name": "Python",
       "description": "Versatile scripting language",
-      "icon": "../resource/image/technology-icons/python.png?text=Python"
+      "icon": "../resource/image/technology-icons/python.png?text=Python",
+      "link": "../resource/articles/building-simple-pykv"
     },
     {
       "name": "Java",
