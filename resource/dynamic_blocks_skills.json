@@ -72,7 +72,7 @@
     {
       "name": "Express.js",
       "description": "Minimalist web framework",
-      "icon": "../image/placeholder/question_cube.png?text=Express"
+      "icon": ""
     }
   ],
   "Version Control & Collaboration": [
@@ -101,7 +101,7 @@
     {
       "name": "MS SQL Server",
       "description": "Enterprise-grade database platform",
-      "icon": ""
+      "icon": "../resource/image/technology-icons/mssqlserver.svg"
     }
   ],
   "IDEs and Editors": [
