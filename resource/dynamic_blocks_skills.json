@@ -64,7 +64,7 @@
       "icon": "../resource/image/technology-icons/latex.png?text=LaTeX"
     }
   ],
-  "Frameworks and Libraries": [
+"Frameworks and Libraries": [
     {
       "name": "Node.js",
       "description": "Server-side JavaScript runtime",
@@ -74,6 +74,21 @@
       "name": "Express.js",
       "description": "Minimalist web framework",
       "icon": ""
+    },
+    {
+      "name": "PyTorch",
+      "description": "Deep learning research framework",
+      "icon": "../resource/image/technology-icons/pytorch.png?text=PyTorch"
+    },
+    {
+      "name": "Torchvision",
+      "description": "Computer vision tools for PyTorch",
+      "icon": ""
+    },
+    {
+      "name": "Pandas",
+      "description": "Powerful data analysis and manipulation",
+      "icon": "../resource/image/technology-icons/pandas.png?text=Pandas"
     }
   ],
   "Version Control & Collaboration": [
@@ -103,6 +118,11 @@
       "name": "MS SQL Server",
       "description": "Enterprise-grade database platform",
       "icon": "../resource/image/technology-icons/mssqlserver.svg"
+    },
+    {
+      "name": "PostgreSQL",
+      "description": "Advanced open-source relational DB",
+      "icon": "../resource/image/technology-icons/postgresql.png?text=PostgreSQL"
     }
   ],
   "IDEs and Editors": [
@@ -148,6 +168,11 @@
       "name": "Nginx",
       "description": "High-performance web server",
       "icon": "../resource/image/technology-icons/nginx.png?text=Nginx"
+    },
+    {
+      "name": "Certbot",
+      "description": "Automated SSL certificate management",
+      "icon": "../resource/image/technology-icons/certbot.png?text=Certbot"
     }
   ],
   "Cloud & Containerisation": [
@@ -155,6 +180,26 @@
       "name": "Docker",
       "description": "Containerisation for applications",
       "icon": "../resource/image/technology-icons/docker.png?text=Docker"
+    },
+    {
+      "name": "Cloudflare",
+      "description": "CDN, security and edge networking",
+      "icon": "../resource/image/technology-icons/cloudflare.webp?text=CF"
+    },
+    {
+      "name": "Cloudflare R2",
+      "description": "Zero-egress object storage platform",
+      "icon": "../resource/image/technology-icons/cloudflare.webp?text=R2"
+    },
+    {
+      "name": "Google Cloud",
+      "description": "Scalable cloud computing platform",
+      "icon": "../resource/image/technology-icons/google_cloud.png?text=GCP"
+    },
+    {
+      "name": "Contabo",
+      "description": "Affordable VPS and dedicated hosting",
+      "icon": "../resource/image/technology-icons/contabo.png?text=Contabo"
     }
   ],
   "Office & Productivity Tools": [
@@ -166,7 +211,7 @@
     {
       "name": "Google Workspace",
       "description": "Cloud-based collaboration tools",
-      "icon": "../resource/image/technology-icons/google_workspace.webp?text=GWorkspace"
+      "icon": "../resource/image/technology-icons/google_workspace.png?text=GWorkspace"
     }
   ],
   "Analytics & SEO": [
@@ -196,6 +241,16 @@
       "name": "Linux",
       "description": "Open-source operating system",
       "icon": "../resource/image/technology-icons/linux.png?text=Linux"
+    },
+    {
+      "name": "Debian",
+      "description": "Stable open-source Linux distribution",
+      "icon": "../resource/image/technology-icons/debian.png?text=Debian"
+    },
+    {
+      "name": "Kali Linux",
+      "description": "Penetration testing Linux distribution",
+      "icon": "../resource/image/technology-icons/kali.png?text=Kali"
     }
   ]
 }
