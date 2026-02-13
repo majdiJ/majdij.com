@@ -99,7 +99,15 @@ function createSkillCard(skill) {
             card.insertBefore(placeholder, card.firstChild);
         };
         
-        card.appendChild(icon);
+        // Wrap icon in light background container if specified
+        if (skill['light-background']) {
+            const iconWrapper = document.createElement('div');
+            iconWrapper.className = 'skill-card-icon-light-bg';
+            iconWrapper.appendChild(icon);
+            card.appendChild(iconWrapper);
+        } else {
+            card.appendChild(icon);
+        }
     } else {
         // No icon provided, use placeholder
         const placeholder = createPlaceholderIcon(skill.name);

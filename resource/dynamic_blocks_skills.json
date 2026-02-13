@@ -88,7 +88,8 @@
     {
       "name": "Pandas",
       "description": "Powerful data analysis and manipulation",
-      "icon": "../resource/image/technology-icons/pandas.png?text=Pandas"
+      "icon": "../resource/image/technology-icons/pandas.png?text=Pandas",
+      "light-background": true
     }
   ],
   "Version Control & Collaboration": [
@@ -107,17 +108,20 @@
     {
       "name": "MySQL",
       "description": "Robust relational database",
-      "icon": "../resource/image/technology-icons/mysql.png?text=MySQL"
+      "icon": "../resource/image/technology-icons/mysql.png?text=MySQL",
+      "light-background": true
     },
     {
       "name": "SQLite",
       "description": "Lightweight embedded database",
-      "icon": "../resource/image/technology-icons/sqlite.png?text=SQLite"
+      "icon": "../resource/image/technology-icons/sqlite.png?text=SQLite",
+      "light-background": true
     },
     {
       "name": "MS SQL Server",
       "description": "Enterprise-grade database platform",
-      "icon": "../resource/image/technology-icons/mssqlserver.svg"
+      "icon": "../resource/image/technology-icons/mssqlserver.svg",
+      "light-background": true
     },
     {
       "name": "PostgreSQL",
@@ -159,7 +163,8 @@
     {
       "name": "Jupyter Notebook",
       "description": "Interactive computing environment",
-      "icon": "../resource/image/technology-icons/jupyter.png?text=Jupyter"
+      "icon": "../resource/image/technology-icons/jupyter.png?text=Jupyter",
+      "light-background": true
     }
     
   ],
@@ -171,8 +176,9 @@
     },
     {
       "name": "Certbot",
-      "description": "Automated SSL certificate management",
-      "icon": "../resource/image/technology-icons/certbot.png?text=Certbot"
+      "description": "Automated SSL certificate",
+      "icon": "../resource/image/technology-icons/certbot.png?text=Certbot",
+      "light-background": true
     }
   ],
   "Cloud & Containerisation": [
@@ -211,7 +217,8 @@
     {
       "name": "Google Workspace",
       "description": "Cloud-based collaboration tools",
-      "icon": "../resource/image/technology-icons/google_workspace.png?text=GWorkspace"
+      "icon": "../resource/image/technology-icons/google_workspace.png?text=GWorkspace",
+      "light-background": true
     }
   ],
   "Analytics & SEO": [
