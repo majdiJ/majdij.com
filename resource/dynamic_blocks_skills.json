@@ -129,7 +129,7 @@
       "icon": "../resource/image/technology-icons/postgresql.png?text=PostgreSQL"
     }
   ],
-  "IDEs and Editors": [
+  "IDEs, Editors & Coding Assistants": [
     {
       "name": "VS Code",
       "description": "Versatile code editor",
@@ -137,7 +137,7 @@
     },
     {
       "name": "Visual Studio",
-      "description": "Comprehensive development environment",
+      "description": "Comprehensive dev environment",
       "icon": "../resource/image/technology-icons/visual_basic.png?text=VS"
     },
     {
@@ -165,8 +165,27 @@
       "description": "Interactive computing environment",
       "icon": "../resource/image/technology-icons/jupyter.png?text=Jupyter",
       "light-background": true
+    },
+    {
+      "name": "GitHub Copilot",
+      "description": "AI-powered code completion assistant",
+      "icon": "../resource/image/technology-icons/github_copilot.png?text=Copilot"
+    },
+    {
+      "name": "OpenAI Codex",
+      "description": "Conversational AI for coding assistance",
+      "icon": "../resource/image/technology-icons/openai_codex.png?text=Codex"
+    },
+    {
+      "name": "Claude Code",
+      "description": "AI coding assistant by Anthropic",
+      "icon": "../resource/image/technology-icons/claude_coded.svg?text=Claude"
+    },
+    {
+      "name": "Gemini Code Assist",
+      "description": "Google's AI assistant",
+      "icon": "../resource/image/technology-icons/gemini_code_assist.png?text=Gemini"
     }
-    
   ],
   "Web Servers": [
     {
@@ -210,9 +229,9 @@
   ],
   "Office & Productivity Tools": [
     {
-      "name": "Microsoft Office",
+      "name": "Microsoft 365",
       "description": "Suite of productivity applications",
-      "icon": "../resource/image/technology-icons/microsoft_office.png?text=Office"
+      "icon": "../resource/image/technology-icons/microsoft_365.png?text=365"
     },
     {
       "name": "Google Workspace",
@@ -228,16 +247,17 @@
       "icon": "../resource/image/technology-icons/google_analytics.png?text=GA"
     },
     {
-      "name": "Google Search Console",
-      "description": "SEO and website performance monitoring",
-      "icon": "../resource/image/technology-icons/google_search_console.png?text=GSC"
+      "name": "Search Console",
+      "description": "SEO and performance monitoring",
+      "icon": "../resource/image/technology-icons/google_search_console.webp?text=GSC"
     }
   ],
   "Operating Systems": [
     {
       "name": "Windows",
       "description": "Microsoft operating system",
-      "icon": "../resource/image/technology-icons/windows.png?text=Windows"
+      "icon": "../resource/image/technology-icons/windows.png?text=Windows",
+      "light-background": true
     },
     {
       "name": "MacOS",
