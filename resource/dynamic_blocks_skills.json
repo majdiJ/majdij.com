@@ -64,7 +64,7 @@
       "icon": "../resource/image/technology-icons/latex.png?text=LaTeX"
     }
   ],
-"Frameworks and Libraries": [
+  "Frameworks and Libraries": [
     {
       "name": "Node.js",
       "description": "Server-side JavaScript runtime",
@@ -89,6 +89,12 @@
       "name": "Pandas",
       "description": "Powerful data analysis and manipulation",
       "icon": "../resource/image/technology-icons/pandas.png?text=Pandas",
+      "light-background": true
+    },
+    {
+      "name": "PWA",
+      "description": "Progressive web app technology",
+      "icon": "../resource/image/technology-icons/pwa.png?text=PWA",
       "light-background": true
     }
   ],
