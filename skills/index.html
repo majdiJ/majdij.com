@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/resource/style/skills.css" />
 
     <!-- Site specific script(s) -->
-    <script src="/resource/script/dynamic_skills.js" defer></script>
+    <script src="/resource/script/skills_sidebar_scroll.js" defer></script>
     <!-- Script(s) -->
     <script src="/resource/script/anchor_scroll.js" defer></script>
     <!-- 3rd Party Script(s) -->
@@ -90,14 +90,383 @@
             <h2>Categories</h2>
             <nav aria-label="Skills categories">
                 <ul>
-                    <!-- Dynamically populated by JavaScript -->
+                    <li><a href="#programming-languages" data-category="programming-languages">Programming Languages</a></li>
+                    <li><a href="#markup-and-data-languages" data-category="markup-and-data-languages">Markup and Data Languages</a></li>
+                    <li><a href="#frameworks-and-libraries" data-category="frameworks-and-libraries">Frameworks and Libraries</a></li>
+                    <li><a href="#version-control-collaboration" data-category="version-control-collaboration">Version Control &amp; Collaboration</a></li>
+                    <li><a href="#database-technologies" data-category="database-technologies">Database Technologies</a></li>
+                    <li><a href="#ides-editors-coding-assistants" data-category="ides-editors-coding-assistants">IDEs, Editors &amp; Coding Assistants</a></li>
+                    <li><a href="#web-servers" data-category="web-servers">Web Servers</a></li>
+                    <li><a href="#cloud-containerisation" data-category="cloud-containerisation">Cloud &amp; Containerisation</a></li>
+                    <li><a href="#office-productivity-tools" data-category="office-productivity-tools">Office &amp; Productivity Tools</a></li>
+                    <li><a href="#analytics-seo" data-category="analytics-seo">Analytics &amp; SEO</a></li>
+                    <li><a href="#operating-systems" data-category="operating-systems">Operating Systems</a></li>
                 </ul>
             </nav>
         </aside>
 
         <!-- Main Content Area -->
         <main class="skills-content">
-            <!-- Dynamically populated by JavaScript -->
+            <section class="skill-category-section" id="programming-languages">
+    <h2>Programming Languages</h2>
+    <div class="skills-grid">
+        <a class="skill-card skill-card-linked" href="../articles/building-simple-pykv">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/python.png?text=Python" alt="Python icon" />
+    <h3>Python</h3>
+    <p>Versatile scripting language</p>
+</a>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/java.png?text=Java" alt="Java icon" />
+    <h3>Java</h3>
+    <p>Robust, secure enterprise language</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/visual_basic.png?text=VB" alt="Visual Basic icon" />
+    <h3>Visual Basic</h3>
+    <p>Simple event-driven language</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/javascript.png?text=JS" alt="JavaScript icon" />
+    <h3>JavaScript</h3>
+    <p>Dynamic web scripting</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/sql.png?text=SQL" alt="SQL icon" />
+    <h3>SQL</h3>
+    <p>Database query language</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/shell_scripting.png?text=SH" alt="Shell Scripting icon" />
+    <h3>Shell Scripting</h3>
+    <p>Command-line automation scripts</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="markup-and-data-languages">
+    <h2>Markup and Data Languages</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/html.png?text=HTML" alt="HTML icon" />
+    <h3>HTML</h3>
+    <p>Markup for web pages</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/css.svg?text=CSS" alt="CSS icon" />
+    <h3>CSS</h3>
+    <p>Styles web page layout</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/xml.png?text=XML" alt="XML icon" />
+    <h3>XML</h3>
+    <p>Extensible markup language</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/json.png?text=JSON" alt="JSON icon" />
+    <h3>JSON</h3>
+    <p>Lightweight data interchange</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/markdown.png?text=MD" alt="Markdown icon" />
+    <h3>Markdown</h3>
+    <p>Simplified text formatting</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/latex.png?text=LaTeX" alt="LaTeX icon" />
+    <h3>LaTeX</h3>
+    <p>High-quality typesetting system</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="frameworks-and-libraries">
+    <h2>Frameworks and Libraries</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/nodejs.svg?text=Node" alt="Node.js icon" />
+    <h3>Node.js</h3>
+    <p>Server-side JavaScript runtime</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon placeholder">E</div>
+    <h3>Express.js</h3>
+    <p>Minimalist web framework</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/pytorch.png?text=PyTorch" alt="PyTorch icon" />
+    <h3>PyTorch</h3>
+    <p>Deep learning research framework</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon placeholder">T</div>
+    <h3>Torchvision</h3>
+    <p>Computer vision tools for PyTorch</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/pandas.png?text=Pandas" alt="Pandas icon" /></div>
+    <h3>Pandas</h3>
+    <p>Powerful data analysis and manipulation</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/pwa.png?text=PWA" alt="PWA icon" /></div>
+    <h3>PWA</h3>
+    <p>Progressive web app technology</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="version-control-collaboration">
+    <h2>Version Control &amp; Collaboration</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/git.webp?text=Git" alt="Git icon" />
+    <h3>Git</h3>
+    <p>Distributed version control</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/github.png?text=GH" alt="GitHub icon" />
+    <h3>GitHub</h3>
+    <p>Collaborative code repository</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="database-technologies">
+    <h2>Database Technologies</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/mysql.png?text=MySQL" alt="MySQL icon" /></div>
+    <h3>MySQL</h3>
+    <p>Robust relational database</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/sqlite.png?text=SQLite" alt="SQLite icon" /></div>
+    <h3>SQLite</h3>
+    <p>Lightweight embedded database</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/mssqlserver.svg" alt="MS SQL Server icon" /></div>
+    <h3>MS SQL Server</h3>
+    <p>Enterprise-grade database platform</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/postgresql.png?text=PostgreSQL" alt="PostgreSQL icon" />
+    <h3>PostgreSQL</h3>
+    <p>Advanced open-source relational DB</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="ides-editors-coding-assistants">
+    <h2>IDEs, Editors &amp; Coding Assistants</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/vscode.png?text=VSCode" alt="VS Code icon" />
+    <h3>VS Code</h3>
+    <p>Versatile code editor</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/visual_basic.png?text=VS" alt="Visual Studio icon" />
+    <h3>Visual Studio</h3>
+    <p>Comprehensive dev environment</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/pycharm.png?text=PyCharm" alt="PyCharm icon" />
+    <h3>PyCharm</h3>
+    <p>Python-focused development IDE</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/eclipse.svg?text=Eclipse" alt="Eclipse icon" />
+    <h3>Eclipse</h3>
+    <p>Extensible open-source IDE</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/androidstudio.png?text=Android" alt="Android Studio icon" />
+    <h3>Android Studio</h3>
+    <p>Android app development IDE</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/google_colab.png?text=Colab" alt="Google Colab icon" />
+    <h3>Google Colab</h3>
+    <p>Cloud-based Python notebook environment</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/jupyter.png?text=Jupyter" alt="Jupyter Notebook icon" /></div>
+    <h3>Jupyter Notebook</h3>
+    <p>Interactive computing environment</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/github_copilot.png?text=Copilot" alt="GitHub Copilot icon" />
+    <h3>GitHub Copilot</h3>
+    <p>AI-powered code completion assistant</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/openai_codex.png?text=Codex" alt="OpenAI Codex icon" />
+    <h3>OpenAI Codex</h3>
+    <p>Conversational AI for coding assistance</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/claude_coded.svg?text=Claude" alt="Claude Code icon" />
+    <h3>Claude Code</h3>
+    <p>AI coding assistant by Anthropic</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/gemini_code_assist.png?text=Gemini" alt="Gemini Code Assist icon" />
+    <h3>Gemini Code Assist</h3>
+    <p>Google&#x27;s AI assistant</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="web-servers">
+    <h2>Web Servers</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/nginx.png?text=Nginx" alt="Nginx icon" />
+    <h3>Nginx</h3>
+    <p>High-performance web server</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/certbot.png?text=Certbot" alt="Certbot icon" /></div>
+    <h3>Certbot</h3>
+    <p>Automated SSL certificate</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="cloud-containerisation">
+    <h2>Cloud &amp; Containerisation</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/docker.png?text=Docker" alt="Docker icon" />
+    <h3>Docker</h3>
+    <p>Containerisation for applications</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/cloudflare.webp?text=CF" alt="Cloudflare icon" />
+    <h3>Cloudflare</h3>
+    <p>CDN, security and edge networking</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/cloudflare.webp?text=R2" alt="Cloudflare R2 icon" />
+    <h3>Cloudflare R2</h3>
+    <p>Zero-egress object storage platform</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/google_cloud.png?text=GCP" alt="Google Cloud icon" />
+    <h3>Google Cloud</h3>
+    <p>Scalable cloud computing platform</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/contabo.png?text=Contabo" alt="Contabo icon" />
+    <h3>Contabo</h3>
+    <p>Affordable VPS and dedicated hosting</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="office-productivity-tools">
+    <h2>Office &amp; Productivity Tools</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/microsoft_365.png?text=365" alt="Microsoft 365 icon" />
+    <h3>Microsoft 365</h3>
+    <p>Suite of productivity applications</p>
+</div>
+
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/google_workspace.png?text=GWorkspace" alt="Google Workspace icon" /></div>
+    <h3>Google Workspace</h3>
+    <p>Cloud-based collaboration tools</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="analytics-seo">
+    <h2>Analytics &amp; SEO</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/google_analytics.png?text=GA" alt="Google Analytics icon" />
+    <h3>Google Analytics</h3>
+    <p>Web traffic and user behavior tracking</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/google_search_console.webp?text=GSC" alt="Search Console icon" />
+    <h3>Search Console</h3>
+    <p>SEO and performance monitoring</p>
+</div>
+    </div>
+</section>
+
+            <section class="skill-category-section" id="operating-systems">
+    <h2>Operating Systems</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+    <div class="skill-card-icon-light-bg"><img class="skill-card-icon" src="../resource/image/technology-icons/windows.png?text=Windows" alt="Windows icon" /></div>
+    <h3>Windows</h3>
+    <p>Microsoft operating system</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/macos_icon.png?text=MacOS" alt="MacOS icon" />
+    <h3>MacOS</h3>
+    <p>Apple&#x27;s operating system</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/linux.png?text=Linux" alt="Linux icon" />
+    <h3>Linux</h3>
+    <p>Open-source operating system</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/debian.png?text=Debian" alt="Debian icon" />
+    <h3>Debian</h3>
+    <p>Stable open-source Linux distribution</p>
+</div>
+
+        <div class="skill-card">
+    <img class="skill-card-icon" src="../resource/image/technology-icons/kali.png?text=Kali" alt="Kali Linux icon" />
+    <h3>Kali Linux</h3>
+    <p>Penetration testing Linux distribution</p>
+</div>
+    </div>
+</section>
         </main>
     </div>
 

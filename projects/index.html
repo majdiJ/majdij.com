@@ -19,10 +19,10 @@
     </script>
 
     <!-- Site specific meta tags -->
-    <title>Majdi Jaigirdar</title>
-    <link rel="canonical" href="https://majdij.com/" />
+    <title>Projects - Majdi Jaigirdar</title>
+    <link rel="canonical" href="https://majdij.com/projects" />
     <meta name="description"
-        content="Portfolio website of Majdi Jaigirdar, a Computer Science enthusiast and student at Edge Hill University and aspiring software developer." />
+        content="Projects by Majdi Jaigirdar - A collection of software and web development projects." />
     <meta name="keywords"
         content="Majdi Jaigirdar, Majdi, Jaigirdar, Portfolio, Computer Science, Software Developer, Developer, Web Developer, Edge Hill University, Programming, Projects, Skills, Education, article, Contact, United Kingdom, UK" />
     <meta name="author" content="Majdi Jaigirdar" />
@@ -55,11 +55,19 @@
 
     <!-- Site specific script(s) -->
     <script src="/resource/script/recaptcha-display.js" defer></script>
-    <script src="/resource/script/projects-carousel-component.js" defer></script>
     <!-- Script(s) -->
     <script src="/resource/script/anchor_scroll.js" defer></script>
     <!-- 3rd Party Script(s) -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+    .projects-item-carousel[data-project-id="simple-pykv"]::before, .projects-item-grid[data-project-id="simple-pykv"]::before { background: #0a8fff; }
+    .projects-item-carousel[data-project-id="MajdiJ-Website"]::before, .projects-item-grid[data-project-id="MajdiJ-Website"]::before { background: #f4c542; }
+    .projects-item-carousel[data-project-id="20-20-20-Rule-Timer"]::before, .projects-item-grid[data-project-id="20-20-20-Rule-Timer"]::before { background: #0877FF; }
+    .projects-item-carousel[data-project-id="ArchComply"]::before, .projects-item-grid[data-project-id="ArchComply"]::before { background: #029063; }
+    .projects-item-carousel[data-project-id="uni-FitSmart"]::before, .projects-item-grid[data-project-id="uni-FitSmart"]::before { background: #ff2e4a; }
+    .projects-item-carousel[data-project-id="automatic-network-rebooter"]::before, .projects-item-grid[data-project-id="automatic-network-rebooter"]::before { background: #03a9fc; }
+    .projects-item-carousel[data-project-id="WandStack"]::before, .projects-item-grid[data-project-id="WandStack"]::before { background: #FF006E; }
+</style>
 </head>
 
 <body>
@@ -97,63 +105,233 @@
                     You can view more of my work, projects and repositories on my <a href="https://github.com/majdiJ" class="link-highlight">GitHub profile.</a>
                 </p>
 
-                <!-- Project items dynamically inserted here by JavaScript -->
                 <div class="container-projects-list-grid">
+                    <a class="projects-item-grid" data-project-id="simple-pykv" href="/articles/building-simple-pykv/" aria-label="Simple-PyKV">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/simple-pykv.png" alt="Simple-PyKV Icon" />
+        <div class="item-header-text">
+            <h3>Simple-PyKV</h3>
+            <p class="short-description">A simple, lightweight Python key-value storage server with a RESTful API.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">Simple, lightweight Python key-value storage server that exposes a RESTful HTTP API for saving and retrieving project-scoped key/value pairs. Designed for simplicity and predictable behaviour, useful for small to medium projects, internal tools, demos, or anywhere you need a tiny secure persistent or in-memory KV store without a heavy database. Licensed under Apache 2.0.</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">Key-Value</span>
+                <div class="dot"></div>
+                <span class="tag">Server</span>
+                <div class="dot"></div>
+                <span class="tag">REST API</span>
+                <div class="dot"></div>
+                <span class="tag">NoSQL</span>
+                <div class="dot"></div>
+                <span class="tag">Lightweight</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag python-tag">Python</span>
+                <span class="tag restful-apis-tag">RESTful APIs</span>
+                <span class="tag flask-tag">Flask</span>
+                <span class="tag waitress-tag">Waitress</span>
+                <span class="tag gunicorn-tag">Gunicorn</span>
+                <span class="tag docker-tag">Docker</span>
+        </div>
+    </div>
+</a>
 
-                    <a class="projects-item-grid" href="https://example.com/demos/weather-widget">
+<a class="projects-item-grid" data-project-id="MajdiJ-Website" href="/articles/developing-my-portfolio-website" aria-label="MajdiJ.com">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/Waving_Hand_Emoji.png" alt="MajdiJ.com Icon" />
+        <div class="item-header-text">
+            <h3>MajdiJ.com</h3>
+            <p class="short-description">My personal website to showcase my projects, skills and portfolio.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">Built from the ground up, my website showcases my passion for technology, design, and web development. Evolving from drag-and-drop builders to coding with tools like HTML, CSS, JavaScript, Node.js, FastAPI, and Cloudflare, it integrates APIs such as reCAPTCHA, and Google Analytics. Designed with accessibility and SEO in mind, it reflects my commitment to creating inclusive, performant, and secure websites.</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">website</span>
+                <div class="dot"></div>
+                <span class="tag">portfolio</span>
+                <div class="dot"></div>
+                <span class="tag">personal</span>
+                <div class="dot"></div>
+                <span class="tag">career</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag web-development-tag">Web Development</span>
+                <span class="tag html-tag">HTML</span>
+                <span class="tag css-tag">CSS</span>
+                <span class="tag javascript-tag">JavaScript</span>
+                <span class="tag cloudflare-tag">Cloudflare</span>
+                <span class="tag apis-tag">APIs</span>
+        </div>
+    </div>
+</a>
 
-                        <div class="item-header">
-                            <img src="/resource/image/project-icons/Waving_Hand_Emoji.png" alt="Weather Widget Icon"
-                                class="project-icon" />
+<a class="projects-item-grid" data-project-id="20-20-20-Rule-Timer" href="https://20.majdij.com" target="_blank" rel="noopener noreferrer" aria-label="The 20-20-20 Rule Timer">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/20-20-20-white.png" alt="The 20-20-20 Rule Timer Icon" />
+        <div class="item-header-text">
+            <h3>The 20-20-20 Rule Timer</h3>
+            <p class="short-description">A web app to help reduce digital eye strain.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">Web app designed to help users follow the 20-20-20 rule to reduce digital eye strain, also known as Computer Vision Syndrome. It functions as a customisable timer that prompts you to follow the rule: for every 20 minutes of screen time, look at something 20 feet away for 20 seconds. With configurable settings (such as alarm tones and time durations), and information regarding eye health and alternative methods.</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">web app</span>
+                <div class="dot"></div>
+                <span class="tag">health</span>
+                <div class="dot"></div>
+                <span class="tag">eye strain</span>
+                <div class="dot"></div>
+                <span class="tag">accessibility</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag pwa-tag">PWA</span>
+                <span class="tag web-development-tag">Web Development</span>
+                <span class="tag notifications-tag">Notifications</span>
+                <span class="tag javascript-tag">JavaScript</span>
+                <span class="tag seo-tag">SEO</span>
+                <span class="tag analytics-tag">Analytics</span>
+        </div>
+    </div>
+</a>
 
-                            <div class="item-header-text">
-                                <h3>Weather Widget</h3>
+<a class="projects-item-grid" data-project-id="ArchComply" href="https://archcomply.wandstack.com/destruction-date-calculator/" target="_blank" rel="noopener noreferrer" aria-label="ArchComply">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/archcomply-logo.png" alt="ArchComply Icon" />
+        <div class="item-header-text">
+            <h3>ArchComply</h3>
+            <p class="short-description">Helps do the maths for records destruction dates to comply with GDPR.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">Small app that automates destruction-date calculations, built during a my time as a data administrator at a solicitor firm. It replaced manual calculations and complemented improved Excel workflows for flagging issues and computing retention/destruction dates. The tool helps comply with UK GDPR,SRA requirements, ICO, company policy.</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">records management</span>
+                <div class="dot"></div>
+                <span class="tag">Productivity Tool</span>
+                <div class="dot"></div>
+                <span class="tag">GDPR</span>
+                <div class="dot"></div>
+                <span class="tag">automation</span>
+                <div class="dot"></div>
+                <span class="tag">Solicitors</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag web-development-tag">Web Development</span>
+                <span class="tag javascript-tag">JavaScript</span>
+                <span class="tag automation-tag">Automation</span>
+        </div>
+    </div>
+</a>
 
-                                <p class="short-description">
-                                    Compact multi-theme weather widget built with vanilla JS.
-                                </p>
-                            </div>
-                        </div>
+<a class="projects-item-grid" data-project-id="uni-FitSmart" href="https://github.com/majdiJ/FitSmart" target="_blank" rel="noopener noreferrer" aria-label="FitSmart">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/fitsmart_logo.png" alt="FitSmart Icon" />
+        <div class="item-header-text">
+            <h3>FitSmart</h3>
+            <p class="short-description">A Java-based fitness tracking application.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">University group project developed for the &#x27;Programming 2&#x27; module at Edge Hill University: FitSmart is a smart fitness tracking application built in Java that enables users to log workouts, monitor health metrics, and set personalised fitness goals. It supports multiple user profiles, tracks key stats such as steps, calories, water intake, sleep, and weight, and provides a clear interface for viewing progress over time. Developed collaboratively using Git and Agile methods by a team of four students.</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">Edge Hill University</span>
+                <div class="dot"></div>
+                <span class="tag">Java</span>
+                <div class="dot"></div>
+                <span class="tag">group project</span>
+                <div class="dot"></div>
+                <span class="tag">fitness</span>
+                <div class="dot"></div>
+                <span class="tag">health</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag java-tag">Java</span>
+                <span class="tag oop-tag">OOP</span>
+                <span class="tag gui-tag">GUI</span>
+                <span class="tag git-tag">Git</span>
+                <span class="tag github-tag">GitHub</span>
+        </div>
+    </div>
+</a>
 
-                        <div class="item-body">
+<a class="projects-item-grid" data-project-id="automatic-network-rebooter" href="https://github.com/majdiJ/automatic-network-rebooter" target="_blank" rel="noopener noreferrer" aria-label="Automatic Network Rebooter">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/anr_logo.png" alt="Automatic Network Rebooter Icon" />
+        <div class="item-header-text">
+            <h3>Automatic Network Rebooter</h3>
+            <p class="short-description">A Python script for automatic network rebooting.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">Python program script that monitors broadband connectivity. Detecting a outage it logs into the router admin portal and automatically reboots the router. Runing 24/7, it periodically pings WAN targets and uses a configurable config.json to control behavior. Open-source under GPL-3.0 and designed for networks managers, it prioritises transparency and minimal dependencies. Contributions and router-specific adaptations are welcome!</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">Open Source</span>
+                <div class="dot"></div>
+                <span class="tag">Reverse Engineering</span>
+                <div class="dot"></div>
+                <span class="tag">Networking</span>
+                <div class="dot"></div>
+                <span class="tag">Automation</span>
+                <div class="dot"></div>
+                <span class="tag">Virgin Media</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag python-tag">Python</span>
+                <span class="tag networking-tag">Networking</span>
+                <span class="tag apis-tag">APIs</span>
+                <span class="tag git-tag">Git</span>
+        </div>
+    </div>
+</a>
 
-                            <p class="long-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                irure
-                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum.
-                            </p>
-
-                        </div>
-
-                        <div class="item-footer">
-                            <div class="list-of-tags">
-                                <span class="tag ">widget</span>
-                                <div class="dot"></div>
-                                <span class="tag">weather</span>
-                                <div class="dot"></div>
-                                <span class="tag">vanilla-js</span>
-                                <div class="dot"></div>
-                                <span class="tag">ExampleTag</span>
-                                <!-- <div class="dot"></div>
-                                <span class="tag">ExampleTag</span> -->
-                                <!-- Show max of first 4 tags -->
-                            </div>
-
-                            <div class="list-of-technologies">
-                                <span class="tag JavaScript-tag">JavaScript</span>
-                                <span class="tag HTML-tag">HTML</span>
-                                <span class="tag CSS-tag">CSS</span>
-                                <span class="tag OpenWeatherMap-API-tag">OpenWeatherMap API</span>
-                            </div>
-                        </div>
-
-                    </a>
-
+<a class="projects-item-grid" data-project-id="WandStack" href="https://github.com/wandstack/" target="_blank" rel="noopener noreferrer" aria-label="WandStack">
+    <div class="item-header">
+        <img class="project-icon" src="/resource/image/project-icons/wandstack.png" alt="WandStack Icon" />
+        <div class="item-header-text">
+            <h3>WandStack</h3>
+            <p class="short-description">A one-stop platform for various digital tools.</p>
+        </div>
+    </div>
+    <div class="item-body">
+        <p class="long-description">In development: A web platform giving users easy and quick access to spontaneously needed tools such as image file converters, colour pickers, text editors, qr code generators, pdf tools, and more. Built with a focus on user experience, accessibility, privacy, and performance. The platform aims to be a one-stop solution for everyday digital tasks, eliminating the need for multiple apps or software installations.</p>
+    </div>
+    <div class="item-footer">
+        <div class="list-of-tags">
+                <span class="tag">tools</span>
+                <div class="dot"></div>
+                <span class="tag">web app</span>
+                <div class="dot"></div>
+                <span class="tag">productivity</span>
+                <div class="dot"></div>
+                <span class="tag">Making APIs</span>
+                <div class="dot"></div>
+                <span class="tag">SaS</span>
+        </div>
+        <div class="list-of-technologies">
+                <span class="tag javascript-tag">JavaScript</span>
+                <span class="tag web-binaries-tag">Web Binaries</span>
+                <span class="tag apis-tag">APIs</span>
+                <span class="tag node-js-tag">Node.js</span>
+                <span class="tag python-tag">Python</span>
+        </div>
+    </div>
+</a>
                 </div>
             </div>
 
